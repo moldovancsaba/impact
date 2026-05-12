@@ -1,21 +1,52 @@
 ---
-name: Feature request
-about: Propose an idea or enhancement
+name: Feature delivery
+about: Create a delivery-ready issue that meets the SSOT execution standard
 title: ''
 labels: enhancement
 assignees: ''
 ---
 
-## Problem / opportunity
+## Objective
+State the concrete outcome this issue must achieve.
 
-<!-- What user or system need does this address? -->
+## Unified Context
+Explain the surrounding system, linked work, and why this work exists now.
 
-## Proposed approach
+## Problem
+Describe the current gap, failure, or risk.
 
-<!-- High-level idea; design can be discussed in comments -->
+## Goal
+Describe the target state after this issue is complete.
 
-## Alternatives considered
+## Scope
+In scope:
+- item
+- item
 
-## Project board
+Out of scope:
+- item
+- item
 
-Roadmap and backlog work is tracked on the [Impact project board](https://github.com/users/moldovancsaba/projects/2/views/3). This issue should be added there once scope is agreed.
+## Constraints
+- constraint
+- constraint
+
+## Acceptance Checks
+- [ ] check
+- [ ] check
+
+## Dependencies
+- issue or PR link
+- decision or prerequisite
+- none
+
+## Risks
+- risk
+- risk
+
+## Delivery Artifact
+Describe the implementation package, decision package, or shipped output expected from this issue.
+
+## Developer Notes
+- suggested implementation surface
+- design decisions that must be made
