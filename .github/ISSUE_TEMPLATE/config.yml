@@ -1,5 +1,5 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
-  - name: Project board (roadmap & backlog)
-    url: https://github.com/users/moldovancsaba/projects/2/views/3
-    about: See what is planned and prioritized for Impact.
+  - name: Project board (main)
+    url: https://github.com/users/moldovancsaba/projects/2
+    about: Review the canonical project board before opening new delivery work.
