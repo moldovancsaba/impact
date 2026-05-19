@@ -1,6 +1,6 @@
 # IMPACT — current state (living snapshot)
 
-**Purpose:** single in-repo summary of **what exists today** on `main`, aligned with [Project #2](https://github.com/users/moldovancsaba/projects/2) ([Programme — not Done](https://github.com/users/moldovancsaba/projects/2/views/3); [full board](https://github.com/users/moldovancsaba/projects/2/views/1)). **Authority routing:** [ssot-map.md](ssot-map.md). **Issues** = SSOT for **acceptance criteria and intent**; **Project Status** = SSOT for **workflow column** (see § GitHub board). This page reduces onboarding friction.
+**Purpose:** single in-repo summary of **what exists today** on `main`, aligned with the [sovereignsquad impact project board](https://github.com/orgs/sovereignsquad/projects/4/views/1). **Authority routing:** [ssot-map.md](ssot-map.md). **Issues** = SSOT for **acceptance criteria and intent**; **Project Status** = SSOT for **workflow column** (see § GitHub board). This page reduces onboarding friction.
 
 **Last aligned with repo:** see git history for this file’s commit date.
 
@@ -18,7 +18,7 @@
 - **Top operational tasks:** **deploy durable ingest** · **set `IMPACT_INGEST_UPSTREAM` on Vercel** · **`IMPACT_SUBMIT_URL` + seed** · **publish npm** · [web-deploy-smoke.md](web-deploy-smoke.md) (§ **Live stats**). **Product-live community aggregates** = upstream + submissions, not the honest **fallback** JSON ([ingest-server.md](ingest-server.md) § *Vercel stats routes*).
 - **MLP in-repo:** partially implemented (deterministic recommendations, richer HTML report, multi-page web shell + profile explorer); P0 web/data slice **accepted** per [mlp-status-cto.md](mlp-status-cto.md)
 - **MLP public web / stats track:** **[#50](https://github.com/sovereignsquad/impact/issues/50)–[#57](https://github.com/sovereignsquad/impact/issues/57)** (H1–H8) — multi-page shell shipped; **`/data.html`** + **production `VITE_STATS_API_BASE`** + **same-origin `GET /api/stats/*` on Vercel** — **UI and stats path work**; **non-fallback** tables need **`IMPACT_INGEST_UPSTREAM`** + volume  
-- **Next delivery tranche:** **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** — **code in repo**; **Project #2:** **#58** **In Progress**, **#59–#62** **Todo** (template from [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh)); **[#63](https://github.com/sovereignsquad/impact/issues/63)–[#66](https://github.com/sovereignsquad/impact/issues/66)** Backlog — [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)
+- **Next delivery tranche:** **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** — **code in repo**; **Org project:** **#58** **In Progress**, **#59–#62** **Todo** (template from [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh)); **[#63](https://github.com/sovereignsquad/impact/issues/63)–[#66](https://github.com/sovereignsquad/impact/issues/66)** Backlog — [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)
 - **Community stats (public):** **partially live** — **public web hits real HTTP 200** on **`/api/stats/*`** (Vercel Functions: honest **fallback** until **`IMPACT_INGEST_UPSTREAM`**); **meaningful crowd aggregates** still **not** until hosted ingest + submissions + thresholds — **repo-complete ≠ product-live** for **real** data ([mlp-status-cto.md](mlp-status-cto.md#cto-acceptance-leadership-dashboard))
 - **Next sequence:** **activation** (**#58** + **#34** in parallel) → close **#58–#62** with hosted proof → **#44** Path C primary after **#34** → **#44–#46** evidence → spine per [mlp.md](mlp.md)
 
@@ -114,7 +114,7 @@ The **I.M.P.A.C.T. discovery scanner MVP** is **complete** as of release **`v0.3
 | [architecture.md](architecture.md) | Module layout, data flow |
 | [architect-handoff.md](architect-handoff.md) | Architect onboarding |
 | [submission-contract.md](submission-contract.md) | HTTP ingest (normative) |
-| [project-management.md](project-management.md) | **Project #2** column semantics; contributor workflow |
+| [project-management.md](project-management.md) | **org project 4** column semantics; contributor workflow |
 | [ssot-map.md](ssot-map.md) | **Which doc/issue wins** when content conflicts |
 | [CHANGELOG.md](../CHANGELOG.md) | Release-oriented history |
 | [fixtures/baseline-profile.sample.json](../fixtures/baseline-profile.sample.json) | Valid **v0.3** example |
@@ -139,9 +139,9 @@ The **I.M.P.A.C.T. discovery scanner MVP** is **complete** as of release **`v0.3
 
 ## GitHub board ↔ this snapshot
 
-**Programme workflow SSOT:** [Project #2](https://github.com/users/moldovancsaba/projects/2) **Status** field (not issue titles). This file and [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) are **convenience mirrors**; if anything disagrees, **the Project wins** — then update docs/script.
+**Programme workflow SSOT:** [org project](https://github.com/orgs/sovereignsquad/projects/4) **Status** field (not issue titles). This file and [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) are **convenience mirrors**; if anything disagrees, **the Project wins** — then update docs/script.
 
-**MVP and Path B packaging (#27)** are **Done**; **Path C npm publish (#34)** is the usual **immediate** gate (**In Progress**) until closed. **#10** / **#14** are **Done** for shipped MVP scope. **#4** / **#5**, **#38** (binary), and theme cards vary by priority — see the [Programme (Not Done) view](https://github.com/users/moldovancsaba/projects/2/views/3).
+**MVP and Path B packaging (#27)** are **Done**; **Path C npm publish (#34)** is the usual **immediate** gate (**In Progress**) until closed. **#10** / **#14** are **Done** for shipped MVP scope. **#4** / **#5**, **#38** (binary), and theme cards vary by priority — see the [Programme (Not Done) view](https://github.com/orgs/sovereignsquad/projects/4/views/1).
 
 Maintainer rules: [project-management.md](project-management.md) §6 (snapshot) and §3 (column semantics).
 
@@ -160,7 +160,7 @@ Sequencing is **not** authoritative here — use **Operational status** for the 
 Typical forward work:
 
 1. **[#34](https://github.com/sovereignsquad/impact/issues/34)** — publish `@impact/*` to npm; published-package smoke; evidence on the issue.  
-2. **MLP spine (P0)** — [#44](https://github.com/sovereignsquad/impact/issues/44) M1 · [#45](https://github.com/sovereignsquad/impact/issues/45) M2 · [#46](https://github.com/sovereignsquad/impact/issues/46) M3 ([mlp.md](mlp.md); **Todo** on Project #2).  
+2. **MLP spine (P0)** — [#44](https://github.com/sovereignsquad/impact/issues/44) M1 · [#45](https://github.com/sovereignsquad/impact/issues/45) M2 · [#46](https://github.com/sovereignsquad/impact/issues/46) M3 ([mlp.md](mlp.md); **Todo** on org project 4).  
 3. **MLP follow-ons (P1)** — [#47](https://github.com/sovereignsquad/impact/issues/47)–[#49](https://github.com/sovereignsquad/impact/issues/49) M4–M6 ([mlp.md](mlp.md); **Backlog**).  
 4. **#4 / #5** — community and security channels when scheduled.  
 5. **Long horizon** — benchmark portal, binary packaging, platform parity; **not** the MLP spine ([mlp.md](mlp.md) § Board placement).

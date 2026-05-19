@@ -2,17 +2,17 @@
 
 This document defines how **roadmap**, **backlog**, **todo**, and **board navigation** work for the IMPACT programme.
 
-**Full authority map:** [ssot-map.md](ssot-map.md) (Project #2 vs issues vs `current-state` vs code).
+**Full authority map:** [ssot-map.md](ssot-map.md) (org project vs issues vs `current-state` vs code).
 
 ## Single board
 
-**Workflow SSOT:** [Project #2](https://github.com/users/moldovancsaba/projects/2) — the **Status** field on each card is the authoritative column (Todo / In Progress / Done / …). Issue **bodies** are SSOT for **scope and acceptance**; **do not** encode workflow state in titles.
+**Workflow SSOT:** [sovereignsquad · impact (project 4)](https://github.com/orgs/sovereignsquad/projects/4) — the **Status** field on each card is the authoritative column (Todo / In Progress / Done / …). Issue **bodies** are SSOT for **scope and acceptance**; **do not** encode workflow state in titles.
 
-**Stakeholder default (Programme — not Done):** [Project #2 · Programme (Not Done)](https://github.com/users/moldovancsaba/projects/2/views/3)
+**Stakeholder default:** [board view](https://github.com/orgs/sovereignsquad/projects/4/views/1) (filter by Status in the UI as needed).
 
-**Full board (all columns / legacy default):** [views/1](https://github.com/users/moldovancsaba/projects/2/views/1)
+**Archive (read-only reference):** [personal Project #2](https://github.com/users/moldovancsaba/projects/2)
 
-GitHub Project URL: `https://github.com/users/moldovancsaba/projects/2`
+GitHub Project URL: `https://github.com/orgs/sovereignsquad/projects/4`
 
 **Status field** (single select) includes: `IDEABANK (SOMEDAY)`, `Roadmap (LATER)`, `Backlog (SOONER)`, `Todo (NEXT)`, `In Progress (NOW)`, `Review (ALMOST)`, `Done`, `Declined (NEVER)`.
 
@@ -20,7 +20,7 @@ GitHub Project URL: `https://github.com/users/moldovancsaba/projects/2`
 
 ## 1. North star / vision — SSOT (no duplicates)
 
-This section is **doctrine and product direction**, not kanban. **Workflow columns** = [Project #2](https://github.com/users/moldovancsaba/projects/2) Status — [ssot-map.md](ssot-map.md).
+This section is **doctrine and product direction**, not kanban. **Workflow columns** = [org project 4](https://github.com/orgs/sovereignsquad/projects/4) **Status** — [ssot-map.md](ssot-map.md).
 
 The **only** authoritative sources for programme direction are:
 
@@ -73,16 +73,18 @@ Literal delivery state; **Review** means “almost” / pending verification or 
 
 The **default** board view must not be the only lens: **Done** dominates visually and hides direction.
 
-Create and maintain these **saved views** on Project #2 (board layout). **Created via API** (2026-04): use login `moldovancsaba` in the path `POST /users/moldovancsaba/projectsV2/2/views` (numeric `user_id` can 404).
+**Active board:** [org project 4 · views/1](https://github.com/orgs/sovereignsquad/projects/4/views/1). Add filtered saved views on project 4 when needed (recreate the table below on the org project).
+
+**Archive — personal Project #2** (2026-04; historical links only):
 
 | View | Direct link | Filter (approx.) | Purpose |
 | ---- | ----------- | ----------------- | -------- |
-| **A — Programme (Not Done)** | [views/3](https://github.com/users/moldovancsaba/projects/2/views/3) | `-status:Done -status:"Declined (NEVER)"` | Primary stakeholder entry: future + active work visible immediately |
-| **B — Upcoming** | [views/4](https://github.com/users/moldovancsaba/projects/2/views/4) | Roadmap, Backlog, Todo, In Progress, Review | Live planning horizon |
-| **C — Execution** | [views/5](https://github.com/users/moldovancsaba/projects/2/views/5) | Todo, In Progress, Review | Day-to-day delivery |
-| **D — Done / Audit** | [views/6](https://github.com/users/moldovancsaba/projects/2/views/6) | `status:Done` | Release and traceability |
+| **A — Programme (Not Done)** | [views/3](https://github.com/users/moldovancsaba/projects/2/views/3) | `-status:Done -status:"Declined (NEVER)"` | Archive |
+| **B — Upcoming** | [views/4](https://github.com/users/moldovancsaba/projects/2/views/4) | Roadmap, Backlog, Todo, In Progress, Review | Archive |
+| **C — Execution** | [views/5](https://github.com/users/moldovancsaba/projects/2/views/5) | Todo, In Progress, Review | Archive |
+| **D — Done / Audit** | [views/6](https://github.com/users/moldovancsaba/projects/2/views/6) | `status:Done` | Archive |
 
-**Ruling:** **Programme (Not Done)** should be the **default** stakeholder-facing view. If the GitHub UI offers “set as default” for a view, use it for **Programme (Not Done)**; otherwise bookmark [views/3](https://github.com/users/moldovancsaba/projects/2/views/3) and use it in links from the repo.
+**Ruling:** Default stakeholder link = **[org project 4 · views/1](https://github.com/orgs/sovereignsquad/projects/4/views/1)**. Recreate **Programme (Not Done)** as a saved view on project 4 when filters are finalized.
 
 See [Managing views](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views) and [Filtering projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
@@ -103,7 +105,7 @@ These are **not** executable sprint tickets; they orient stakeholders.
 
 ## 6. Current board rules (CTO)
 
-**Authoritative workflow state** is the **Status** field on [Project #2](https://github.com/users/moldovancsaba/projects/2). The repo carries a **reapply template**: [`scripts/gh-issue-bodies/apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) (run after bulk realignments). If the UI and this section disagree, **trust the Project** and then update this doc + the script.
+**Authoritative workflow state** is the **Status** field on [org project 4](https://github.com/orgs/sovereignsquad/projects/4). The repo carries a **reapply template**: [`scripts/gh-issue-bodies/apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) (run after bulk realignments). If the UI and this section disagree, **trust the Project** and then update this doc + the script.
 
 **Snapshot (post-MVP distribution — aligns with `main` + board template):**
 
@@ -143,7 +145,7 @@ Issues are the **system of record** for **implementable** intent. Use a rich str
 ## Required habits for maintainers
 
 1. **Create a GitHub Issue** for every meaningful unit of work (feature, bug, doc set, infra task).
-2. **Add the issue to Project #2** (`gh project item-add` or the GitHub UI).
+2. **Add the issue to org project 4** (`gh project item-add 4 --owner sovereignsquad` or the GitHub UI).
 3. **Set Status** so **Roadmap / Backlog / Todo** semantics match §3.
 4. **Link PRs** to issues.
 
@@ -180,7 +182,7 @@ The project is intended to be **public**. If you change visibility, document the
 ## Relation to this repository
 
 - **Code and deep technical docs** — this repo.
-- **Plan and order** — GitHub Issues + [Project #2](https://github.com/users/moldovancsaba/projects/2) **Status** + saved views.
+- **Plan and order** — GitHub Issues + [org project 4](https://github.com/orgs/sovereignsquad/projects/4) **Status** + saved views.
 - **When two markdown files disagree** — [ssot-map.md](ssot-map.md).
 
 That split keeps the repo clean while planning stays discoverable.
