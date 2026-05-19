@@ -4,7 +4,7 @@
 
 **Versions confused?** See **[current-state.md § Versioning](current-state.md#versioning-ssot)** — Git tag, npm, profile `schema_version`, CLI, and **public web** are listed in one table. Bump them together on release.
 
-**Docs disagree?** **[ssot-map.md](ssot-map.md)** says which source wins (Project #2 Status, issue bodies, this file, code).
+**Docs disagree?** **[ssot-map.md](ssot-map.md)** says which source wins (org project 4 Status, issue bodies, this file, code).
 
 ---
 
@@ -46,7 +46,7 @@
 | [mlp-execution.md](mlp-execution.md) | Execution order |
 | [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md) | Dashboard **#58–#62** (code + [board closure](mlp-next-delivery-tranche.md#board-closure-dashboard)), macOS **#63–#66** |
 | [mlp-activation-path.md](mlp-activation-path.md) | **MLP activation** — npm **#34**, hosted ingest, Vercel **`IMPACT_INGEST_UPSTREAM`**, seeding, `/data.html` proof, **#58–#62** closure order, report-back format |
-| [mlp-cto-next-execution.md](mlp-cto-next-execution.md) | **CTO execution memo** — proof-first report-back, Project #2 **Status** rules, low WIP, issue body quality, cleanup waves, **`scripts/gh-issue-bodies/`** sync order |
+| [mlp-cto-next-execution.md](mlp-cto-next-execution.md) | **CTO execution memo** — proof-first report-back, org project **Status** rules, low WIP, issue body quality, cleanup waves, **`scripts/gh-issue-bodies/`** sync order |
 | [activation-execution-status.md](activation-execution-status.md) | **Activation log** — latest npm/Docker/Vercel/blocker evidence for **#34** / **#58–#62** |
 | [product.md](product.md) | Product definition |
 | [project-management.md](project-management.md) | Board workflow |

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One-off: create Sprint B issues #17–#28, add to Project #2, set Status.
+# One-off: create Sprint B issues #17–#28, add to org project 4, set Status. Historical — do not re-run.
 # Requires: gh auth, jq. Run from repo root after merging issue bodies.
 # Idempotent-ish: do not re-run if issues already exist (creates duplicates).
 set -euo pipefail

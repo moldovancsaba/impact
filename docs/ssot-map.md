@@ -34,7 +34,7 @@
 ## Conflict resolution (order)
 
 1. **What the binary actually does** → **code** on `main`.
-2. **Which board column a card is in** → **Project #2 Status** (not issue title, not static prose in README/handoff).
+2. **Which board column a card is in** → **org project 4 Status** (not issue title, not static prose in README/handoff).
 3. **Whether distribution work is “done”** → **issue closed** + **Done** on Project, plus any evidence comment the issue requires (e.g. **#34** smoke).
 4. **Released semver / schema_version** → [current-state.md](current-state.md) § Versioning.
 
@@ -44,7 +44,7 @@
 
 Avoid maintaining **second copies** of:
 
-- Per-issue **delivery state** lists in architect handoffs or README (use **Project #2** + [current-state.md](current-state.md)).
+- Per-issue **delivery state** lists in architect handoffs or README (use **org project 4** + [current-state.md](current-state.md)).
 - **“In progress”** laundry lists that age in days (link **Programme (Not Done)** instead).
 
 **Maintainers:** after changing Project Status or scope, update [current-state.md](current-state.md) (operational + board paragraphs), [project-management.md](project-management.md) §6 if rules change, and `apply-status.sh` if you want the script to remain reproducible.

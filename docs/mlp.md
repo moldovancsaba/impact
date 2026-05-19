@@ -2,7 +2,7 @@
 
 **MLP** = **Minimum Loveable Product**: the smallest slice where the product feels **worth installing, finishing, understanding, and sharing** — not only correct.
 
-**Authority:** This file is the in-repo **programme definition** for the MLP track. **Execution state** (Todo / In Progress / Done) lives on [Project #2](https://github.com/users/moldovancsaba/projects/2). **Operational snapshot** of MVP vs install gates: [current-state.md](current-state.md). **Routing when sources conflict:** [ssot-map.md](ssot-map.md). **Next delivery tranche** (dashboard + macOS packaging): [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md).
+**Authority:** This file is the in-repo **programme definition** for the MLP track. **Execution state** (Todo / In Progress / Done) lives on [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1). **Operational snapshot** of MVP vs install gates: [current-state.md](current-state.md). **Routing when sources conflict:** [ssot-map.md](ssot-map.md). **Next delivery tranche** (dashboard + macOS packaging): [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md).
 
 **CTO execution checklist (tasks T0–T6, W1–W4, order):** [mlp-execution.md](mlp-execution.md).
 
@@ -215,7 +215,7 @@ Those are **not** the shortest path to loveability.
 **Immediate**
 
 1. **Close [#34](https://github.com/sovereignsquad/impact/issues/34)** (publish + smoke).
-2. Execute **M1 / M2 / M3** — [#44](https://github.com/sovereignsquad/impact/issues/44), [#45](https://github.com/sovereignsquad/impact/issues/45), [#46](https://github.com/sovereignsquad/impact/issues/46) (**Todo** on [Project #2](https://github.com/users/moldovancsaba/projects/2)).
+2. Execute **M1 / M2 / M3** — [#44](https://github.com/sovereignsquad/impact/issues/44), [#45](https://github.com/sovereignsquad/impact/issues/45), [#46](https://github.com/sovereignsquad/impact/issues/46) (**Todo** on [org project 4](https://github.com/orgs/sovereignsquad/projects/4)).
 
 **After that**
 
@@ -227,7 +227,7 @@ Those are **not** the shortest path to loveability.
 
 ## Board placement recommendation
 
-**Status** on [Project #2](https://github.com/users/moldovancsaba/projects/2) is SSOT ([ssot-map.md](ssot-map.md)). **`apply-status.sh`** reapplies the template below.
+**Status** on [org project 4](https://github.com/orgs/sovereignsquad/projects/4) is SSOT ([ssot-map.md](ssot-map.md)). **`apply-status.sh`** reapplies the template below.
 
 | Column | Epic | GitHub issue |
 | ------ | ---- | ------------ |

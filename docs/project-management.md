@@ -86,6 +86,8 @@ The **default** board view must not be the only lens: **Done** dominates visuall
 
 **Ruling:** Default stakeholder link = **[org project 4 · views/1](https://github.com/orgs/sovereignsquad/projects/4/views/1)**. Recreate **Programme (Not Done)** as a saved view on project 4 when filters are finalized.
 
+**Maintainers:** after cutover or bulk board changes, run [`scripts/post-migration-org-project.sh`](../scripts/post-migration-org-project.sh) (org project README, repo link, `gh-ensure-issues-on-project.sh`, `apply-status.sh`).
+
 See [Managing views](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views) and [Filtering projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
 ---

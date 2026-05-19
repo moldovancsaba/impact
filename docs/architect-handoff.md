@@ -2,7 +2,7 @@
 
 **Audience:** system / software architects onboarding to **IMPACT**  
 **Date context:** 2026-04-03  
-**Where truth lives:** [ssot-map.md](ssot-map.md) — **issues** (scope/acceptance), **Project #2 Status** (workflow), **current-state** (operational snapshot), **code** (behaviour).  
+**Where truth lives:** [ssot-map.md](ssot-map.md) — **issues** (scope/acceptance), **[org project 4](https://github.com/orgs/sovereignsquad/projects/4) Status** (workflow), **current-state** (operational snapshot), **code** (behaviour).  
 **Style reference for issue quality:** [mvp-factory-control#495](https://github.com/moldovancsaba/mvp-factory-control/issues/495)
 
 **Living snapshot of the repo + board mapping:** [current-state.md](current-state.md). For **operational truth now** (Path B vs Path C, the [#34](https://github.com/sovereignsquad/impact/issues/34) publish gate, and post-gate sequencing), use the opening **Operational status** section there — not this handoff doc. For **version alignment** (Git tag `v0.3.0`, npm `0.3.0`, JSON `impact.v0.3`, `impact --version`), use **§ Versioning (SSOT)** in that same file.
@@ -74,7 +74,7 @@ Indexed in issue **#16**; doctrine in issue **#1**.
 ## 5. GitHub — how to work it
 
 - **Issues** hold **Objective, Context, Problem, Goal, Scope, Execution Prompt, Acceptance Checks, Dependencies, Risks, Delivery Artifacts** (aligned with [#495](https://github.com/moldovancsaba/mvp-factory-control/issues/495)).
-- **Kanban state** uses **only** [Project #2](https://github.com/users/moldovancsaba/projects/2) **Status** (`IDEABANK (SOMEDAY)` → … → `Done`). **Titles do not** carry `Roadmap:`, `Backlog:`, `Todo:`, or open/closed state.
+- **Kanban state** uses **only** [org project 4](https://github.com/orgs/sovereignsquad/projects/4) **Status** (`IDEABANK (SOMEDAY)` → … → `Done`). **Titles do not** carry `Roadmap:`, `Backlog:`, `Todo:`, or open/closed state.
 - **Priority** may appear as **P0 / P1** labels and/or in titles as programme priority (not board column).
 - Bodies under `scripts/gh-issue-bodies/` are a **reproducible mirror** for bulk edits; **GitHub remains authoritative** after push.
 
@@ -85,7 +85,7 @@ Indexed in issue **#16**; doctrine in issue **#1**.
 **Do not use this handout for a per-issue delivery list** — it goes stale within days.
 
 - **What is true on `main` now** (MVP, Path B/C, **#34** gate): [current-state.md](current-state.md) — **§ Operational status**.
-- **Which column each card is in:** [Project #2](https://github.com/users/moldovancsaba/projects/2) — prefer [Programme (Not Done)](https://github.com/users/moldovancsaba/projects/2/views/3).
+- **Which column each card is in:** [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) — use filtered views (e.g. **Programme (Not Done)**) when configured.
 - **Authority when sources conflict:** [ssot-map.md](ssot-map.md).
 
 ---
@@ -113,7 +113,7 @@ npm run impact -- scan --no-submit -o ./reports
 
 ## 9. Primary references
 
-- [ssot-map.md](ssot-map.md), [current-state.md](current-state.md), [Project #2](https://github.com/users/moldovancsaba/projects/2)
+- [ssot-map.md](ssot-map.md), [current-state.md](current-state.md), [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1)
 - [#1](https://github.com/sovereignsquad/impact/issues/1) (doctrine), [#16](https://github.com/sovereignsquad/impact/issues/16) (phases)
 - [product.md](product.md), [architecture.md](architecture.md), [privacy-policy.md](privacy-policy.md)
 - Issue template quality bar: [mvp-factory-control#495](https://github.com/moldovancsaba/mvp-factory-control/issues/495)

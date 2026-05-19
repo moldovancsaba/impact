@@ -1,6 +1,6 @@
 # MLP execution plan (CTO) — tasks and order
 
-**Purpose:** actionable checklist for the **first MLP execution cycle**, after programme definition in [mlp.md](mlp.md). **Board / issues:** [Project #2](https://github.com/users/moldovancsaba/projects/2); spine **[#44](https://github.com/sovereignsquad/impact/issues/44)–[#49](https://github.com/sovereignsquad/impact/issues/49)**.
+**Purpose:** actionable checklist for the **first MLP execution cycle**, after programme definition in [mlp.md](mlp.md). **Board / issues:** [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1); spine **[#44](https://github.com/sovereignsquad/impact/issues/44)–[#49](https://github.com/sovereignsquad/impact/issues/49)**.
 
 **Next delivery tranche (dashboard + macOS packaging):** [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md) — issues **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#66](https://github.com/sovereignsquad/impact/issues/66)**.
 

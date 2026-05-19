@@ -1,6 +1,6 @@
 # CTO — next execution and board management
 
-**Audience:** developers executing **MLP activation** and maintaining **Project #2** hygiene. **Operational runbook:** [mlp-activation-path.md](mlp-activation-path.md). **Activation runbook is accepted** — the next step is **execution** plus **board hygiene**, not more repo framing.
+**Audience:** developers executing **MLP activation** and maintaining **org project 4** hygiene. **Operational runbook:** [mlp-activation-path.md](mlp-activation-path.md). **Activation runbook is accepted** — the next step is **execution** plus **board hygiene**, not more repo framing.
 
 **Internal note (maintainers):** prefer developer time on **activation** and **issue-quality cleanup**, not additional product prose.
 
@@ -119,7 +119,7 @@ Expect in the handoff:
 
 ### Workflow rule
 
-- The **board** (Project #2 **Status**) is **workflow** truth.
+- The **board** ([org project 4](https://github.com/orgs/sovereignsquad/projects/4) **Status**) is **workflow** truth.
 - **Issue titles** are not workflow.
 - **Issue bodies** are **scope / acceptance** truth ([ssot-map.md](ssot-map.md)).
 

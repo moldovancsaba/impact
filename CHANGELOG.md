@@ -9,15 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Org migration directive (CTO):** [mlp-cto-directive-org-migration-sovereignsquad.md](docs/mlp-cto-directive-org-migration-sovereignsquad.md) — `sovereignsquad/impact` transfer plan, **new org GitHub Project** as future workflow SSOT (copy structure, rebuild items), freeze/reconnect/archive phases, post-cutover checklist for `apply-status.sh` / `apply-updates.sh` / docs links.
+- **Org migration directive (CTO):** [mlp-cto-directive-org-migration-sovereignsquad.md](docs/mlp-cto-directive-org-migration-sovereignsquad.md) — `sovereignsquad/impact` transfer plan, **org GitHub Project 4** as workflow SSOT (74 issues, `apply-status.sh`), Vercel **`impact.sovereignsquad.com`**, archive personal Project #2.
 
-- **Repository ownership:** default remote **`sovereignsquad/impact`**; in-repo **`github.com/sovereignsquad/impact`** links updated. Personal **Project #2** URLs retained as archive until org project replaces workflow SSOT (`apply-status.sh` IDs still target old project).
+- **Repository ownership:** default remote **`sovereignsquad/impact`**; in-repo **`github.com/sovereignsquad/impact`** links updated. Workflow board: [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (personal Project #2 is archive-only).
 
 - **MLP dashboard summary path (CTO):** [mlp-cto-directive-mlp-summary-payload.md](docs/mlp-cto-directive-mlp-summary-payload.md) — **`impact.summary.v0.1`** in **@impact/schemas**, **`buildDashboardSummary`** in **@impact/core**, local artifact **`impact-dashboard-summary.json`**, submission envelope **`impact.submission.v0.1`** (raw profile + summary); ingest stores **`dashboard_summary_json`**; stats rollup **prefers summary** when present ([submission-contract.md](docs/submission-contract.md)).
 
 - **`impact scan`:** non-interactive submission when stdin is not a TTY — set **`IMPACT_SUBMIT_URL`**, **`IMPACT_SUBMIT_NON_INTERACTIVE=1`**, and **`--yes-submit`** (see [apps/cli/README.md](apps/cli/README.md)); [scripts/local-e2e-submit.sh](scripts/local-e2e-submit.sh) runs ingest + real local scan + POST.
 
+- **`scripts/post-migration-org-project.sh`** — org project README, repo link, ensure issues on board, `apply-status.sh`; **`scripts/activation-preflight.sh`** — web/npm/upstream checks before activation work.
+
 ### Changed
+
+- **Docs:** full repoint of programme SSOT links from personal Project #2 to [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (`architect-handoff`, `product`, `mlp*`, `CONTRIBUTING`, issue templates, `issue-16`); migration directive marked complete.
 
 - **`Dockerfile.ingest`:** create **`/app/data`** and **`/data`** owned by **`node`** so the default SQLite path works under **`USER node`** (Fly volume typically mounts **`/data`**).
 

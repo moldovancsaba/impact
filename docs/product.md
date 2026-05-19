@@ -4,7 +4,7 @@
 
 **IMPACT** = **(I)ndustrial (M)ulti-(P)latform (A)gent (C)onnector (T)est**.
 
-The programme targets a **fully sovereign** evaluation stack for **system + tool + LLM** behaviour—ultimately a **rigorous benchmark system** suitable for industrial and global use. **Planning and acceptance** live in [GitHub Issues](https://github.com/sovereignsquad/impact/issues) (issue bodies). **Workflow columns** (Todo / In Progress / Done) live on [Project #2](https://github.com/users/moldovancsaba/projects/2) — [Programme view](https://github.com/users/moldovancsaba/projects/2/views/3), [full board](https://github.com/users/moldovancsaba/projects/2/views/1). **Authority map:** [ssot-map.md](ssot-map.md).
+The programme targets a **fully sovereign** evaluation stack for **system + tool + LLM** behaviour—ultimately a **rigorous benchmark system** suitable for industrial and global use. **Planning and acceptance** live in [GitHub Issues](https://github.com/sovereignsquad/impact/issues) (issue bodies). **Workflow columns** (Todo / In Progress / Done) live on [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1). **Authority map:** [ssot-map.md](ssot-map.md).
 
 **Trust (users):** [privacy-for-users.md](privacy-for-users.md) · **Policy:** [privacy-policy.md](privacy-policy.md).
 

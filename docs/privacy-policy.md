@@ -56,7 +56,7 @@ If submission fails, **local results are preserved**. A short line may be append
 
 ## Changes
 
-This policy will evolve with the project. Material changes should be reflected in release notes and on the [project board](https://github.com/users/moldovancsaba/projects/2/views/3).
+This policy will evolve with the project. Material changes should be reflected in release notes and on the [project board](https://github.com/orgs/sovereignsquad/projects/4/views/1).
 
 ## Contact
 

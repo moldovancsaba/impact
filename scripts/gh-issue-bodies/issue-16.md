@@ -12,7 +12,7 @@ This issue is a **programme spine**, not a single sprint. Individual capabilitie
 
 - `docs/product.md` phase table
 - Doctrine issue #1
-- Kanban: [Project board](https://github.com/users/moldovancsaba/projects/2/views/1)
+- Kanban: [Project board](https://github.com/orgs/sovereignsquad/projects/4/views/1)
 
 ## Problem
 

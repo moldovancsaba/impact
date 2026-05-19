@@ -148,17 +148,14 @@ Migration is **complete** when:
 
 **Repository transfer (Phase 4) is done:** canonical remote is **`sovereignsquad/impact`** (redirects from `moldovancsaba/impact`). In-repo **`github.com/sovereignsquad/impact`** links and **`apply-updates.sh`** `REPO` are aligned.
 
-**Still pending** until the **new org-owned Project** exists: **`apply-status.sh`** project/item/field IDs; replacing **personal [Project #2](https://github.com/users/moldovancsaba/projects/2)** links in docs with the **org project** URL (until then, Project #2 remains **historical / archive** for workflow — do not treat as split SSOT if the org board is active).
+**Cutover checklist (done on `main`):**
 
-When the org project is live, update at least:
+| Area | Status |
+| ---- | ------ |
+| **Issue edit script** | [`apply-updates.sh`](../scripts/gh-issue-bodies/apply-updates.sh) → `REPO="sovereignsquad/impact"` |
+| **Project Status script** | [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) → org project 4 IDs + 74 items |
+| **SSOT + programme docs** | Repointed to [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1); personal [Project #2](https://github.com/users/moldovancsaba/projects/2) = archive |
+| **Vercel** | `narimato/05_impact`, **Node 24.x**, `impact.sovereignsquad.com`, `VITE_STATS_API_BASE=/api` |
+| **CI / hosting** | Confirm Vercel GitHub integration tracks **`sovereignsquad/impact`**; wire **`IMPACT_INGEST_UPSTREAM`** when hosted ingest exists ([mlp-activation-path.md](mlp-activation-path.md)) |
 
-| Area | Files / actions |
-| ---- | ---------------- |
-| **Issue edit script** | [`scripts/gh-issue-bodies/apply-updates.sh`](../scripts/gh-issue-bodies/apply-updates.sh) — `REPO="sovereignsquad/impact"` |
-| **Project Status script** | [`scripts/gh-issue-bodies/apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) — new **`PROJECT_ID`**, **`STATUS_FIELD`**, **option IDs**, and **per-issue `PVTI_*` item IDs** from `gh project item-list` on the **org** project |
-| **SSOT + programme docs** | [ssot-map.md](ssot-map.md), [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md), [project-management.md](project-management.md), [current-state.md](current-state.md), [README.md](../README.md), [docs/README.md](README.md) — project links and `github.com/…/impact` URLs |
-| **Issue body templates** | [`scripts/gh-issue-bodies/*.md`](../scripts/gh-issue-bodies/) — absolute GitHub URLs (optional: switch to relative `../..` repo paths where possible to reduce owner churn) |
-| **Packages** | Workspace `package.json` **repository.url** fields if they pin `moldovancsaba` |
-| **CI / hosting** | Vercel Git connection, Fly/GitHub Actions secrets, any webhook URLs |
-
-**One-line recommendation:** create the **org project** first, **clean** it while rebuilding items, **transfer** the repo, then **cut all SSOT links** and **refresh** `apply-status.sh` from the new project’s GraphQL/API IDs.
+**Remaining (ops):** recreate filtered **saved views** on project 4 (Programme / Execution); archive description on personal Project #2; **activation** ([#58](https://github.com/sovereignsquad/impact/issues/58), [#34](https://github.com/sovereignsquad/impact/issues/34)).

@@ -14,7 +14,7 @@
 
 ## Project board — linked issues (titles)
 
-Tables below list **related GitHub issues** that correspond to cards on **Project #2**, with **titles** for readers without issue access. Repo: **sovereignsquad/impact**. Base URL: `https://github.com/sovereignsquad/impact/issues/`
+Tables below list **related GitHub issues** on **org project 4**, with **titles** for readers without issue access. Repo: **sovereignsquad/impact**. Base URL: `https://github.com/sovereignsquad/impact/issues/`
 
 ### Install gate & MLP spine
 
@@ -78,7 +78,7 @@ Tables below list **related GitHub issues** that correspond to cards on **Projec
 
 ## CTO acceptance — next delivery tranche
 
-**2026-04-11 — Control document usability accepted.** The tranche SSOT is **much easier to use**. The material fix was **not** only adding links: it was **moving** the **board mapping and issue index to the top**, where architects and operators see **Project #2**, **key views**, **execution spine**, and **linked issues** **without** scrolling through full doctrine first. **Duplicate** tables at the bottom are **removed** — less noise and **drift** risk.
+**2026-04-11 — Control document usability accepted.** The tranche SSOT is **much easier to use**. The material fix was **not** only adding links: it was **moving** the **board mapping and issue index to the top**, where architects and operators see **org project 4**, **key views**, **execution spine**, and **linked issues** **without** scrolling through full doctrine first. **Duplicate** tables at the bottom are **removed** — less noise and **drift** risk.
 
 **Encoded state (unchanged from 2026-04-10):** **Path B** real · **Path C** blocked by publish (**#34**) · **Path D** technically real, **not** consumer-grade. **Operating model:** **Track A** — distribution **trust** completion · **Track B** — **dashboard** foundation — **hosted** community stats (deploy + volume) remain the **main gap vs product promise**; **in-repo** D1–D5 code **exists** (see below).
 

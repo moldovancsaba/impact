@@ -1,6 +1,6 @@
 # Documentation alignment after packaging (D6)
 
-**Purpose:** after a **distribution milestone**, run a **docs pass** so public copy matches what users run. Track milestones on [Project #2](https://github.com/users/moldovancsaba/projects/2) (not in prose here — see [ssot-map.md](ssot-map.md)).
+**Purpose:** after a **distribution milestone**, run a **docs pass** so public copy matches what users run. Track milestones on [org project 4](https://github.com/orgs/sovereignsquad/projects/4) (not in prose here — see [ssot-map.md](ssot-map.md)).
 
 - **Path B (source)** — **[#27](https://github.com/sovereignsquad/impact/issues/27)** **Done** on the board; README / [install-macos.md](install-macos.md) / [smoke-test-macos.md](smoke-test-macos.md) match verified commands.
 - **Path C (npm)** — **[#34](https://github.com/sovereignsquad/impact/issues/34)**; **re-run this checklist** when `@impact/cli` is **publicly live** on the registry (or after any install UX change).
