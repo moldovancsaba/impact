@@ -1,6 +1,6 @@
 # CTO directive — org migration (SovereignSquad) + GitHub Project SSOT rebuild
 
-**Status:** **cutover complete** (repo `sovereignsquad/impact`, org [project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1), 74 issues + `apply-status.sh`). Personal Project #2 = archive only. **Audience:** maintainers + developers executing programme governance.
+**Status:** **GitHub cutover complete** (2026-05-19) — repo `sovereignsquad/impact`, org [project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1), **74 issues** on board, `apply-status.sh` synced, project README + repo link, docs repointed. Personal Project #2 = archive only (archive title in UI if you still have access). **Audience:** maintainers + developers executing programme governance.
 
 **Related:** [ssot-map.md](ssot-map.md), [project-management.md](project-management.md), [mlp-cto-next-execution.md](mlp-cto-next-execution.md), `scripts/gh-issue-bodies/`.
 
@@ -158,4 +158,4 @@ Migration is **complete** when:
 | **Vercel** | `narimato/05_impact`, **Node 24.x**, `impact.sovereignsquad.com`, `VITE_STATS_API_BASE=/api` |
 | **CI / hosting** | Confirm Vercel GitHub integration tracks **`sovereignsquad/impact`**; wire **`IMPACT_INGEST_UPSTREAM`** when hosted ingest exists ([mlp-activation-path.md](mlp-activation-path.md)) |
 
-**Remaining (ops):** recreate filtered **saved views** on project 4 (Programme / Execution); archive description on personal Project #2; **activation** ([#58](https://github.com/sovereignsquad/impact/issues/58), [#34](https://github.com/sovereignsquad/impact/issues/34)).
+**Remaining (ops, non-GitHub):** optional filtered **saved views** on project 4 in UI (Programme / Execution — see `post-migration-org-project.sh`); **activation** ([#58](https://github.com/sovereignsquad/impact/issues/58), [#34](https://github.com/sovereignsquad/impact/issues/34)) per [mlp-activation-path.md](mlp-activation-path.md).

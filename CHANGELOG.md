@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **Docs:** full repoint of programme SSOT links from personal Project #2 to [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (`architect-handoff`, `product`, `mlp*`, `CONTRIBUTING`, issue templates, `issue-16`); migration directive marked complete.
+- **Docs:** full repoint of programme SSOT links from personal Project #2 to [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (`architect-handoff`, `product`, `mlp*`, `CONTRIBUTING`, issue templates, `issue-16`); migration directive marked **GitHub cutover complete** (board + README + repo link + `apply-status.sh`).
 
 - **`Dockerfile.ingest`:** create **`/app/data`** and **`/data`** owned by **`node`** so the default SQLite path works under **`USER node`** (Fly volume typically mounts **`/data`**).
 

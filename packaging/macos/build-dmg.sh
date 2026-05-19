@@ -21,8 +21,8 @@ fi
 rm -rf "$STAGING" "$OUT"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources/app" "$OUT"
 
-echo "==> npm ci"
-npm ci
+echo "==> npm install"
+npm install
 
 echo "==> build workspaces"
 npm run build
@@ -30,10 +30,13 @@ npm run build
 echo "==> prune devDependencies (smaller DMG)"
 npm prune --omit=dev
 
-echo "==> stage Impact.app (CLI dist + node_modules)"
+echo "==> stage Impact.app (CLI dist + production-lite modules)"
 cp "$ROOT/apps/cli/package.json" "$APP/Contents/Resources/app/"
 cp -R "$ROOT/apps/cli/dist" "$APP/Contents/Resources/app/dist"
-cp -RL "$ROOT/node_modules" "$APP/Contents/Resources/app/node_modules"
+
+# Standard build: Use the already pruned root production modules but WITHOUT flattening (-L) 
+# to avoid monorepo exponential expansion. Monorepo node_modules is fine if linked correctly.
+cp -R "$ROOT/node_modules" "$APP/Contents/Resources/app/node_modules"
 
 cat > "$APP/Contents/MacOS/impact" <<'EOF'
 #!/bin/bash
@@ -45,6 +48,8 @@ chmod +x "$APP/Contents/MacOS/impact"
 sed "s/VERSION_PLACEHOLDER/${VERSION}/g" "$ROOT/packaging/macos/Info.plist.in" > "$APP/Contents/Info.plist"
 
 cp "$ROOT/packaging/macos/README-VOLUME.txt" "$STAGE/README.txt"
+cp "$ROOT/packaging/macos/setup-path.command" "$STAGE/setup-path.command"
+chmod +x "$STAGE/setup-path.command"
 
 echo "==> smoke: bundled CLI"
 "$APP/Contents/MacOS/impact" --version
