@@ -1,6 +1,6 @@
 # CTO directive — org migration (SovereignSquad) + GitHub Project SSOT rebuild
 
-**Status:** planned controlled migration — **not** a naive repo-only transfer. **Audience:** maintainers + developers executing programme governance.
+**Status:** **cutover complete** (repo `sovereignsquad/impact`, org [project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1), 74 issues + `apply-status.sh`). Personal Project #2 = archive only. **Audience:** maintainers + developers executing programme governance.
 
 **Related:** [ssot-map.md](ssot-map.md), [project-management.md](project-management.md), [mlp-cto-next-execution.md](mlp-cto-next-execution.md), `scripts/gh-issue-bodies/`.
 

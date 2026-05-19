@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Add any GitHub issues that are missing from User Project #2 (Impact board).
+# Add any GitHub issues that are missing from org Project 4 (Impact board).
 # Safe to re-run: only calls item-add when issue number is not already on the board.
 set -euo pipefail
 REPO="sovereignsquad/impact"
-OWNER="moldovancsaba"
-PROJ="2"
+OWNER="sovereignsquad"
+PROJ="4"
 
 boarded_json=$(gh project item-list "$PROJ" --owner "$OWNER" --format json -L 500)
 boarded=$(echo "$boarded_json" | jq -r '.items[] | select(.content.type=="Issue") | .content.number' | sort -u)

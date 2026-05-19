@@ -12,7 +12,7 @@ Thank you for your interest in **Impact**. This project is open source under the
 
 | What | Where |
 | ---- | ----- |
-| Roadmap themes, epics, sequencing | [GitHub Project #2 — Programme (Not Done)](https://github.com/users/moldovancsaba/projects/2/views/3) ([full board](https://github.com/users/moldovancsaba/projects/2/views/1)) |
+| Roadmap themes, epics, sequencing | [sovereignsquad · impact board](https://github.com/orgs/sovereignsquad/projects/4/views/1) |
 | Bug reports, feature requests, design discussion | [GitHub Issues](https://github.com/sovereignsquad/impact/issues) |
 | Code review | Pull requests |
 

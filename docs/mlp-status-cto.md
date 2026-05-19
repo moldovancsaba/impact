@@ -1,6 +1,6 @@
 # MLP status — CTO assessment (snapshot)
 
-**Purpose:** single **answerable status memo** for leadership and contributors: how far the MLP has progressed, what is in code, what blocks public adoption, and **ordered next work**. Supplements [mlp.md](mlp.md) (what the MLP **is**), [mlp-execution.md](mlp-execution.md) (how execution is **staged**), and [current-state.md](current-state.md) (broader **operational truth**). **Board workflow:** [Project #2](https://github.com/users/moldovancsaba/projects/2).
+**Purpose:** single **answerable status memo** for leadership and contributors: how far the MLP has progressed, what is in code, what blocks public adoption, and **ordered next work**. Supplements [mlp.md](mlp.md) (what the MLP **is**), [mlp-execution.md](mlp-execution.md) (how execution is **staged**), and [current-state.md](current-state.md) (broader **operational truth**). **Board workflow:** [sovereignsquad · impact (project 4)](https://github.com/orgs/sovereignsquad/projects/4/views/1).
 
 **Established:** 2026-04-03 · **Updated:** 2026-04-04 — **Vercel stats layer live** — same-origin **`/api/stats/*`** + **`/api/health`** (fallback or **`IMPACT_INGEST_UPSTREAM`** proxy); **`VITE_STATS_API_BASE`** on Production/Preview/Development; **main bottleneck** = **hosted SQLite ingest** + upstream wiring + volume (**#58** activation continues). **#34** = **npm** path unchanged. **Prior:** **2026-04-03** activation directive; **2026-04-12** background-system-first framing in [mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md).
 
@@ -49,7 +49,7 @@
 
 **Dashboard activation (coordinate on [#58](https://github.com/sovereignsquad/impact/issues/58)) — not a documentation problem; execute:**
 
-1. Sync **GitHub** issue truth when ready (bodies + Project #2 for **#59–#62**).  
+1. Sync **GitHub** issue truth when ready (bodies + org project for **#59–#62**).  
 2. **Deploy ingest** (TLS, durable volume, ops) — Node **`apps/ingest`** + SQLite.  
 3. Configure **DB / runtime** — **`IMPACT_INGEST_DB_PATH`**, **`better-sqlite3`** on target arch, **`/health`**, **logging**.  
 4. On **Vercel**, set **`IMPACT_INGEST_UPSTREAM`** to that ingest **origin** (no trailing slash) so **`/api/stats/*`** **proxies** instead of **fallback**; set **`IMPACT_SUBMIT_URL`** on clients to the same **hosted** base for **POST**.  
@@ -98,7 +98,7 @@ The process is **not** waiting on more **planning**. **Active push:** **make the
 | **Install truth on site** | **Green** — **strictly gated** on **[#34](https://github.com/sovereignsquad/impact/issues/34)** (Path B primary until close) |
 | **Profile explorer** | **Green** — strong MLP asset (`/profile.html`) |
 | **In-repo MLP** (report + recommendations + web + ingest/stats) | **Green** |
-| **Tranche SSOT** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)) | **Green** — **Project #2** + views + spine + issue index **at top** |
+| **Tranche SSOT** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)) | **Green** — **org project 4** + spine + issue index **at top** |
 | **Next-delivery tranche** (mac **#63–#66**, activation) | **Green** definition + board mapping; **operational** work = **deploy ingest**, **env web build**, **seed/verify**, **#34**, Path D trust |
 | **Path B** (repo install) | **Green** — real, verified, usable |
 | **Path C** (npm) | **Amber** — implementation-ready; **not public** until **#34** (login, publish, `npm view`, clean-Mac smoke, evidence) |
@@ -159,7 +159,7 @@ The process is **not** waiting on more **planning**. **Active push:** **make the
 
 **Order today:** **Dashboard code** is **in repo**. **Operational priority:** **deploy ingest** → **production `VITE_STATS_API_BASE`** → **redeploy web** → **seed / verify** → sync **GitHub** issue **truth** → close **#58–#62** per **hosted** evidence. **In parallel:** **#34** (npm) and **macOS trust** (**#65** / **#66**) — **do not** treat Path D as **finished** until **M3**.
 
-**Board:** align **Project #2** with [closure model](mlp-next-delivery-tranche.md#board-closure-dashboard); [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) templates may lag — **maintainers override** with **hosted** truth.
+**Board:** align **org project 4** with [closure model](mlp-next-delivery-tranche.md#board-closure-dashboard); [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh) templates may lag — **maintainers override** with **hosted** truth.
 
 ---
 
@@ -230,7 +230,7 @@ Product shape: **scanner + interpretation + guidance + public explainer + in-rep
 
 ## Board-tracked tasks: H1–H8 (GitHub **#50–#57**)
 
-Executable issues on [Project #2](https://github.com/users/moldovancsaba/projects/2). **Status** reapplied via [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh).
+Executable issues on [org project 4](https://github.com/orgs/sovereignsquad/projects/4). **Status** reapplied via [`apply-status.sh`](../scripts/gh-issue-bodies/apply-status.sh).
 
 | ID | Issue | Board (template) | Priority |
 | -- | ----- | ---------------- | -------- |

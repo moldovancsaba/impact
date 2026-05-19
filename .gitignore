@@ -35,6 +35,8 @@ venv/
 
 # macOS DMG staging (artifacts under packaging/macos/out/ use root `out/` ignore)
 packaging/macos/.staging/
+# Web-hosted DMGs — ship via GitHub Releases, not git blobs (GitHub 100 MB limit)
+apps/web/public/downloads/*.dmg
 
 # Local ingest SQLite (default IMPACT_INGEST_DB_PATH)
 /data/

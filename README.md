@@ -10,7 +10,7 @@
 
 | Quick start | Privacy & trust | Programme board | Current state |
 | ----------- | --------------- | --------------- | ------------- |
-| [Jump](#quick-start-recommended) | [Jump](#privacy-and-trust) | [Open board](https://github.com/users/moldovancsaba/projects/2/views/3) | [Read snapshot](docs/current-state.md) (operational truth + **version SSOT**) |
+| [Jump](#quick-start-recommended) | [Jump](#privacy-and-trust) | [Open board](https://github.com/orgs/sovereignsquad/projects/4/views/1) | [Read snapshot](docs/current-state.md) (operational truth + **version SSOT**) |
 
 ---
 
@@ -193,7 +193,7 @@ Full detail: [docs/support-matrix.md](docs/support-matrix.md).
 | Release QA | [docs/release-checklist.md](docs/release-checklist.md) · [docs/smoke-test-macos.md](docs/smoke-test-macos.md) |
 | Post-MVP / MLP track | [docs/mlp.md](docs/mlp.md) |
 
-**Planning & workflow:** [GitHub Issues](https://github.com/sovereignsquad/impact/issues) (scope/acceptance) · [Project #2](https://github.com/users/moldovancsaba/projects/2) (Status) · [Programme — not Done](https://github.com/users/moldovancsaba/projects/2/views/3) · [full board](https://github.com/users/moldovancsaba/projects/2/views/1) · **who wins when docs disagree:** [docs/ssot-map.md](docs/ssot-map.md)
+**Planning & workflow:** [GitHub Issues](https://github.com/sovereignsquad/impact/issues) (scope/acceptance) · [org project board](https://github.com/orgs/sovereignsquad/projects/4/views/1) (Status) · **who wins when docs disagree:** [docs/ssot-map.md](docs/ssot-map.md)
 
 ---
 
@@ -205,4 +205,4 @@ Bug reports, ideas, and code: [CONTRIBUTING.md](CONTRIBUTING.md). MIT License �
 
 ## Programme note
 
-IMPACT is **open source**. The **scanner** and **reports** are the current product slice; **benchmarks** in the programme sense are **roadmap**, not current claims. If copy disagrees with **runnable code** on `main`, **code wins**. If copy disagrees with **Project #2 Status** or **issue acceptance**, **GitHub wins** — then refresh docs. See [docs/ssot-map.md](docs/ssot-map.md).
+IMPACT is **open source**. The **scanner** and **reports** are the current product slice; **benchmarks** in the programme sense are **roadmap**, not current claims. If copy disagrees with **runnable code** on `main`, **code wins**. If copy disagrees with **org project Status** or **issue acceptance**, **GitHub wins** — then refresh docs. See [docs/ssot-map.md](docs/ssot-map.md).

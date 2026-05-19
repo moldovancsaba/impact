@@ -1,6 +1,6 @@
 # GitHub issue bodies (refresh kit)
 
-Markdown here mirrors the **structure and intent** of issues on [sovereignsquad/impact](https://github.com/sovereignsquad/impact). After `apply-updates.sh`, **GitHub issue bodies** are authoritative for scope/acceptance; **Project #2 Status** is authoritative for workflow ([`apply-status.sh`](apply-status.sh)). Full map: [docs/ssot-map.md](../../docs/ssot-map.md).
+Markdown here mirrors the **structure and intent** of issues on [sovereignsquad/impact](https://github.com/sovereignsquad/impact). After `apply-updates.sh`, **GitHub issue bodies** are authoritative for scope/acceptance; **org project 4 Status** is authoritative for workflow ([`apply-status.sh`](apply-status.sh)). Full map: [docs/ssot-map.md](../../docs/ssot-map.md).
 
 **Quality bar:** programme cards follow the same sections as [mvp-factory-control#498](https://github.com/moldovancsaba/mvp-factory-control/issues/498) — Objective, Unified Context, Based On, Problem, Goal, Scope, Execution Prompt, Scope / Non-Goals, Constraints, Acceptance Checks, Dependencies, Out of Scope, Risks, Delivery Artifact, Developer Notes.
 
@@ -12,18 +12,18 @@ Markdown here mirrors the **structure and intent** of issues on [sovereignsquad/
 - **Programme roadmap (horizon markers):** `issue-29.md` … `issue-32.md` — [#29](https://github.com/sovereignsquad/impact/issues/29)–[#32](https://github.com/sovereignsquad/impact/issues/32) (Roadmap column; non-executable themes).
 - **Ideabank (Someday):** `issue-42.md`, `issue-43.md`, `issue-67.md` … `issue-74.md` — [#42](https://github.com/sovereignsquad/impact/issues/42), [#43](https://github.com/sovereignsquad/impact/issues/43), [#67](https://github.com/sovereignsquad/impact/issues/67)–[#74](https://github.com/sovereignsquad/impact/issues/74) — refresh with `apply-updates.sh`; **Status** = IDEABANK via `apply-status.sh`. Labels for **#67–#74:** `P2`, `area/platform` (no `phase-2`).
 - `apply-updates.sh` — `gh issue edit … --body-file` + labels (bash)
-- `apply-status.sh` — sets **Project #2 → Status** only (kanban truth). Template: **#58** **In Progress**, **#59–#62** **Todo**, **#34** **In Progress** — re-run after drift.
-- `gh-ensure-issues-on-project.sh` — add any repo issues missing from Project #2 (safe to re-run)
+- `apply-status.sh` — sets **org project 4 → Status** only (kanban truth). Template: **#58** **In Progress**, **#59–#60** **Done**, **#61–#62** **Todo**, **#34** **In Progress**, **#65** **In Progress** — re-run after drift.
+- `gh-ensure-issues-on-project.sh` — add any repo issues missing from org project 4 (`sovereignsquad`, project `4`; safe to re-run)
 - `gh-sprint-b-board-bootstrap.sh` — one-off create Sprint B issues (do not re-run)
 
 **Board column names** must not be pasted into issue titles. Use `apply-status.sh` or the UI.
 
 **CTO board + WIP + issue-quality rules (activation phase):** [docs/mlp-cto-next-execution.md](../../docs/mlp-cto-next-execution.md).
 
-**Planned org migration (`sovereignsquad` + new Project SSOT):** [docs/mlp-cto-directive-org-migration-sovereignsquad.md](../../docs/mlp-cto-directive-org-migration-sovereignsquad.md) — after cutover, update **`REPO`** in `apply-updates.sh` and **project/item IDs** in `apply-status.sh`.
+**Org migration (cutover done):** [docs/mlp-cto-directive-org-migration-sovereignsquad.md](../../docs/mlp-cto-directive-org-migration-sovereignsquad.md) — board = [org project 4](https://github.com/orgs/sovereignsquad/projects/4). Re-fetch **item IDs** in `apply-status.sh` after bulk `item-add` if cards are re-linked.
 
 **Activation pass comment (optional paste to #34):** [`activation-pass-comment-34.md`](activation-pass-comment-34.md) — edit + `gh issue comment 34 --body-file …`.
 
-**Sprint B:** Issues **#17–#28** are created from `issue-17.md` … `issue-28.md`. To bootstrap a **new** clone of the board rows, run **`scripts/gh-sprint-b-board-bootstrap.sh`** once (not idempotent). Then refresh **item IDs** in `apply-status.sh` via `gh project item-list 2 --owner moldovancsaba --format json`.
+**Sprint B:** Issues **#17–#28** are created from `issue-17.md` … `issue-28.md`. To bootstrap a **new** clone of the board rows, run **`scripts/gh-sprint-b-board-bootstrap.sh`** once (not idempotent). Then refresh **item IDs** in `apply-status.sh` via `gh project item-list 4 --owner sovereignsquad --format json -L 100`.
 
 Re-fetch **item IDs** if GitHub ever re-links items (rare); IDs are baked into `apply-status.sh` for automation.
