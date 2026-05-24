@@ -7,52 +7,10 @@
     <title>Profile preview — IMPACT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/">I.M.P.A.C.T.</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="/" data-nav="home">Home</a>
-        <a href="/install.html" data-nav="install">Install</a>
-        <a href="/use.html" data-nav="use">Run &amp; results</a>
-        <a href="/submit.html" data-nav="submit">Submit</a>
-        <a href="/data.html" data-nav="data">Community data</a>
-        <a href="/profile.html" data-nav="profile">Profile preview</a>
-        <a href="https://github.com/sovereignsquad/impact" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </header>
-
-    <main class="site-main page-main" id="main-content">
-      <div class="section-inner">
-        <p class="crumb"><a href="/">Home</a> / Profile preview</p>
-        <h1 class="page-title">Preview a profile file</h1>
-        <p class="lead">
-          Drop <code>impact-profile.json</code> from a local scan or choose a file. Parsing uses
-          <code>@impact/schemas</code> in <strong>your browser</strong> — nothing is uploaded.
-        </p>
-
-        <input type="file" id="profile-file" accept=".json,application/json" aria-label="Choose impact-profile.json" />
-        <div class="drop-zone" id="profile-drop" role="button" tabindex="0" aria-label="Drop JSON file here">
-          Or drop <code>impact-profile.json</code> here
-        </div>
-        <div id="profile-error" hidden></div>
-        <div id="profile-result" hidden></div>
-
-        <p class="page-next"><a href="/use.html">← How to run a scan</a></p>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        IMPACT — <em>Industrial Multi-Platform Agent Connector Test</em> · MIT License ·
-        <a href="https://github.com/sovereignsquad/impact">github.com/sovereignsquad/impact</a>
-      </p>
-    </footer>
-
-    <script type="module" src="/src/profile-app.ts"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/entries/profile.tsx"></script>
   </body>
 </html>

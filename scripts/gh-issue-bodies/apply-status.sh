@@ -99,6 +99,13 @@ item_for_issue() {
     72) echo PVTI_lADOEEuBB84BTwCKzgpI_ZA ;;
     73) echo PVTI_lADOEEuBB84BTwCKzgpI_ZE ;;
     74) echo PVTI_lADOEEuBB84BTwCKzgpI_ZU ;;
+    76) echo PVTI_lADOEEuBB84BTwCKzgtpb28 ;;
+    77) echo PVTI_lADOEEuBB84BTwCKzgtpb3c ;;
+    78) echo PVTI_lADOEEuBB84BTwCKzgtpb3w ;;
+    79) echo PVTI_lADOEEuBB84BTwCKzgtpb4g ;;
+    80) echo PVTI_lADOEEuBB84BTwCKzgtpb5M ;;
+    81) echo PVTI_lADOEEuBB84BTwCKzgtpb5g ;;
+    82) echo PVTI_lADOEEuBB84BTwCKzgtpb8s ;;
     *) echo ""; return 1 ;;
   esac
 }
@@ -175,4 +182,9 @@ for n in 63 64 65 66; do
   set_status "$(item_for_issue "$n")" "$BACKLOG"
 done
 
-echo "Org project 4 (sovereignsquad/impact) Status field updated for issues 1–74 (MVP + MLP + web/data + dashboard + macOS packaging + ideabank expansion)."
+# GDS migration (@impact/web) — Done in repo; see docs/gds-migration-plan.md
+for n in 76 77 78 79 80 81 82; do
+  set_status "$(item_for_issue "$n")" "$DONE"
+done
+
+echo "Org project 4 (sovereignsquad/impact) Status field updated for issues 1–74 + GDS #76–#82 (MVP + MLP + web/data + dashboard + macOS packaging + ideabank + GDS tranche)."

@@ -2,7 +2,7 @@
 
 **Vite** multi-page site (`index.html`, `install.html`, `use.html`, `submit.html`, `data.html`, `profile.html`): install truth, run/submit explainers, community data (placeholders unless built with a stats API base), and **in-browser** `impact-profile.json` validation via `@impact/schemas` + `buildRecommendations` (no upload).
 
-**UI shell:** shared **`site-header`** / **`site-footer`**, **`<main class="site-main page-main">`** (home: **`site-main--home`**) for consistent structure. Styles live in **`src/style.css`**; nav active state in **`src/site-nav.ts`**.
+**UI shell:** **React + Mantine** (GDS-aligned theme). Shared layout: **`PublicShell`**, **`PageHeader`**, **`StateBlock`**, **`StatsTable`**. Each route mounts via **`src/entries/*.tsx`** → **`src/pages/*.tsx`**. See [docs/gds-adapter.md](../../docs/gds-adapter.md).
 
 **Versioning:** `package.json` **version** must match the monorepo release (with CLI and `@impact/*`). **`vite.config.ts`** injects **`__IMPACT_WEB_VERSION__`** and **`__IMPACT_PROFILE_SCHEMA_VERSION__`** (`impact.v0.3` — keep aligned with Zod in `@impact/schemas`). **`src/site-meta.ts`** appends a footer line on every page so deploys are traceable.
 

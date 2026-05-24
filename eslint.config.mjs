@@ -10,6 +10,7 @@ export default tseslint.config(
       "**/node_modules/**",
       "scripts/validate-fixtures.mjs",
       "scripts/validate-invalid-fixtures.mjs",
+      "scripts/lint-gds-web.mjs",
     ],
   },
   {

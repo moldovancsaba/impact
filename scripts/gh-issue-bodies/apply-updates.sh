@@ -91,6 +91,15 @@ edit 72 "IMPACT P2: Ideabank — Historical trends and time-series dashboard" "$
 edit 73 "IMPACT P2: Ideabank — Release channel governance" "$BD/issue-73.md"
 edit 74 "IMPACT P2: Ideabank — Public dataset export / research snapshot" "$BD/issue-74.md"
 
+# GDS migration tranche (docs/gds-migration-plan.md)
+edit 76 "IMPACT P2: GDS G0 — Governance, adapter doc, and CSS freeze" "$BD/issue-76.md"
+edit 77 "IMPACT P2: GDS G1 — Mantine root runtime in @impact/web" "$BD/issue-77.md"
+edit 78 "IMPACT P2: GDS G2 — Public shell and page header contracts" "$BD/issue-78.md"
+edit 79 "IMPACT P2: GDS G3 — Migrate install, use, submit pages" "$BD/issue-79.md"
+edit 80 "IMPACT P2: GDS G4 — Migrate data and profile surfaces" "$BD/issue-80.md"
+edit 81 "IMPACT P2: GDS G5 — Homepage migration and legacy CSS deletion" "$BD/issue-81.md"
+edit 82 "IMPACT P2: GDS G6 — GDS enforcement and CI validation" "$BD/issue-82.md"
+
 # Labels: P0/P1 + area; drop legacy "epic" from implementation workstreams
 for n in 1 2 6 7 8 10 11 12 15 16; do
   gh issue edit "$n" --repo "$REPO" --add-label "P0" 2>/dev/null || true
@@ -130,7 +139,7 @@ for n in 29 30 31 32; do
   gh issue edit "$n" --repo "$REPO" --add-label "area/platform" 2>/dev/null || true
 done
 # Ideabank P2 cards: P2 + area/platform only (not phase-2)
-for n in 67 68 69 70 71 72 73 74; do
+for n in 67 68 69 70 71 72 73 74 76 77 78 79 80 81 82; do
   gh issue edit "$n" --repo "$REPO" --remove-label "phase-2" 2>/dev/null || true
   gh issue edit "$n" --repo "$REPO" --add-label "P2" 2>/dev/null || true
   gh issue edit "$n" --repo "$REPO" --add-label "area/platform" 2>/dev/null || true

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -10,6 +11,7 @@ const webPkg = JSON.parse(readFileSync(path.resolve(__dirname, "package.json"), 
 const PROFILE_SCHEMA_VERSION = "impact.v0.3";
 
 export default defineConfig({
+  plugins: [react()],
   define: {
     __IMPACT_WEB_VERSION__: JSON.stringify(webPkg.version),
     __IMPACT_PROFILE_SCHEMA_VERSION__: JSON.stringify(PROFILE_SCHEMA_VERSION),

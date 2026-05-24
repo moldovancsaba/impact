@@ -11,95 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/">I.M.P.A.C.T.</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="/" data-nav="home">Home</a>
-        <a href="/install.html" data-nav="install">Install</a>
-        <a href="/use.html" data-nav="use">Run &amp; results</a>
-        <a href="/submit.html" data-nav="submit">Submit</a>
-        <a href="/data.html" data-nav="data">Community data</a>
-        <a href="/profile.html" data-nav="profile">Profile preview</a>
-        <a href="https://github.com/sovereignsquad/impact" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </header>
-
-    <main class="site-main site-main--home" id="main-content">
-    <section class="hero hero--home" id="top">
-      <p class="status-pill">Privacy-first · Local scan · No benchmark hype</p>
-      <h1>See what your machine can run for local AI — without uploading your environment</h1>
-      <p class="hero-lead">
-        IMPACT inventories your OS, runtimes, tools, and models, then writes an <strong>offline HTML report</strong> and
-        <strong>JSON profile</strong>. Submission is <strong>optional</strong> and only after you configure an endpoint and
-        confirm. This is <strong>discovery and provenance</strong>, not a performance score.
-      </p>
-
-      <div class="truth-banner truth-banner--hero" role="status">
-        <strong>Install reality today:</strong> the verified path is <strong>install from source (Path B)</strong>.
-        <code>npm install -g @impact/cli</code> becomes the primary public path only after
-        <a href="https://github.com/sovereignsquad/impact/issues/34">#34</a> is closed (publish + smoke + evidence). We do not
-        pretend npm is live until then.
-      </div>
-
-      <div class="cta-grid">
-        <a class="btn btn--primary btn--block" href="/install.html">Install IMPACT</a>
-        <a class="btn btn--ghost btn--block" href="/data.html">Explore community data</a>
-        <div class="cta-stack">
-          <a class="btn btn--ghost btn--sm" href="/use.html">Run a scan &amp; open your report</a>
-          <a class="btn btn--ghost btn--sm" href="/submit.html">How optional submission works</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tight">
-      <div class="section-inner">
-        <h2>What you get in under a minute</h2>
-        <ul class="checklist">
-          <li><strong>Local inventory</strong> — what is installed, reachable, and how confidently we know it.</li>
-          <li><strong>Readable report</strong> — open <code>impact-report.html</code> in a browser after one command.</li>
-          <li><strong>Optional community loop</strong> — submit an anonymous payload if you choose; aggregates on this site will
-            appear only when ingest and privacy thresholds are met (<a href="/data.html">Community data</a>).</li>
-        </ul>
-        <p class="muted-inline">
-          Not shipped: benchmark leaderboards, DMG/app installer, or “AI readiness” scores — see
-          <a href="https://github.com/sovereignsquad/impact/blob/main/docs/current-state.md">current-state.md</a>.
-        </p>
-      </div>
-    </section>
-
-    <section class="section-tight faq">
-      <div class="section-inner">
-        <h2>FAQ</h2>
-        <details>
-          <summary>Does IMPACT upload my data?</summary>
-          <p>
-            No by default. Scans stay on your machine unless you opt into submission. See
-            <a href="https://github.com/sovereignsquad/impact/blob/main/docs/privacy-for-users.md">privacy for users</a>.
-          </p>
-        </details>
-        <details>
-          <summary>Is this a benchmark?</summary>
-          <p>
-            No. v0.x is honest <strong>discovery</strong> and export. Benchmarks are programme roadmap, not current product
-            claims.
-          </p>
-        </details>
-      </div>
-    </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        IMPACT — <em>Industrial Multi-Platform Agent Connector Test</em> · MIT License ·
-        <a href="https://github.com/sovereignsquad/impact">github.com/sovereignsquad/impact</a>
-      </p>
-    </footer>
-
-    <script type="module" src="/src/home.ts"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/entries/home.tsx"></script>
   </body>
 </html>

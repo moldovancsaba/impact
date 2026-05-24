@@ -4,7 +4,9 @@
 
 **Code:** [`apps/web`](../apps/web/)
 
-**Board:** shell pages **[#50](https://github.com/sovereignsquad/impact/issues/50)**, **[#54](https://github.com/sovereignsquad/impact/issues/54)–[#57](https://github.com/sovereignsquad/impact/issues/57)**. **Real dashboard data** — **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)); legacy **[#51](https://github.com/sovereignsquad/impact/issues/51)–[#53](https://github.com/sovereignsquad/impact/issues/53)** superseded in execution detail by **#58–#62**.
+**Board:** shell pages **[#50](https://github.com/sovereignsquad/impact/issues/50)**, **[#54](https://github.com/sovereignsquad/impact/issues/54)–[#57](https://github.com/sovereignsquad/impact/issues/57)**. **Real dashboard data** — **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)); legacy **[#51](https://github.com/sovereignsquad/impact/issues/51)–[#53](https://github.com/sovereignsquad/impact/issues/53)** superseded in execution detail by **#58–#62**. **GDS / Mantine migration** — **[#76](https://github.com/sovereignsquad/impact/issues/76)–[#82](https://github.com/sovereignsquad/impact/issues/82)** ([gds-migration-plan.md](gds-migration-plan.md), [gds-adapter.md](gds-adapter.md)) — **Backlog**, parallel to activation.
+
+**Design SSOT:** [general-design-system](https://github.com/moldovancsaba/general-design-system) v2.2.0 — local adapter [gds-adapter.md](gds-adapter.md).
 
 ---
 

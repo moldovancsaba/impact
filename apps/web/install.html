@@ -7,87 +7,10 @@
     <title>Install IMPACT — download &amp; setup</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/">I.M.P.A.C.T.</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="/" data-nav="home">Home</a>
-        <a href="/install.html" data-nav="install">Install</a>
-        <a href="/use.html" data-nav="use">Run &amp; results</a>
-        <a href="/submit.html" data-nav="submit">Submit</a>
-        <a href="/data.html" data-nav="data">Community data</a>
-        <a href="/profile.html" data-nav="profile">Profile preview</a>
-        <a href="https://github.com/sovereignsquad/impact" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </header>
-
-    <main class="site-main page-main" id="main-content">
-      <div class="section-inner">
-        <p class="crumb"><a href="/">Home</a> / Install</p>
-        <h1 class="page-title">Install IMPACT</h1>
-        <p class="lead">
-          IMPACT runs as a CLI on your machine. <strong>macOS</strong> is the supported primary path; Linux is partial;
-          Windows is experimental — see
-          <a href="https://github.com/sovereignsquad/impact/blob/main/docs/support-matrix.md">support matrix</a>.
-        </p>
-
-        <div class="truth-banner" role="status">
-          <strong>Path C (npm):</strong> <code>npm install -g @impact/cli</code> is <strong>not</strong> the live primary
-          install until <a href="https://github.com/sovereignsquad/impact/issues/34">#34</a> is closed with publish, verify,
-          smoke, and evidence. Until then, use <strong>Path B</strong> below.
-        </div>
-
-        <h2>Path B — from source (verified today)</h2>
-        <p>Requires Git, Node.js 20+, and npm.</p>
-        <pre><code>git clone https://github.com/sovereignsquad/impact.git
-cd impact
-npm ci
-npm run build
-npm install -g ./apps/cli</code></pre>
-        <p>Optional: pin to release tag <code>v0.3.0</code> before <code>npm ci</code> if you want a known release.</p>
-
-        <h2>Path C — npm registry (after #34)</h2>
-        <p>When the package is public and verified:</p>
-        <pre><code>npm install -g @impact/cli</code></pre>
-        <p>Track progress on <a href="https://github.com/sovereignsquad/impact/issues/34">issue #34</a>.</p>
-
-        <h2>Prerequisites</h2>
-        <ul>
-          <li>Node.js <strong>20+</strong></li>
-          <li>Git (for Path B)</li>
-          <li>macOS 13+ recommended for host probes</li>
-        </ul>
-
-        <h2>After install — expected outputs</h2>
-        <pre><code>mkdir -p ./reports
-impact scan --no-submit -o ./reports
-open ./reports/impact-report.html</code></pre>
-        <p>Artifacts: <code>impact-profile.json</code>, <code>impact-report.html</code>. Nothing is uploaded with <code>--no-submit</code>.</p>
-
-        <h2>Troubleshooting</h2>
-        <ul>
-          <li><strong>404 on npm</strong> — package not published yet; use Path B.</li>
-          <li><strong>EACCES</strong> on global install — use a user-owned npm prefix or a Node version manager.</li>
-          <li><strong>command not found: impact</strong> — ensure npm’s global bin directory is on your <code>PATH</code>.</li>
-        </ul>
-        <p>Full detail: <a href="https://github.com/sovereignsquad/impact/blob/main/docs/install-macos.md">install-macos.md</a>.</p>
-
-        <p class="page-next">Next: <a href="/use.html">Run a scan and open your report →</a></p>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        IMPACT — <em>Industrial Multi-Platform Agent Connector Test</em> · MIT License ·
-        <a href="https://github.com/sovereignsquad/impact">github.com/sovereignsquad/impact</a>
-      </p>
-    </footer>
-
-    <script type="module" src="/src/install-entry.ts"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/entries/install.tsx"></script>
   </body>
 </html>

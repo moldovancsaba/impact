@@ -7,87 +7,10 @@
     <title>Run IMPACT — scan, report, outputs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="/">I.M.P.A.C.T.</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="/" data-nav="home">Home</a>
-        <a href="/install.html" data-nav="install">Install</a>
-        <a href="/use.html" data-nav="use">Run &amp; results</a>
-        <a href="/submit.html" data-nav="submit">Submit</a>
-        <a href="/data.html" data-nav="data">Community data</a>
-        <a href="/profile.html" data-nav="profile">Profile preview</a>
-        <a href="https://github.com/sovereignsquad/impact" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </header>
-
-    <main class="site-main page-main" id="main-content">
-      <div class="section-inner">
-        <p class="crumb"><a href="/">Home</a> / Run &amp; results</p>
-        <h1 class="page-title">Run IMPACT — from curiosity to a clear picture</h1>
-        <p class="lead">Four small steps. Everything stays on your disk until you explicitly opt into submission.</p>
-
-        <ol class="flow-steps">
-          <li>
-            <strong>Install</strong> — <a href="/install.html">Install page</a> (Path B today; npm after #34).
-          </li>
-          <li>
-            <strong>Run one command</strong>
-            <pre><code>impact scan --no-submit -o ./reports</code></pre>
-          </li>
-          <li>
-            <strong>Open the HTML report</strong> — <code>impact-report.html</code> in your output folder. Same facts as JSON,
-            with provenance and suggested next steps.
-          </li>
-          <li>
-            <strong>(Optional)</strong> Inspect <code>impact-profile.json</code> or use the in-browser
-            <a href="/profile.html">Profile preview</a> — parsing only, no upload.
-          </li>
-        </ol>
-
-        <h2>Understand the report</h2>
-        <ul>
-          <li><strong>Host</strong> — OS, architecture, coarse memory/disk hints, machine class (not a benchmark).</li>
-          <li><strong>Runtimes</strong> — e.g. Ollama installed vs API reachable; MLX may be <strong>partial</strong> with honest notes.</li>
-          <li><strong>Tools</strong> — allowlisted tools found on <code>PATH</code>; others are intentionally ignored.</li>
-          <li><strong>Models</strong> — what local APIs returned during the scan; empty does not mean “no models on earth.”</li>
-        </ul>
-
-        <h2>What <code>reachable</code>, <code>partial</code>, and <code>unknown</code> mean</h2>
-        <p>
-          On <strong>runtimes</strong>, <strong>status</strong> is operational (e.g. installed but API not responding =
-          <code>installed_unreachable</code>). <strong>Partial</strong> means we surface honest limits (e.g. MLX pip detection
-          without full model inventory). <strong>Unknown</strong> means we could not classify reliably on this platform.
-        </p>
-        <p>
-          Normative vocabulary: <a href="https://github.com/sovereignsquad/impact/blob/main/docs/schema-semantics-v0.3.md">schema-semantics-v0.3.md</a>.
-        </p>
-
-        <h2>What to do next</h2>
-        <p>
-          Follow <strong>Suggested next steps</strong> in the HTML report (deterministic hints from your profile). Typical actions:
-          start a local runtime, re-scan, or review disk/memory hints — not “buy hardware X.”
-        </p>
-
-        <p class="page-next">
-          <a href="/profile.html">Try the profile preview in your browser →</a> ·
-          <a href="/submit.html">Optional submission →</a>
-        </p>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <p>
-        IMPACT — <em>Industrial Multi-Platform Agent Connector Test</em> · MIT License ·
-        <a href="https://github.com/sovereignsquad/impact">github.com/sovereignsquad/impact</a>
-      </p>
-    </footer>
-
-    <script type="module" src="/src/use-entry.ts"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/entries/use.tsx"></script>
   </body>
 </html>

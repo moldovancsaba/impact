@@ -17,7 +17,8 @@
     "lint": "eslint .",
     "validate-fixtures": "node scripts/validate-fixtures.mjs",
     "validate-invalid-fixtures": "node scripts/validate-invalid-fixtures.mjs",
-    "verify:release": "npm run lint && npm run build && npm test && npm run validate-fixtures && npm run validate-invalid-fixtures",
+    "lint:gds": "node scripts/lint-gds-web.mjs",
+    "verify:release": "npm run lint && npm run lint:gds && npm run build && npm test && npm run validate-fixtures && npm run validate-invalid-fixtures",
     "dev:web": "npm run dev -w @impact/web",
     "dev:ingest": "npm run build -w @impact/schemas && npm run build -w @impact/ingest && npm run start -w @impact/ingest",
     "publish:npm:dry-run": "DRY_RUN=1 bash scripts/publish-npm-packages.sh",
@@ -29,10 +30,12 @@
     "@eslint/js": "^9.24.0",
     "@types/node": "^22.14.0",
     "@vercel/node": "^5.5.0",
+    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.24.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.29.1",
+    "vite": "^6.3.5",
     "vitest": "^3.0.9"
   }
 }
