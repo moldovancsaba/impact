@@ -17,7 +17,7 @@ Artifacts:
 - `packaging/macos/out/Impact-0.3.0-macos.dmg`
 - `packaging/macos/out/Impact-0.3.0-macos.dmg.sha256`
 
-Staging under `packaging/macos/.staging/` is ephemeral (gitignored).
+Staging under `packaging/macos/.staging/` is ephemeral (gitignored). The DMG includes **`setup-path.command`** (optional `/usr/local/bin/impact` symlink) and **`README.txt`** on the volume.
 
 ## Distribution decision (summary)
 

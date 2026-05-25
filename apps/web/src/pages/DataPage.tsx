@@ -1,9 +1,8 @@
-import { Anchor, Badge, Card, Grid, Stack, Text } from "@mantine/core";
+import { DocsPageShell, PlaceholderPanel, SimpleDataTable, StateBlock } from "@gds/core/client";
+import { Anchor, Grid, Stack, Text } from "@mantine/core";
 import { useEffect, useState, type ReactNode } from "react";
-import { PageHeader } from "../components/PageHeader";
-import { PublicShell } from "../components/PublicShell";
-import { StateBlock } from "../components/StateBlock";
-import { StatsTable, type StatsBucket } from "../components/StatsTable";
+import { ImpactShell } from "../shell/impact-shell";
+import { bucketsToRows, type StatsBucket } from "../lib/stats-rows";
 import { statsJsonUrl } from "../stats-api-url";
 
 type FullStats = {
@@ -29,7 +28,27 @@ type FullStats = {
   };
 };
 
-function PlaceholderCard({
+function StatsBlock({ title, rows }: { title: string; rows: StatsBucket[] }) {
+  return (
+    <Stack gap="xs">
+      <Text fw={600} size="sm">
+        {title}
+      </Text>
+      <SimpleDataTable
+        columns={[
+          { key: "key", header: "Key" },
+          { key: "count", header: "Count" },
+        ]}
+        rows={bucketsToRows(rows)}
+        emptyTitle={`${title}: no buckets`}
+        emptyDescription="No buckets above the privacy threshold."
+        getRowKey={(row) => row.key}
+      />
+    </Stack>
+  );
+}
+
+function DataPanel({
   title,
   issue,
   description,
@@ -40,25 +59,21 @@ function PlaceholderCard({
   description: string;
   live: ReactNode | null;
 }) {
+  const issueLabel = issue.replace("https://github.com/sovereignsquad/impact/issues/", "#");
   return (
-    <Card withBorder padding="lg" radius="md">
-      <Text fw={600} mb="sm">
-        {title}
-      </Text>
-      {live ?? (
-        <>
-          <Badge color="red" variant="light" mb="sm">
-            Coming soon — live when sufficient data exists
-          </Badge>
-          <Text size="sm" c="dimmed">
-            {description}
-          </Text>
-          <Text size="xs" c="dimmed" mt="xs">
-            Issue: <Anchor href={issue}>{issue.replace("https://github.com/sovereignsquad/impact/issues/", "#")}</Anchor>
-          </Text>
-        </>
-      )}
-    </Card>
+    <PlaceholderPanel
+      title={title}
+      description={description}
+      badge="Coming soon — live when sufficient data exists"
+      mode={live ? "live" : "placeholder"}
+      footer={
+        <Anchor href={issue} size="xs">
+          Issue: {issueLabel}
+        </Anchor>
+      }
+    >
+      {live}
+    </PlaceholderPanel>
   );
 }
 
@@ -107,34 +122,34 @@ export function DataPage() {
   const hwLive = stats ? (
     <Stack gap="xs">
       {thresholdNote}
-      <StatsTable title="Machine class" rows={stats.hardware.machine_class} />
-      <StatsTable title="Chip" rows={stats.hardware.chip} />
-      <StatsTable title="Memory band" rows={stats.hardware.memory_band} />
-      <StatsTable title="OS" rows={stats.hardware.os_name} />
-      <StatsTable title="Architecture" rows={stats.hardware.architecture} />
+      <StatsBlock title="Machine class" rows={stats.hardware.machine_class} />
+      <StatsBlock title="Chip" rows={stats.hardware.chip} />
+      <StatsBlock title="Memory band" rows={stats.hardware.memory_band} />
+      <StatsBlock title="OS" rows={stats.hardware.os_name} />
+      <StatsBlock title="Architecture" rows={stats.hardware.architecture} />
     </Stack>
   ) : null;
 
   const toolsLive = stats ? (
     <Stack gap="xs">
       {thresholdNote}
-      <StatsTable title="Runtime ID" rows={stats.tools.runtime_id} />
-      <StatsTable title="Runtime × status" rows={stats.tools.runtime_by_status} />
-      <StatsTable title="Tool ID" rows={stats.tools.tool_id} />
+      <StatsBlock title="Runtime ID" rows={stats.tools.runtime_id} />
+      <StatsBlock title="Runtime × status" rows={stats.tools.runtime_by_status} />
+      <StatsBlock title="Tool ID" rows={stats.tools.tool_id} />
     </Stack>
   ) : null;
 
   const modelsLive = stats ? (
     <Stack gap="xs">
       {thresholdNote}
-      <StatsTable title="Model × locality" rows={stats.models.by_id_locality} />
+      <StatsBlock title="Model × locality" rows={stats.models.by_id_locality} />
     </Stack>
   ) : null;
 
   return (
-    <PublicShell pageId="data">
-      <PageHeader
-        crumb={[{ label: "Home", href: "/" }, { label: "Community data" }]}
+    <ImpactShell pageId="data">
+      <DocsPageShell
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Community data" }]}
         title="Community data"
         lead={
           <>
@@ -144,58 +159,63 @@ export function DataPage() {
             placeholders only — <strong>no fake live numbers.</strong>
           </>
         }
-      />
+      >
+        <StateBlock
+          variant="info"
+          title="Status"
+          compact
+          description={
+            <>
+              Structure ships first. <strong>Live charts and counts</strong> appear only when ingest is operational, enough
+              opted-in submissions exist, and <strong>privacy thresholds</strong> allow publication. See programme issues{" "}
+              <Anchor href="https://github.com/sovereignsquad/impact/issues/48">#48</Anchor> and{" "}
+              <Anchor href="https://github.com/sovereignsquad/impact/issues/51">#51</Anchor>–
+              <Anchor href="https://github.com/sovereignsquad/impact/issues/53">#53</Anchor>.
+            </>
+          }
+        />
 
-      <StateBlock title="Status">
-        Structure ships first. <strong>Live charts and counts</strong> appear only when ingest is operational, enough
-        opted-in submissions exist, and <strong>privacy thresholds</strong> allow publication. See programme issues{" "}
-        <Anchor href="https://github.com/sovereignsquad/impact/issues/48">#48</Anchor> and{" "}
-        <Anchor href="https://github.com/sovereignsquad/impact/issues/51">#51</Anchor>–
-        <Anchor href="https://github.com/sovereignsquad/impact/issues/53">#53</Anchor>.
-      </StateBlock>
+        {status ? (
+          <Text size="sm" c="dimmed" mb="md">
+            {status}
+          </Text>
+        ) : null}
+        {error && !stats ? (
+          <StateBlock variant="error" title="Stats API error" description={error} compact />
+        ) : null}
 
-      {status ? (
-        <Text size="sm" c="dimmed" mb="md">
-          {status}
+        <Grid gutter="md" mb="lg">
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <DataPanel
+              title="Hardware tested"
+              issue="https://github.com/sovereignsquad/impact/issues/51"
+              description="Planned aggregates: machine classes, chip families, memory bands, OS/platform distribution."
+              live={hwLive}
+            />
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <DataPanel
+              title="Tools & runtimes tested"
+              issue="https://github.com/sovereignsquad/impact/issues/52"
+              description="Planned aggregates: detected runtime/tool families (e.g. Ollama, MLX) and counts by family as profiles report them."
+              live={toolsLive}
+            />
+          </Grid.Col>
+          <Grid.Col span={{ base: 12, md: 4 }}>
+            <DataPanel
+              title="LLMs / models tested"
+              issue="https://github.com/sovereignsquad/impact/issues/53"
+              description="Planned aggregates: normalised model families, local vs cloud split where schema allows, runtime associations."
+              live={modelsLive}
+            />
+          </Grid.Col>
+        </Grid>
+
+        <Text c="dimmed" size="sm">
+          Information architecture: <Anchor href="https://github.com/sovereignsquad/impact/issues/50">#50</Anchor>.
+          Contribute optionally via <Anchor href="/submit.html">Submit</Anchor>.
         </Text>
-      ) : null}
-      {error && !stats ? (
-        <Text size="sm" c="red" mb="md">
-          {error}
-        </Text>
-      ) : null}
-
-      <Grid gutter="md" mb="lg">
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PlaceholderCard
-            title="Hardware tested"
-            issue="https://github.com/sovereignsquad/impact/issues/51"
-            description="Planned aggregates: machine classes, chip families, memory bands, OS/platform distribution."
-            live={hwLive}
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PlaceholderCard
-            title="Tools & runtimes tested"
-            issue="https://github.com/sovereignsquad/impact/issues/52"
-            description="Planned aggregates: detected runtime/tool families (e.g. Ollama, MLX) and counts by family as profiles report them."
-            live={toolsLive}
-          />
-        </Grid.Col>
-        <Grid.Col span={{ base: 12, md: 4 }}>
-          <PlaceholderCard
-            title="LLMs / models tested"
-            issue="https://github.com/sovereignsquad/impact/issues/53"
-            description="Planned aggregates: normalised model families, local vs cloud split where schema allows, runtime associations."
-            live={modelsLive}
-          />
-        </Grid.Col>
-      </Grid>
-
-      <Text c="dimmed" size="sm">
-        Information architecture: <Anchor href="https://github.com/sovereignsquad/impact/issues/50">#50</Anchor>.
-        Contribute optionally via <Anchor href="/submit.html">Submit</Anchor>.
-      </Text>
-    </PublicShell>
+      </DocsPageShell>
+    </ImpactShell>
   );
 }

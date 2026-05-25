@@ -22,7 +22,7 @@ The **same release** should bump **Git tag**, **`@impact/*` npm packages** (e.g.
 | ----- | -------------- |
 | CLI / scanners / npm | `apps/cli`, `packages/*` — `package.json` **version** |
 | Profile JSON schema | `impact.v0.3` in `packages/schemas` (Zod) |
-| Static web shell | `apps/web/package.json` — shown in footer + Vite `define` |
+| Static web shell | `apps/web` — **GDS** (`@gds/theme` + `@gds/core` **2.4.3**); footer shows semver + schema ([gds-adapter.md](docs/gds-adapter.md)) |
 | Optional ingest service | `apps/ingest` — private workspace, same semver convention |
 
 ---

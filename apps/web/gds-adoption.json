@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "gdsVersion": "2.4.3",
+  "productArchetype": "public-marketing",
+  "supportedEntryPoints": [
+    "@gds/theme/client",
+    "@gds/core/client"
+  ],
+  "requiredContracts": [
+    "PublicShell",
+    "DocsPageShell",
+    "PageHeader",
+    "StateBlock",
+    "SimpleDataTable",
+    "PlaceholderPanel"
+  ],
+  "localAdapters": [
+    {
+      "contract": "ImpactShell",
+      "path": "src/shell/impact-shell.tsx",
+      "status": "active",
+      "reason": "IMPACT nav labels, GitHub action, and build-version footer only"
+    }
+  ],
+  "approvedExceptions": [],
+  "migrationStatus": "complete",
+  "owner": "impact-web",
+  "lastReviewedAt": "2026-05-25"
+}

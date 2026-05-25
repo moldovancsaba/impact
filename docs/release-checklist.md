@@ -17,8 +17,9 @@ Use this for **tagged releases** and **release candidates**. Execute in order; d
 
 ## Build and quality gates (local or CI)
 
-- [ ] `npm ci`
-- [ ] `npm run lint`
+- [ ] `npm ci` (runs **`preinstall`** — clones/builds [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) per [`gds.version`](../gds.version) into `.gds-src`; needs network on fresh machines)
+- [ ] `npm run lint` (includes **@gds/eslint-config** on `apps/web/src`)
+- [ ] `npm run lint:gds` (`apps/web/gds-adoption.json` + **@gds/compliance**)
 - [ ] `npm run build`
 - [ ] `npm test`
 - [ ] `npm run validate-fixtures`

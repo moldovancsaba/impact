@@ -14,7 +14,7 @@
 | ---------- | ---------- |
 | **Install and run the scanner** | [install-macos.md](install-macos.md) — Path B (source), Path C (npm when live), Path D (DMG) |
 | **Understand privacy and consent** | [privacy-for-users.md](privacy-for-users.md) (plain language) → [privacy-policy.md](privacy-policy.md) (formal) |
-| **Use or deploy the public website** | [web.md](web.md) — pages, build, **`VITE_STATS_API_BASE`**, Vercel · [web-deploy-smoke.md](web-deploy-smoke.md) after deploy (§ **Live stats** when API wired) |
+| **Use or deploy the public website** | [web.md](web.md) — GDS React shell, build, **`VITE_STATS_API_BASE`**, Vercel · [gds-adapter.md](gds-adapter.md) · [web-deploy-smoke.md](web-deploy-smoke.md) after deploy |
 | **Run optional HTTP submission / ingest** | [submission-contract.md](submission-contract.md) · [ingest-server.md](ingest-server.md) — POST ingest + **`GET /api/stats/*`** |
 | **See what is actually shipped** | [current-state.md](current-state.md) · [user-expectations-mvp.md](user-expectations-mvp.md) |
 | **Contribute or follow the programme** | [project-management.md](project-management.md) · [product.md](product.md) · [mlp.md](mlp.md) |
@@ -62,6 +62,8 @@
 | [architecture.md](architecture.md) | Layout and data flow |
 | [architect-handoff.md](architect-handoff.md) | Architect onboarding |
 | [release-checklist.md](release-checklist.md) | Release steps |
+| [gds-adapter.md](gds-adapter.md) | **GDS** consumer contract for `@impact/web` |
+| [gds-migration-plan.md](gds-migration-plan.md) | GDS migration history (complete) |
 | [npm-publish.md](npm-publish.md) | Publish `@impact/*` |
 | [smoke-test-macos.md](smoke-test-macos.md) | Fresh-mac QA |
 | [docs-alignment-after-packaging.md](docs-alignment-after-packaging.md) | Post-packaging doc reconciliation |

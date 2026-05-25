@@ -4,9 +4,9 @@
 
 **Code:** [`apps/web`](../apps/web/)
 
-**Board:** shell pages **[#50](https://github.com/sovereignsquad/impact/issues/50)**, **[#54](https://github.com/sovereignsquad/impact/issues/54)–[#57](https://github.com/sovereignsquad/impact/issues/57)**. **Real dashboard data** — **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)); legacy **[#51](https://github.com/sovereignsquad/impact/issues/51)–[#53](https://github.com/sovereignsquad/impact/issues/53)** superseded in execution detail by **#58–#62**. **GDS / Mantine migration** — **[#76](https://github.com/sovereignsquad/impact/issues/76)–[#82](https://github.com/sovereignsquad/impact/issues/82)** ([gds-migration-plan.md](gds-migration-plan.md), [gds-adapter.md](gds-adapter.md)) — **Backlog**, parallel to activation.
+**Board:** shell pages **[#50](https://github.com/sovereignsquad/impact/issues/50)**, **[#54](https://github.com/sovereignsquad/impact/issues/54)–[#57](https://github.com/sovereignsquad/impact/issues/57)**. **Real dashboard data** — **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)); legacy **[#51](https://github.com/sovereignsquad/impact/issues/51)–[#53](https://github.com/sovereignsquad/impact/issues/53)** superseded in execution detail by **#58–#62**. **GDS migration** — **Complete** ([#76](https://github.com/sovereignsquad/impact/issues/76)–[#82](https://github.com/sovereignsquad/impact/issues/82)); [gds-migration-plan.md](gds-migration-plan.md), [gds-adapter.md](gds-adapter.md).
 
-**Design SSOT:** [general-design-system](https://github.com/moldovancsaba/general-design-system) v2.2.0 — local adapter [gds-adapter.md](gds-adapter.md).
+**Design SSOT:** [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) v2.4.3 — **`@gds/theme` + `@gds/core`**; thin **`ImpactShell`** adapter only.
 
 ---
 
@@ -29,12 +29,12 @@ Vite **MPA** — each route is its own HTML entry (see `vite.config.ts` `rollupO
 
 ## What ships today
 
-- Multi-page **nav** with active state (`data-page` + `data-nav`).
+- **React + Mantine** MPA via **GDS** (`GdsProvider`, `PublicShell`, `DocsPageShell`, `StateBlock`, …) — see [gds-adapter.md](gds-adapter.md).
+- Multi-page **nav** with active state (`PublicNav` / `ImpactShell`).
 - **Honest install** story (Path B verified; Path C explicit gate).
-- **Community data** page — honest placeholders **or** live stats from ingest when **`VITE_STATS_API_BASE`** is set at build time (see [apps/web/README.md](../apps/web/README.md)).
-- **Profile explorer** on dedicated page (same schema + recommendations as CLI HTML report).
-- **Version line** in every page footer: **Web shell** semver (from `apps/web/package.json`, injected at build) + **profile schema** (`impact.v0.3`) so the static site aligns with [current-state.md](current-state.md) § Versioning.
-- Shared layout: **`<main class="site-main">`** between header and footer on all pages.
+- **Community data** — placeholders **or** live stats when **`VITE_STATS_API_BASE`** is set at build time (`SimpleDataTable` via `@gds/core`).
+- **Profile explorer** — `UploadDropzone` + in-browser `ImpactProfileSchema` + `buildRecommendations`.
+- **Version line** in footer: **Web shell** semver + **profile schema** (`impact.v0.3`) — [current-state.md](current-state.md) § Versioning.
 - No benchmark **scores**, no silent upload, no fabricated aggregate counts when the API is unset.
 
 ---
@@ -48,15 +48,17 @@ After each production deploy, run the checklist: **[web-deploy-smoke.md](web-dep
 ## Developer commands
 
 ```bash
+npm ci                    # prepares @gds/* from sovereignsquad/general-design-system
 npm run dev -w @impact/web
 npm run build -w @impact/web
+npm run lint:gds          # adoption manifest + gds-compliance
 ```
 
-Root **`npm run verify:release`** includes the web build.
+Root **`npm run verify:release`** includes **`lint:gds`**, ESLint GDS rules on `apps/web/src`, and the web build.
 
 ### Deploy (Vercel)
 
-Use the **repository root** as the Vercel project root (monorepo). Root [`vercel.json`](../vercel.json) sets **`outputDirectory`** to **`apps/web/dist`** so the deploy does not look for a top-level `public/` folder. **Install** and **build** run at root: `npm ci`, `npm run build` (builds all workspaces including `@impact/web`).
+Use the **repository root** as the Vercel project root (monorepo). Root [`vercel.json`](../vercel.json) sets **`outputDirectory`** to **`apps/web/dist`**. **Install** and **build** run at root: `npm ci` (runs **`preinstall`** → prepares GDS **2.4.3** in `.gds-src`), then `npm run build` (all workspaces including `@impact/web`).
 
 If the Vercel dashboard had **Output Directory** set to `public`, remove it or set it to **`apps/web/dist`** so it matches `vercel.json`.
 

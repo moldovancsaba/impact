@@ -10,6 +10,7 @@
 
 # Common build and dependency dirs (adjust per stack as the project grows)
 node_modules/
+.gds-src/
 dist/
 build/
 out/

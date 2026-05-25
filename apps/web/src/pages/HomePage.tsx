@@ -1,32 +1,36 @@
-import { Accordion, Anchor, Badge, Button, Group, List, Stack, Text, Title } from "@mantine/core";
-import { PublicShell } from "../components/PublicShell";
-import { StateBlock } from "../components/StateBlock";
+import { PageHeader, StateBlock } from "@gds/core/client";
+import { Accordion, Anchor, Badge, Button, Group, List, Stack, Text } from "@mantine/core";
+import { ImpactShell } from "../shell/impact-shell";
 
 export function HomePage() {
   return (
-    <PublicShell pageId="home">
+    <ImpactShell pageId="home">
       <Stack gap="lg" pt="md">
         <Badge variant="light" color="teal" w="fit-content">
           Privacy-first · Local scan · No benchmark hype
         </Badge>
-        <Title order={1}>
-          See what your machine can run for local AI — without uploading your environment
-        </Title>
-        <Text size="lg" c="dimmed">
-          IMPACT inventories your OS, runtimes, tools, and models, then writes an <strong>offline HTML report</strong> and{" "}
-          <strong>JSON profile</strong>. Submission is <strong>optional</strong> and only after you configure an endpoint
-          and confirm. This is <strong>discovery and provenance</strong>, not a performance score.
-        </Text>
+        <PageHeader
+          eyebrow="Discovery, not benchmarks"
+          title="See what your machine can run for local AI — without uploading your environment"
+          description="IMPACT inventories your OS, runtimes, tools, and models, then writes an offline HTML report and JSON profile. Submission is optional and only after you configure an endpoint and confirm. This is discovery and provenance, not a performance score."
+        />
 
-        <StateBlock title="Install reality today">
-          The verified path is <strong>install from source (Path B)</strong>.{" "}
-          <Text component="code" span>
-            npm install -g @impact/cli
-          </Text>{" "}
-          becomes the primary public path only after{" "}
-          <Anchor href="https://github.com/sovereignsquad/impact/issues/34">#34</Anchor> is closed (publish + smoke +
-          evidence). We do not pretend npm is live until then.
-        </StateBlock>
+        <StateBlock
+          variant="info"
+          title="Install reality today"
+          compact
+          description={
+            <>
+              The verified path is <strong>install from source (Path B)</strong>.{" "}
+              <Text component="code" span>
+                npm install -g @impact/cli
+              </Text>{" "}
+              becomes the primary public path only after{" "}
+              <Anchor href="https://github.com/sovereignsquad/impact/issues/34">#34</Anchor> is closed (publish + smoke +
+              evidence). We do not pretend npm is live until then.
+            </>
+          }
+        />
 
         <Group>
           <Button component="a" href="/install.html">
@@ -46,7 +50,9 @@ export function HomePage() {
         </Group>
 
         <Stack gap="sm">
-          <Title order={2}>What you get in under a minute</Title>
+          <Text fw={600} size="lg">
+            What you get in under a minute
+          </Text>
           <List spacing="xs" c="dimmed">
             <List.Item>
               <Text span c="var(--mantine-color-text)" fw={600}>
@@ -74,7 +80,9 @@ export function HomePage() {
           </Text>
         </Stack>
 
-        <Title order={2}>FAQ</Title>
+        <Text fw={600} size="lg">
+          FAQ
+        </Text>
         <Accordion variant="separated">
           <Accordion.Item value="upload">
             <Accordion.Control>Does IMPACT upload my data?</Accordion.Control>
@@ -95,6 +103,6 @@ export function HomePage() {
           </Accordion.Item>
         </Accordion>
       </Stack>
-    </PublicShell>
+    </ImpactShell>
   );
 }

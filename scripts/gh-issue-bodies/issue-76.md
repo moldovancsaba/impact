@@ -4,7 +4,7 @@ Establish **GDS governance** for `@impact/web`: local adapter doc, **Phase 0 fre
 
 ## Unified context
 
-[general-design-system](https://github.com/moldovancsaba/general-design-system) v**2.2.0** is the cross-project SSOT. Impact’s public web shell uses **~550 lines of custom CSS** (`apps/web/src/style.css`) — a **CSS authority conflict** under GDS. Activation work (**#34**, **#58–#62**) remains higher priority; this issue is **governance + freeze only**.
+[general-design-system](https://github.com/sovereignsquad/general-design-system) v**2.4.3** is the cross-project SSOT. Impact’s public web shell uses **~550 lines of custom CSS** (`apps/web/src/style.css`) — a **CSS authority conflict** under GDS. Activation work (**#34**, **#58–#62**) remains higher priority; this issue is **governance + freeze only**.
 
 ## Based on
 

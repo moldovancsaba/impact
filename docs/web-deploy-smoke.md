@@ -1,6 +1,6 @@
 # Public web shell — deploy and smoke checklist
 
-**Purpose:** operational QA after each deploy of [`apps/web`](../apps/web/) (Vite build → `apps/web/dist/`). **SSOT for build/deploy:** [web.md](web.md). **Product constraints:** [mlp-status-cto.md](mlp-status-cto.md#cto-acceptance-leadership-dashboard). **Activation sprint:** [issue #58](https://github.com/sovereignsquad/impact/issues/58) body + [ingest-server.md](ingest-server.md).
+**Purpose:** operational QA after each deploy of [`apps/web`](../apps/web/) (Vite + **GDS** React build → `apps/web/dist/`). **SSOT for build/deploy:** [web.md](web.md), [gds-adapter.md](gds-adapter.md). **Product constraints:** [mlp-status-cto.md](mlp-status-cto.md#cto-acceptance-leadership-dashboard). **Activation sprint:** [issue #58](https://github.com/sovereignsquad/impact/issues/58) body + [ingest-server.md](ingest-server.md).
 
 **When:** after merge to `main` (or before tagging a release that advertises the site).
 
@@ -12,7 +12,7 @@ Replace `ORIGIN` with production base — canonical **`https://impact.sovereigns
 
 | Path | Check |
 | ---- | ----- |
-| `ORIGIN/` | Home: hero, truth banner (**Path B** until **#34**), CTAs, no npm-as-primary lie |
+| `ORIGIN/` | Home: GDS layout, info **StateBlock** (**Path B** until **#34**), CTAs, no npm-as-primary lie |
 | `ORIGIN/install.html` | Path B first; Path C explicitly gated on [#34](https://github.com/sovereignsquad/impact/issues/34) |
 | `ORIGIN/use.html` | Scan flow, status vocabulary, links work |
 | `ORIGIN/submit.html` | Optional submission, privacy, no silent upload implication |
@@ -21,11 +21,13 @@ Replace `ORIGIN` with production base — canonical **`https://impact.sovereigns
 
 ---
 
-## Navigation
+## Navigation & UI (GDS)
 
 - [ ] Header nav links reach all six surfaces (plus GitHub).
-- [ ] Active state highlights current page where applicable.
+- [ ] Active state highlights current page (`PublicShell` / `ImpactShell`).
 - [ ] Internal links use site-root paths (`/install.html`, …) suitable for static hosting.
+- [ ] Dark public theme renders (no unstyled flash; Mantine CSS loaded).
+- [ ] No obvious layout regression vs prior deploy (readable on mobile width).
 
 ---
 

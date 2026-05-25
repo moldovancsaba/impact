@@ -25,8 +25,9 @@ See [docs/README.md](docs/README.md) for the documentation map, [docs/ssot-map.m
 **Release parity:** use `npm ci` (same as README Quick start and [docs/install-macos.md](docs/install-macos.md)). For local iteration, `npm install` is acceptable.
 
 ```bash
-npm ci
-npm run lint
+npm ci                    # preinstall prepares GDS 2.4.3 (.gds-src) for @impact/web
+npm run lint              # includes @gds/eslint-config rules on apps/web/src
+npm run lint:gds          # GDS adoption manifest + compliance (web shell)
 npm run build
 npm test
 npm run validate-fixtures
@@ -34,7 +35,7 @@ npm run validate-invalid-fixtures
 npm run impact -- scan --no-submit -o ./reports
 ```
 
-**Public marketing site:** `npm run dev:web` (Vite) — see [docs/web.md](docs/web.md).
+**Public marketing site:** `npm run dev:web` (Vite + **@gds/theme** / **@gds/core**) — [docs/web.md](docs/web.md), [docs/gds-adapter.md](docs/gds-adapter.md). PRs touching `apps/web/src` must not reintroduce local shell/pattern duplicates or raw color literals outside approved paths.
 
 Releases: follow [docs/release-checklist.md](docs/release-checklist.md) and [docs/smoke-test-macos.md](docs/smoke-test-macos.md). **Version alignment** (Git tag, `@impact/*` semver, `schema_version`, `impact --version`): [docs/current-state.md](docs/current-state.md) — § **Versioning (SSOT)**.
 

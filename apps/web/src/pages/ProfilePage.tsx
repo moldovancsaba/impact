@@ -1,43 +1,9 @@
 import { ImpactProfileSchema, type ImpactProfile } from "@impact/schemas";
 import { buildRecommendations } from "@impact/reporting/recommendations";
-import { Anchor, Button, Code, FileButton, List, Paper, Stack, Table, Text, Title } from "@mantine/core";
-import { useCallback, useState, type DragEvent } from "react";
-import { PageHeader } from "../components/PageHeader";
-import { PublicShell } from "../components/PublicShell";
-import { StateBlock } from "../components/StateBlock";
-
-function DropPaper({ onFile }: { onFile: (f: File | null) => void }) {
-  const [active, setActive] = useState(false);
-  const onDragOver = (e: DragEvent) => {
-    e.preventDefault();
-    setActive(true);
-  };
-  const onDragLeave = () => setActive(false);
-  const onDrop = (e: DragEvent) => {
-    e.preventDefault();
-    setActive(false);
-    const f = e.dataTransfer?.files?.[0];
-    if (f) void onFile(f);
-  };
-  return (
-    <Paper
-      p="xl"
-      withBorder
-      style={{
-        borderStyle: "dashed",
-        textAlign: "center",
-        borderColor: active ? "var(--mantine-color-teal-6)" : undefined,
-      }}
-      onDragOver={onDragOver}
-      onDragLeave={onDragLeave}
-      onDrop={onDrop}
-    >
-      <Text c="dimmed" size="sm">
-        Or drop <Code>impact-profile.json</Code> here
-      </Text>
-    </Paper>
-  );
-}
+import { DocsPageShell, StateBlock, UploadDropzone } from "@gds/core/client";
+import { Anchor, Button, Code, FileButton, List, Stack, Table, Text, Title } from "@mantine/core";
+import { useCallback, useState } from "react";
+import { ImpactShell } from "../shell/impact-shell";
 
 function ProfileResult({ profile }: { profile: ImpactProfile }) {
   const host = profile.host;
@@ -187,9 +153,9 @@ export function ProfilePage() {
   }, []);
 
   return (
-    <PublicShell pageId="profile">
-      <PageHeader
-        crumb={[{ label: "Home", href: "/" }, { label: "Profile preview" }]}
+    <ImpactShell pageId="profile">
+      <DocsPageShell
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Profile preview" }]}
         title="Preview a profile file"
         lead={
           <>
@@ -197,30 +163,34 @@ export function ProfilePage() {
             <Code>@impact/schemas</Code> in <strong>your browser</strong> — nothing is uploaded.
           </>
         }
-      />
+      >
+        <Stack gap="md" mb="lg">
+          <FileButton onChange={handleFile} accept=".json,application/json">
+            {(props) => (
+              <Button {...props} variant="light">
+                Choose impact-profile.json
+              </Button>
+            )}
+          </FileButton>
+          <UploadDropzone
+            title="Drop impact-profile.json"
+            description="Or use the button above — parsing stays in your browser."
+            accept=".json,application/json"
+            multiple={false}
+            actionLabel="Choose file"
+            mode="inline"
+            onFilesSelected={(files) => void handleFile(files[0] ?? null)}
+          />
+        </Stack>
 
-      <Stack gap="md" mb="lg">
-        <FileButton onChange={handleFile} accept=".json,application/json">
-          {(props) => (
-            <Button {...props} variant="light">
-              Choose impact-profile.json
-            </Button>
-          )}
-        </FileButton>
-        <DropPaper onFile={handleFile} />
-      </Stack>
+        {error ? <StateBlock variant="error" title="Could not load profile" description={error} compact /> : null}
 
-      {error ? (
-        <StateBlock color="red" title="Could not load profile">
-          {error}
-        </StateBlock>
-      ) : null}
+        {profile ? <ProfileResult profile={profile} /> : null}
 
-      {profile ? <ProfileResult profile={profile} /> : null}
-
-      <Text mt="lg">
-        <Anchor href="/use.html">← How to run a scan</Anchor>
-      </Text>
-    </PublicShell>
+        <Text mt="lg">
+          <Anchor href="/use.html">← How to run a scan</Anchor>
+        </Text>
+      </DocsPageShell>
+    </ImpactShell>
   );
 }

@@ -1,5 +1,8 @@
 import eslint from "@eslint/js";
+import { createGdsConfig } from "@gds/eslint-config";
 import tseslint from "typescript-eslint";
+
+const gdsWebConfig = createGdsConfig();
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -8,9 +11,11 @@ export default tseslint.config(
     ignores: [
       "**/dist/**",
       "**/node_modules/**",
+      "**/.gds-src/**",
       "scripts/validate-fixtures.mjs",
       "scripts/validate-invalid-fixtures.mjs",
       "scripts/lint-gds-web.mjs",
+      "scripts/prepare-gds-deps.mjs",
     ],
   },
   {
@@ -20,5 +25,9 @@ export default tseslint.config(
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
     },
+  },
+  {
+    files: ["apps/web/src/**/*.{ts,tsx}"],
+    ...gdsWebConfig[0],
   }
 );

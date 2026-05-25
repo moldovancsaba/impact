@@ -10,6 +10,7 @@
     "node": "24.x"
   },
   "scripts": {
+    "preinstall": "node scripts/prepare-gds-deps.mjs",
     "build": "npm run build -w @impact/schemas && npm run build -w @impact/scanner-host && npm run build -w @impact/scanner-runtimes && npm run build -w @impact/scanner-tools && npm run build -w @impact/scanner-models && npm run build -w @impact/privacy && npm run build -w @impact/reporting && npm run build -w @impact/submission && npm run build -w @impact/core && npm run build -w @impact/cli && npm run build -w @impact/ingest && npm run build -w @impact/web",
     "clean": "rm -rf packages/*/dist apps/*/dist",
     "test": "npm run test -w @impact/schemas && npm run test -w @impact/core && npm run test -w @impact/reporting && npm run test -w @impact/submission && npm run test -w @impact/ingest",
@@ -27,6 +28,8 @@
     "docker:ingest:build": "docker build -f Dockerfile.ingest -t impact-ingest ."
   },
   "devDependencies": {
+    "@gds/compliance": "file:.gds-src/packages/gds-compliance",
+    "@gds/eslint-config": "file:.gds-src/packages/gds-eslint-config",
     "@eslint/js": "^9.24.0",
     "@types/node": "^22.14.0",
     "@vercel/node": "^5.5.0",

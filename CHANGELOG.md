@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **GDS migration (implemented):** `@impact/web` — **React + Mantine** (GDS-aligned theme), shared **`PublicShell`** / **`PageHeader`** / **`StateBlock`** / **`StatsTable`**; legacy **`style.css`** removed; **`npm run lint:gds`**; docs [gds-migration-plan.md](docs/gds-migration-plan.md), [gds-adapter.md](docs/gds-adapter.md); board **#76–#82** → **Done**.
-
 - **Org migration directive (CTO):** [mlp-cto-directive-org-migration-sovereignsquad.md](docs/mlp-cto-directive-org-migration-sovereignsquad.md) — `sovereignsquad/impact` transfer plan, **org GitHub Project 4** as workflow SSOT (74 issues, `apply-status.sh`), Vercel **`impact.sovereignsquad.com`**, archive personal Project #2.
 
 - **Repository ownership:** default remote **`sovereignsquad/impact`**; in-repo **`github.com/sovereignsquad/impact`** links updated. Workflow board: [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (personal Project #2 is archive-only).
@@ -22,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`scripts/post-migration-org-project.sh`** — org project README, repo link, ensure issues on board, `apply-status.sh`; **`scripts/activation-preflight.sh`** — web/npm/upstream checks before activation work.
 
 ### Changed
+
+- **GDS 100%:** `@impact/web` consumes **`@gds/theme` + `@gds/core`** (v2.4.3 via `preinstall` / `.gds-src`); removed local shell/pattern components and vendored theme; **`@gds/eslint-config`** + **`@gds/compliance`** enforcement; thin **`ImpactShell`** adapter only.
 
 - **Docs:** full repoint of programme SSOT links from personal Project #2 to [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (`architect-handoff`, `product`, `mlp*`, `CONTRIBUTING`, issue templates, `issue-16`); migration directive marked **GitHub cutover complete** (board + README + repo link + `apply-status.sh`).
 
