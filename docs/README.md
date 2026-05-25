@@ -15,7 +15,7 @@
 | **Install and run the scanner** | [install-macos.md](install-macos.md) — Path B (source), Path C (npm when live), Path D (DMG) |
 | **Understand privacy and consent** | [privacy-for-users.md](privacy-for-users.md) (plain language) → [privacy-policy.md](privacy-policy.md) (formal) |
 | **Use or deploy the public website** | [web.md](web.md) — GDS React shell, build, **`VITE_STATS_API_BASE`**, Vercel · [gds-adapter.md](gds-adapter.md) · [web-deploy-smoke.md](web-deploy-smoke.md) after deploy |
-| **Run optional HTTP submission / ingest** | [submission-contract.md](submission-contract.md) · [ingest-server.md](ingest-server.md) — POST ingest + **`GET /api/stats/*`** |
+| **Run optional HTTP submission / ingest** | [submission-contract.md](submission-contract.md) · [ingest-server.md](ingest-server.md) — POST ingest + **`GET /api/stats/*`** · **Activation credentials:** [mlp-activation-credentials.md](mlp-activation-credentials.md) |
 | **See what is actually shipped** | [current-state.md](current-state.md) · [user-expectations-mvp.md](user-expectations-mvp.md) |
 | **Contribute or follow the programme** | [project-management.md](project-management.md) · [product.md](product.md) · [mlp.md](mlp.md) |
 | **Planned org + GitHub Project migration** | [mlp-cto-directive-org-migration-sovereignsquad.md](mlp-cto-directive-org-migration-sovereignsquad.md) |

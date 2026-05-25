@@ -1,0 +1,37 @@
+# Publish @impact/* to npm when repository secret NPM_TOKEN is set.
+# Maintainer: Settings → Secrets → NPM_TOKEN (Automation token from npmjs.com).
+#
+name: Publish npm packages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Require NPM_TOKEN
+        run: |
+          if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+            echo "::error::Add repository secret NPM_TOKEN (npm automation token with publish scope for @impact)."
+            exit 1
+          fi
+
+      - name: Install and build
+        run: npm ci && npm run build
+
+      - name: Publish workspaces
+        run: npm run publish:npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Verify @impact/cli on registry
+        run: npm view @impact/cli version

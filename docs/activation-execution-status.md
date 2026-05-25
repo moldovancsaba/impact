@@ -1,8 +1,19 @@
 # MLP activation — execution status (developer log)
 
-**Purpose:** rolling **evidence** for the CTO report-back in [mlp-activation-path.md](mlp-activation-path.md). **Board / closure:** [mlp-cto-next-execution.md](mlp-cto-next-execution.md). **Last run:** 2026-04-03 — real **CLI → local ingest** submission on dev hardware (this pass) + prior 2026-04-05 automated pass.
+**Purpose:** rolling **evidence** for the CTO report-back in [mlp-activation-path.md](mlp-activation-path.md). **Board / closure:** [mlp-cto-next-execution.md](mlp-cto-next-execution.md). **Last run:** 2026-05-25 — activation delivery pass (orchestrator + seed script verified locally; production blocked on credentials).
 
 **CTO (2026-04-05):** latest pass **accepted** as real progress; remaining gaps are **operational** (npm publish, hosted ingest, upstream, volume, **`/data.html`** proof) — see **[mlp-cto-next-execution.md](mlp-cto-next-execution.md)** (section *Status — activation pass accepted (2026-04-05)*).
+
+### 2026-05-25 delivery pass
+
+| Step | Result |
+|------|--------|
+| **Orchestrator** | Added [`scripts/run-activation-delivery.sh`](../scripts/run-activation-delivery.sh), [`scripts/seed-ingest-submissions.sh`](../scripts/seed-ingest-submissions.sh), [`docs/mlp-activation-credentials.md`](mlp-activation-credentials.md) |
+| **#34 npm** | **Blocked** — `npm whoami` ENEEDAUTH; `@impact/cli` still 404. Use **`NPM_TOKEN`** + workflow **Publish npm packages** or `npm login` locally |
+| **#58 Fly ingest** | **Blocked** — no `FLY_API_TOKEN` secret; workflow run [26409731604](https://github.com/sovereignsquad/impact/actions/runs/26409731604) failed. Add secret → re-run **Deploy ingest (Fly.io)** |
+| **Seed script (local proof)** | **PASS** — 6 fixtures → ingest; `submission_count: 6`, `below_global_threshold: false` |
+| **Vercel upstream** | **Still fallback** — `curl https://impact.sovereignsquad.com/api/health` → `stats_mode: fallback` |
+| **#44 copy flip** | **Skipped** (honest gate until npm live) |
 
 ---
 
