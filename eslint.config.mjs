@@ -16,6 +16,8 @@ export default tseslint.config(
       "scripts/validate-invalid-fixtures.mjs",
       "scripts/lint-gds-web.mjs",
       "scripts/prepare-gds-deps.mjs",
+      "scripts/flip-path-c-primary-copy.mjs",
+      "scripts/npm-auth-token.sh",
     ],
   },
   {
