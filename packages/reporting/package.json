@@ -1,5 +1,5 @@
 {
-  "name": "@impact/reporting",
+  "name": "@doneisbetter/reporting",
   "version": "0.3.0",
   "license": "MIT",
   "repository": {
@@ -26,7 +26,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@impact/schemas": "0.3.0"
+    "@doneisbetter/schemas": "0.3.0"
   },
   "devDependencies": {
     "typescript": "^5.8.2",

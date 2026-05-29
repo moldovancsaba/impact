@@ -1,5 +1,5 @@
 import type Database from "better-sqlite3";
-import { validateDashboardSummary, validateImpactProfile } from "@impact/schemas";
+import { validateDashboardSummary, validateImpactProfile } from "@doneisbetter/schemas";
 import {
   accumulateDashboardSummary,
   accumulateProfile,

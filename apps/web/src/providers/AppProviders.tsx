@@ -1,4 +1,4 @@
-import { GdsProvider, gdsDarkPublicTheme } from "@gds/theme/client";
+import { GdsProvider, gdsDarkPublicTheme } from "@doneisbetter/gds-theme/client";
 import type { ReactNode } from "react";
 
 import "@mantine/core/styles.css";

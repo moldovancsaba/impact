@@ -1,5 +1,5 @@
 {
-  "name": "@impact/cli",
+  "name": "@doneisbetter/cli",
   "version": "0.3.0",
   "description": "I.M.P.A.C.T. CLI — local AI environment scanner",
   "license": "MIT",
@@ -22,9 +22,9 @@
     "start": "node --enable-source-maps ./dist/cli.js"
   },
   "dependencies": {
-    "@impact/core": "0.3.0",
-    "@impact/reporting": "0.3.0",
-    "@impact/submission": "0.3.0",
+    "@doneisbetter/core": "0.3.0",
+    "@doneisbetter/reporting": "0.3.0",
+    "@doneisbetter/submission": "0.3.0",
     "commander": "^13.1.0"
   },
   "devDependencies": {

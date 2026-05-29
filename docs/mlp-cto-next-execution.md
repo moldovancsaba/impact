@@ -34,7 +34,7 @@ These are **maintainer / infrastructure** blockers, **not** repo-design blockers
 
 ### Maintainer order (do these next, in sequence)
 
-1. `npm login` → `npm run publish:npm` → `npm view @impact/cli version`  
+1. `npm login` → `npm run publish:npm` → `npm view @doneisbetter/cli version`  
 2. Deploy ingest from **`Dockerfile.ingest`**; persistent **`IMPACT_INGEST_DB_PATH`**  
 3. `vercel env add IMPACT_INGEST_UPSTREAM production --value "https://YOUR-INGEST-ORIGIN" --yes` (no trailing slash)  
 4. **Redeploy** the web app on Vercel  
@@ -80,7 +80,7 @@ Use **[mlp-activation-path.md](mlp-activation-path.md)** as the operational sour
 
 - `npm login`
 - `npm run publish:npm`
-- `npm view @impact/cli`
+- `npm view @doneisbetter/cli`
 - **Clean-machine Path C** smoke from the published package
 - Attach **evidence** to **#34**
 - Move **#34** to **Done** when acceptance is met

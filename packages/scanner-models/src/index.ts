@@ -1,5 +1,5 @@
-import type { ModelRecord, RuntimeRecord } from "@impact/schemas";
-import { fieldConfidence, ps } from "@impact/schemas";
+import type { ModelRecord, RuntimeRecord } from "@doneisbetter/schemas";
+import { fieldConfidence, ps } from "@doneisbetter/schemas";
 
 type OllamaTagsResponse = {
   models?: Array<{ name: string; details?: { quantization_level?: string } }>;

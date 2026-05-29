@@ -2,12 +2,12 @@
 
 **Purpose:** optional **HTTP ingest** for anonymous `ImpactProfile` payloads so a **dashboard backend** can be built on real stored submissions. Implements [submission-contract.md](submission-contract.md).
 
-**Code:** [`apps/ingest`](../apps/ingest/) (`@impact/ingest`, **private** workspace).
+**Code:** [`apps/ingest`](../apps/ingest/) (`@doneisbetter/ingest`, **private** workspace).
 
 ## What it does
 
 - **POST** `Content-Type: application/json` — body is one **ImpactProfile** (`impact.v0.3`).
-- **Validates** with `@impact/schemas` (`validateImpactProfile`).
+- **Validates** with `@doneisbetter/schemas` (`validateImpactProfile`).
 - **Dedupes** on **raw body SHA-256** and **`run_id`** (UNIQUE in SQLite) — duplicates return **409** with existing `submission_id` per contract.
 - **Persists** to **SQLite** (default `./data/ingest.db`, configurable).
 - **Logs** one line per accept/duplicate at **info** (no full payload at info — see contract).
@@ -54,23 +54,29 @@ Expect **200** and JSON. Low submission count → `below_global_threshold: true`
 
 Full checklist: [web-deploy-smoke.md](web-deploy-smoke.md) § *Live stats*; report-back list: [mlp-status-cto.md § Leadership view](mlp-status-cto.md#cto-acceptance-leadership-dashboard).
 
-### Vercel stats routes (production web)
+### Vercel ingest + stats routes (production web)
 
-The public site deploy includes root **[`api/`](../api/)** on Vercel: **`GET /api/stats/*`** and **`GET /api/health`**.
+The public site deploy includes root **[`api/`](../api/)** on Vercel:
+
+- **`POST /api/ingest`** (submission ingest + dedupe + validation)
+- **`GET /api/stats/*`** (overview/full/hardware/tools/models)
+- **`GET /api/health`** (Mongo connectivity health)
 
 | Variable | Role |
 | -------- | ---- |
-| **`IMPACT_INGEST_UPSTREAM`** | Optional. Base URL of the **Node + SQLite** ingest app (e.g. `https://ingest.example.com`). When set, Vercel functions **proxy** `GET /api/stats/…` to `${IMPACT_INGEST_UPSTREAM}/api/stats/…`. When unset, responses are **schema-correct fallbacks** (zero submissions, below threshold) so the web shell and **`/data.html`** succeed without a hosted DB. |
-| **`IMPACT_STATS_MIN_BUCKET_COUNT`** | Optional; passed through semantics in fallback payloads (default **5**). |
-| **`IMPACT_STATS_CORS_ORIGIN`** | Optional; `Access-Control-Allow-Origin` for these routes (default **`*`**). |
+| **`MONGODB_URI`** | Required. Atlas connection string for the ingest/stats database. |
+| **`MONGODB_DB`** | Required. Database name. |
+| **`MONGODB_COLLECTION_SUBMISSIONS`** | Optional. Collection name (default `submissions`). |
+| **`IMPACT_STATS_MIN_BUCKET_COUNT`** | Optional; privacy threshold for published buckets (default **5**). |
+| **`IMPACT_STATS_CORS_ORIGIN`** | Optional; `Access-Control-Allow-Origin` for API routes (default **`*`**). |
 
-**Note:** **`POST /`** submission to the real ingest is **not** proxied here; point **`IMPACT_SUBMIT_URL`** at a deployed ingest when you enable submissions. **`/api/health`** on the web host describes **`stats_mode`** (`fallback` vs `upstream`), not the SQLite ingest process itself.
+**Note:** point CLI submissions at **`IMPACT_SUBMIT_URL=https://<your-web-origin>/api/ingest`** for same-deploy ingest.
 
 ## Production notes
 
 - Deploy behind **HTTPS**; set `IMPACT_SUBMIT_URL` on clients to the deployed base URL.
-- Set **`IMPACT_INGEST_DB_PATH`** to a **persistent** volume; confirm **`better-sqlite3`** native binary for host **OS/arch** in the runtime image.
-- Back up **`IMPACT_INGEST_DB_PATH`**; plan migrations as the storage model grows.
+- Use Atlas network + credential controls for production (`MONGODB_URI` least privilege user; optional IP restrictions).
+- Keep unique indexes on `payload_sha256` and `run_id`; keep `received_at` index for stats scans.
 - **Signing / notarization** apply to **Mac CLI/DMG**, not this Node service.
 
 ### Container image (hosted ingest)
@@ -82,12 +88,12 @@ docker build -f Dockerfile.ingest -t impact-ingest .
 docker run --rm -e HOST=0.0.0.0 -e PORT=8787 -p 8787:8787 impact-ingest
 ```
 
-- **`Dockerfile.ingest`** — multi-stage build: **`@impact/schemas`** + **`@impact/ingest`**, **`node:20-bookworm`** (reliable **`better-sqlite3`** compile).
+- **`Dockerfile.ingest`** — multi-stage build: **`@doneisbetter/schemas`** + **`@doneisbetter/ingest`**, **`node:20-bookworm`** (reliable **`better-sqlite3`** compile).
 - **`HOST=0.0.0.0`** in production containers (default in the image); override **`PORT`** as needed.
 - **`USER node`** — image creates **`/app/data`** and **`/data`** with **`chown node`** so default **`./data/ingest.db`** works; set **`IMPACT_INGEST_DB_PATH=/data/ingest.db`** when mounting a volume at **`/data`**.
 - **`.dockerignore`** excludes **`**/*.tsbuildinfo`** so TypeScript **composite** incremental state from the host cannot skip emitting **`dist/`** in a clean image.
 - Rolling verification notes: [activation-execution-status.md](activation-execution-status.md).
 
-**Fly.io:** repo root [`fly.ingest.toml`](../fly.ingest.toml) (volume **`ingest_data`** → **`/data`**, **`IMPACT_INGEST_DB_PATH=/data/ingest.db`**). **Local / CI:** [`scripts/deploy-ingest-fly-and-wire-vercel.sh`](../scripts/deploy-ingest-fly-and-wire-vercel.sh) after `flyctl auth login` or **`FLY_API_TOKEN`**; **GitHub:** [`.github/workflows/deploy-ingest-fly.yml`](../.github/workflows/deploy-ingest-fly.yml) (secret **`FLY_API_TOKEN`**) then [`scripts/vercel-wire-ingest-upstream.sh`](../scripts/vercel-wire-ingest-upstream.sh) `https://<app>.fly.dev`. **Reference copy:** [`deploy/ingest-fly.example.toml`](../deploy/ingest-fly.example.toml).
+**Fly.io:** optional legacy path for standalone SQLite ingest container. Keep only if you need a separate non-Vercel service.
 
 **Railway / Render / other:** run the same image; mount persistent disk for the SQLite file; expose **8787** (or set **`PORT`** to the platform’s assigned port).

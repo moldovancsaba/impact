@@ -8,7 +8,7 @@
 | [Doctrine #1](https://github.com/sovereignsquad/impact/issues/1) | Product north star |
 | [Phases #16](https://github.com/sovereignsquad/impact/issues/16) | Programme ladder |
 | [Activation #58](https://github.com/sovereignsquad/impact/issues/58) | Hosted ingest + live stats |
-| [npm gate #34](https://github.com/sovereignsquad/impact/issues/34) | Publish `@impact/cli` |
+| [npm gate #34](https://github.com/sovereignsquad/impact/issues/34) | Publish `@doneisbetter/cli` |
 | [current-state.md](https://github.com/sovereignsquad/impact/blob/main/docs/current-state.md) | Operational snapshot on `main` |
 | [mlp-activation-path.md](https://github.com/sovereignsquad/impact/blob/main/docs/mlp-activation-path.md) | Operator runbook |
 

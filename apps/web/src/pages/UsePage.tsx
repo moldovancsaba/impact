@@ -1,4 +1,4 @@
-import { DocsPageShell } from "@gds/core/client";
+import { DocsPageShell } from "@doneisbetter/gds-core/client";
 import { Anchor, Code, List, Stack, Text, Title } from "@mantine/core";
 import { ImpactShell } from "../shell/impact-shell";
 

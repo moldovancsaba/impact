@@ -1,11 +1,11 @@
-# `@impact/cli`
+# `@doneisbetter/cli`
 
 **I.M.P.A.C.T.** command-line scanner — local AI environment inventory, JSON + HTML reports, optional consent-based submission.
 
 ## Install
 
 ```bash
-npm install -g @impact/cli
+npm install -g @doneisbetter/cli
 impact --version
 impact scan --no-submit -o ./reports
 ```

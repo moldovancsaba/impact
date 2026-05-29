@@ -1,5 +1,5 @@
 import eslint from "@eslint/js";
-import { createGdsConfig } from "@gds/eslint-config";
+import { createGdsConfig } from "@doneisbetter/gds-eslint-config";
 import tseslint from "typescript-eslint";
 
 const gdsWebConfig = createGdsConfig();

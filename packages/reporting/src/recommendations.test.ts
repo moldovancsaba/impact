@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
-import { validateImpactProfile, type ImpactProfile } from "@impact/schemas";
+import { validateImpactProfile, type ImpactProfile } from "@doneisbetter/schemas";
 import { buildRecommendations } from "./recommendations.js";
 
 const fixtures = join(dirname(fileURLToPath(import.meta.url)), "../../../fixtures");

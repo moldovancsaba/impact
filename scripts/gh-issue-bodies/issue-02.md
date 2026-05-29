@@ -15,7 +15,7 @@ Today the monorepo builds and tests **locally** (`npm run build`, `npm test`) bu
 ## Problem
 
 - Contributors cannot see **green/red** state without cloning.
-- Regressions in `@impact/schemas` or scanners can ship unnoticed.
+- Regressions in `@doneisbetter/schemas` or scanners can ship unnoticed.
 - Release hygiene (versioning, tags) is undefined.
 
 ## Goal

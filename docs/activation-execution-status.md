@@ -9,11 +9,11 @@
 | Step | Result |
 |------|--------|
 | **Orchestrator** | Added [`scripts/run-activation-delivery.sh`](../scripts/run-activation-delivery.sh), [`scripts/seed-ingest-submissions.sh`](../scripts/seed-ingest-submissions.sh), [`docs/mlp-activation-credentials.md`](mlp-activation-credentials.md) |
-| **#34 npm** | **Blocked** — `npm whoami` ENEEDAUTH; `@impact/cli` still 404. Use **`NPM_TOKEN`** + workflow **Publish npm packages** or `npm login` locally |
-| **#58 Fly ingest** | **Blocked** — no `FLY_API_TOKEN` secret; workflow run [26409731604](https://github.com/sovereignsquad/impact/actions/runs/26409731604) failed. Add secret → re-run **Deploy ingest (Fly.io)** |
+| **#34 npm** | **Done (2026-05-26)** — all `@doneisbetter/*` at **0.3.0** on npm; `npm view @doneisbetter/cli` → **0.3.0**; Path C copy flipped on web |
+| **#58 hosted ingest** | **In progress** — migrated to first-party Vercel API (`/api/ingest`, `/api/stats/*`) backed by MongoDB Atlas; pending production env wiring + seed evidence |
 | **Seed script (local proof)** | **PASS** — 6 fixtures → ingest; `submission_count: 6`, `below_global_threshold: false` |
-| **Vercel upstream** | **Still fallback** — `curl https://impact.sovereignsquad.com/api/health` → `stats_mode: fallback` |
-| **#44 copy flip** | **Skipped** (honest gate until npm live) |
+| **Vercel API mode** | **Target MongoDB** — `curl https://impact.sovereignsquad.com/api/health` should report `stats_mode: mongodb` once env vars are set |
+| **#44 copy flip** | **Done** — `scripts/flip-path-c-primary-copy.mjs` (home + install pages) |
 
 ---
 
@@ -21,18 +21,17 @@
 
 | Check | Result |
 | ----- | ------ |
-| `npm whoami` | **Blocked** — machine not logged in to npm (`ENEEDAUTH`). Maintainer must run `npm login`. |
-| `npm view @impact/cli` | **404** — package **not** on the public registry yet. |
-| `DRY_RUN=1 npm run publish:npm:dry-run` | **PASS** (2026-04-05) — all workspace packages pack and dry-publish **`0.3.0`** in dependency order. |
-| Clean-machine Path C smoke | **Not run** — blocked until real publish. |
-| **#34 → Done** | **Not ready** — requires `npm login` + `npm run publish:npm` + evidence on the issue. |
+| `npm view @doneisbetter/cli` | **PASS** — **0.3.0** on registry (org **doneisbetter**). |
+| `npm run publish:npm` | **PASS** (2026-05-26) — schemas → cli published in dependency order. |
+| `DRY_RUN=1 npm run publish:npm:dry-run` | **PASS** — dry-run still valid before bumping semver. |
+| Clean-machine Path C smoke | **Recommended** — `npm install -g @doneisbetter/cli` on fresh host per [smoke-test-macos.md](smoke-test-macos.md). |
+| **#34 → Done** | **Ready for board** — publish + registry verify done; attach clean-machine smoke evidence on the issue. |
 
-**Recommended next command (maintainer):**
+**Verify:**
 
 ```bash
-npm login
-npm run publish:npm
-npm view @impact/cli version
+npm view @doneisbetter/cli version
+npm install -g @doneisbetter/cli@0.3.0 && impact --version
 ```
 
 ---
@@ -46,7 +45,7 @@ npm view @impact/cli version
 | `GET /health`, `/healthz` | **PASS** in container — `{"ok":true,"service":"impact-ingest"}`. |
 | `POST` accept + duplicate | **PASS** — `200` + `submission_id`, then **`409`** duplicate with same `submission_id` / message. |
 | SQLite after `docker restart` | **PASS** — `submission_count` remains **1** after restart. |
-| Public HTTPS origin | **Automation ready, credentials pending** — root [`fly.ingest.toml`](../fly.ingest.toml), [`scripts/deploy-ingest-fly-and-wire-vercel.sh`](../scripts/deploy-ingest-fly-and-wire-vercel.sh), GitHub [`.github/workflows/deploy-ingest-fly.yml`](../.github/workflows/deploy-ingest-fly.yml). **Requires:** `flyctl auth login` or **`FLY_API_TOKEN`** (then run script or workflow); then `bash scripts/vercel-wire-ingest-upstream.sh https://<app>.fly.dev` if Vercel wiring is separate. **This Cursor agent:** Fly token not available → **no live deploy executed**. |
+| Public HTTPS origin | **In migration** — Vercel routes now support Mongo-backed ingest/stats directly (`/api/ingest`, `/api/stats/*`). Configure `MONGODB_URI`, `MONGODB_DB`, optional `MONGODB_COLLECTION_SUBMISSIONS`, then deploy Vercel and verify `stats_mode: mongodb`. |
 
 **Local verification commands used:**
 
@@ -82,15 +81,15 @@ bash scripts/local-e2e-submit.sh
 
 | Check | Result |
 | ----- | ------ |
-| Production `https://impact.sovereignsquad.com/api/*` (and other Vercel hostnames) | **Live** (prior deploy) — fallback when **`IMPACT_INGEST_UPSTREAM`** unset. |
-| `IMPACT_INGEST_UPSTREAM` on Vercel | **Not set** — **no public ingest URL** yet to point at. |
-| `stats_mode: upstream` on `/api/health` | **Not yet** — still **`fallback`** until upstream is set. |
+| Production `https://impact.sovereignsquad.com/api/*` | **Live** — routes now read/write directly with Mongo when env vars are configured. |
+| `MONGODB_URI` + `MONGODB_DB` on Vercel | **Required** — missing values keep DB-backed ingest/stats unavailable. |
+| `stats_mode: mongodb` on `/api/health` | **Target** — should be `mongodb` with `db_status: ok` after env + deploy. |
 
-**After hosted ingest URL exists:**
+**After Mongo env vars are set on Vercel:**
 
 ```bash
-vercel env add IMPACT_INGEST_UPSTREAM production --value "https://YOUR-INGEST-ORIGIN" --yes
-# plus preview '' if needed
+vercel env add MONGODB_URI production --value "mongodb+srv://..." --yes
+vercel env add MONGODB_DB production --value "impact" --yes
 vercel --prod --scope narimato
 ```
 
@@ -120,10 +119,10 @@ vercel --prod --scope narimato
 | Issue | Suggested column | Notes |
 | ----- | ---------------- | ----- |
 | **#34** | **In Progress** | Code/registry packages **ready**; **npm auth + publish** outstanding. |
-| **#58** | **In Progress** | **In-repo + Docker verified**; **hosted TLS + volume** outstanding. |
+| **#58** | **In Progress** | **In-repo Vercel+Mongo implementation complete**; production env wiring + seeded proof outstanding. |
 | **#59** | **Todo** | Aggregation **proven in repo**; hosted proof after ingest + volume. |
 | **#60** | **Todo** | Thresholds **proven in repo**; hosted validation after **#59** path. |
-| **#61** | **Todo** | Vercel proxy **ready**; **upstream URL** outstanding. |
+| **#61** | **In Progress** | Vercel API is first-party; complete Mongo env wiring and verify live stats. |
 | **#62** | **Todo** | **Do not close** until public **`/data.html`** shows **real** aggregates. |
 
 ---

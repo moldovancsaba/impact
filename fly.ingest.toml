@@ -1,4 +1,4 @@
-# Fly.io app for @impact/ingest (Dockerfile.ingest). Deploy from repo root:
+# Fly.io app for @doneisbetter/ingest (Dockerfile.ingest). Deploy from repo root:
 #   flyctl volumes create ingest_data --region iad --size 1 -a impact-mm-ingest --yes   # once per app
 #   flyctl deploy --config fly.ingest.toml --remote-only
 #

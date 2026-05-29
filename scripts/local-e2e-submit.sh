@@ -20,7 +20,7 @@ export IMPACT_INGEST_DB_PATH="$WORKDIR/ingest.db"
 export PORT
 export HOST=127.0.0.1
 
-npm run start -w @impact/ingest &
+npm run start -w @doneisbetter/ingest &
 INGEST_PID=$!
 
 for _ in $(seq 1 50); do

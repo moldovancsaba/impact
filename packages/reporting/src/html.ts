@@ -1,4 +1,4 @@
-import type { ImpactProfile, ProvenancedString, ProvenancedNumber, ProvenancedBoolean } from "@impact/schemas";
+import type { ImpactProfile, ProvenancedString, ProvenancedNumber, ProvenancedBoolean } from "@doneisbetter/schemas";
 import { buildDiagnostics } from "./diagnostics.js";
 import { buildRecommendations, type Recommendation } from "./recommendations.js";
 

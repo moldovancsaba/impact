@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { randomUUID } from "node:crypto";
-import { parseSubmissionBody } from "@impact/schemas";
+import { parseSubmissionBody } from "@doneisbetter/schemas";
 import { ZodError } from "zod";
 import type Database from "better-sqlite3";
 import { insertSubmission } from "./store.js";

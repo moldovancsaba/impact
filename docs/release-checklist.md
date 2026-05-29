@@ -9,8 +9,8 @@ Use this for **tagged releases** and **release candidates**. Execute in order; d
 
 ## Version and changelog
 
-- [ ] Align **all** version layers per [current-state.md](current-state.md) **§ Versioning (SSOT)** — Git tag `vX.Y.Z`, npm `X.Y.Z` on every `@impact/*` workspace + pinned internal deps, profile `schema_version` if schema bumped, `impact --version` via `apps/cli/package.json`, **`apps/web/package.json`** (footer “Web shell” line) + **`vite.config.ts`** `PROFILE_SCHEMA_VERSION` if schema bumped, **`apps/ingest/package.json`** if ingest ships with the tag
-- [ ] Bump **all** `@impact/*` workspace versions and **pinned** internal `dependencies` to the same semver (see `packages/*/package.json`, `apps/cli/package.json`, `apps/web/package.json`, `apps/ingest/package.json`)
+- [ ] Align **all** version layers per [current-state.md](current-state.md) **§ Versioning (SSOT)** — Git tag `vX.Y.Z`, npm `X.Y.Z` on every `@doneisbetter/*` workspace + pinned internal deps, profile `schema_version` if schema bumped, `impact --version` via `apps/cli/package.json`, **`apps/web/package.json`** (footer “Web shell” line) + **`vite.config.ts`** `PROFILE_SCHEMA_VERSION` if schema bumped, **`apps/ingest/package.json`** if ingest ships with the tag
+- [ ] Bump **all** `@doneisbetter/*` workspace versions and **pinned** internal `dependencies` to the same semver (see `packages/*/package.json`, `apps/cli/package.json`, `apps/web/package.json`, `apps/ingest/package.json`)
 - [ ] `npm install` at repo root (refresh lockfile)
 - [ ] Update [CHANGELOG.md](../CHANGELOG.md) `[Unreleased]` → dated section with summary
 - [ ] Commit: `chore(release): vX.Y.Z` (or merge PR)
@@ -18,8 +18,8 @@ Use this for **tagged releases** and **release candidates**. Execute in order; d
 ## Build and quality gates (local or CI)
 
 - [ ] `npm ci` (runs **`preinstall`** — clones/builds [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) per [`gds.version`](../gds.version) into `.gds-src`; needs network on fresh machines)
-- [ ] `npm run lint` (includes **@gds/eslint-config** on `apps/web/src`)
-- [ ] `npm run lint:gds` (`apps/web/gds-adoption.json` + **@gds/compliance**)
+- [ ] `npm run lint` (includes **@doneisbetter/gds-eslint-config** on `apps/web/src`)
+- [ ] `npm run lint:gds` (`apps/web/gds-adoption.json` + **@doneisbetter/gds-compliance**, including theme governance fields)
 - [ ] `npm run build`
 - [ ] `npm test`
 - [ ] `npm run validate-fixtures`
@@ -31,8 +31,8 @@ Use this for **tagged releases** and **release candidates**. Execute in order; d
 
 - [ ] `npm run publish:npm:dry-run` — inspect tarballs (only `dist/` shipped)
 - [ ] `npm login` and `npm run publish:npm` per [npm-publish.md](npm-publish.md) (order preserved in script)
-- [ ] `npm view @impact/cli version` matches release
-- [ ] **Path C** smoke in [smoke-test-macos.md](smoke-test-macos.md): `npm install -g @impact/cli` → scan → artefacts
+- [ ] `npm view @doneisbetter/cli version` matches release
+- [ ] **Path C** smoke in [smoke-test-macos.md](smoke-test-macos.md): `npm install -g @doneisbetter/cli` → scan → artefacts
 
 **Path B (source):** always valid fallback.
 

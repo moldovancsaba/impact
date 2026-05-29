@@ -1,4 +1,4 @@
-import type { DashboardSummary, ImpactProfile } from "@impact/schemas";
+import type { DashboardSummary, ImpactProfile } from "@doneisbetter/schemas";
 
 const NORM_VERSION = "1";
 

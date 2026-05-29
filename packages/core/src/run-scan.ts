@@ -1,10 +1,10 @@
 import { randomUUID } from "node:crypto";
-import { ImpactProfileSchema, type ImpactProfile, type ToolRecord } from "@impact/schemas";
-import { loadOrCreateSalt, privacyBlock } from "@impact/privacy";
-import { scanHost } from "@impact/scanner-host";
-import { scanModelsForMlx, scanModelsForOllama } from "@impact/scanner-models";
-import { scanRuntimes } from "@impact/scanner-runtimes";
-import { scanTools } from "@impact/scanner-tools";
+import { ImpactProfileSchema, type ImpactProfile, type ToolRecord } from "@doneisbetter/schemas";
+import { loadOrCreateSalt, privacyBlock } from "@doneisbetter/privacy";
+import { scanHost } from "@doneisbetter/scanner-host";
+import { scanModelsForMlx, scanModelsForOllama } from "@doneisbetter/scanner-models";
+import { scanRuntimes } from "@doneisbetter/scanner-runtimes";
+import { scanTools } from "@doneisbetter/scanner-tools";
 import { coarseReadiness } from "./readiness.js";
 
 export type ScanOptions = {

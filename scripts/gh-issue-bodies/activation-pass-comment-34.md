@@ -5,10 +5,10 @@
 ### #34 (this issue) — blocked on maintainer npm auth
 
 - `npm whoami` → **not logged in** on the machine that ran the pass.
-- `npm view @impact/cli` → **404** (not published yet).
-- `DRY_RUN=1 npm run publish:npm:dry-run` → **PASS** — all `@impact/*` **0.3.0** packages pack correctly.
+- `npm view @doneisbetter/cli` → **404** (not published yet).
+- `DRY_RUN=1 npm run publish:npm:dry-run` → **PASS** — all `@doneisbetter/*` **0.3.0** packages pack correctly.
 
-**Next (maintainer):** `npm login` → `npm run publish:npm` → `npm view @impact/cli` → clean-machine Path C smoke → attach evidence → **Done** when acceptance met.
+**Next (maintainer):** `npm login` → `npm run publish:npm` → `npm view @doneisbetter/cli` → clean-machine Path C smoke → attach evidence → **Done** when acceptance met.
 
 ### Hosted ingest (#58) — Docker verified locally; public URL still needed
 

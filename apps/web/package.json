@@ -1,5 +1,5 @@
 {
-  "name": "@impact/web",
+  "name": "@doneisbetter/web",
   "private": true,
   "version": "0.3.0",
   "description": "IMPACT public marketing shell — landing, install help, profile explorer, future stats",
@@ -11,9 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gds/core": "file:../../.gds-src/packages/gds-core",
-    "@gds/theme": "file:../../.gds-src/packages/gds-theme",
-    "@impact/schemas": "0.3.0",
+    "@doneisbetter/gds-core": "file:../../.gds-src/packages/gds-core",
+    "@doneisbetter/gds-theme": "file:../../.gds-src/packages/gds-theme",
+    "@doneisbetter/schemas": "0.3.0",
     "@mantine/core": "^7.17.0",
     "@mantine/hooks": "^7.17.0",
     "@mantine/modals": "^7.17.0",

@@ -1,4 +1,4 @@
-# Deploy @impact/ingest to Fly.io using fly.ingest.toml + Dockerfile.ingest.
+# Deploy @doneisbetter/ingest to Fly.io using fly.ingest.toml + Dockerfile.ingest.
 #
 # One-time: add repository secret FLY_API_TOKEN (https://fly.io/user/personal_access_tokens)
 # Actions → Deploy ingest (Fly.io) → Run workflow

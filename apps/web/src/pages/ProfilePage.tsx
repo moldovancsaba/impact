@@ -1,6 +1,6 @@
-import { ImpactProfileSchema, type ImpactProfile } from "@impact/schemas";
-import { buildRecommendations } from "@impact/reporting/recommendations";
-import { DocsPageShell, StateBlock, UploadDropzone } from "@gds/core/client";
+import { ImpactProfileSchema, type ImpactProfile } from "@doneisbetter/schemas";
+import { buildRecommendations } from "@doneisbetter/reporting/recommendations";
+import { DocsPageShell, StateBlock, UploadDropzone } from "@doneisbetter/gds-core/client";
 import { Anchor, Button, Code, FileButton, List, Stack, Table, Text, Title } from "@mantine/core";
 import { useCallback, useState } from "react";
 import { ImpactShell } from "../shell/impact-shell";
@@ -160,7 +160,7 @@ export function ProfilePage() {
         lead={
           <>
             Drop <Code>impact-profile.json</Code> from a local scan or choose a file. Parsing uses{" "}
-            <Code>@impact/schemas</Code> in <strong>your browser</strong> — nothing is uploaded.
+            <Code>@doneisbetter/schemas</Code> in <strong>your browser</strong> — nothing is uploaded.
           </>
         }
       >

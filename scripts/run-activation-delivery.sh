@@ -18,10 +18,10 @@ log "Report: $REPORT"
 # --- 1. #34 npm publish ---
 log "[1/5] #34 npm Path C"
 if npm whoami >/dev/null 2>&1; then
-  if npm view @impact/cli version >/dev/null 2>&1; then
-    log "  @impact/cli already on npm: $(npm view @impact/cli version)"
+  if npm view @doneisbetter/cli version >/dev/null 2>&1; then
+    log "  @doneisbetter/cli already on npm: $(npm view @doneisbetter/cli version)"
   else
-    log "  Publishing @impact/* …"
+    log "  Publishing @doneisbetter/* …"
     npm run publish:npm || blocker "npm publish failed"
   fi
 else
@@ -75,11 +75,11 @@ fi
 
 # --- 5. #44 Path C primary copy ---
 log "[5/5] #44 Path C primary copy"
-if npm view @impact/cli version >/dev/null 2>&1; then
+if npm view @doneisbetter/cli version >/dev/null 2>&1; then
   node "$ROOT/scripts/flip-path-c-primary-copy.mjs" || blocker "#44 copy flip script failed"
-  log "  Rebuild and deploy web after copy flip: npm run build -w @impact/web && vercel --prod --yes"
+  log "  Rebuild and deploy web after copy flip: npm run build -w @doneisbetter/web && vercel --prod --yes"
 else
-  blocker "#44 — skipped until @impact/cli is on npm (honest install gate)"
+  blocker "#44 — skipped until @doneisbetter/cli is on npm (honest install gate)"
 fi
 
 # --- Report ---
@@ -88,8 +88,8 @@ fi
   echo ""
   echo "| Step | Target | Result |"
   echo "|------|--------|--------|"
-  if npm view @impact/cli version >/dev/null 2>&1; then
-    echo "| 1 #34 npm | @impact/cli | **$(npm view @impact/cli version)** |"
+  if npm view @doneisbetter/cli version >/dev/null 2>&1; then
+    echo "| 1 #34 npm | @doneisbetter/cli | **$(npm view @doneisbetter/cli version)** |"
   else
     echo "| 1 #34 npm | publish | **blocked** |"
   fi

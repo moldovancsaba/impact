@@ -1,4 +1,4 @@
-import type { ImpactProfile } from "@impact/schemas";
+import type { ImpactProfile } from "@doneisbetter/schemas";
 
 /** Deterministic, scan-grounded suggestions — no scores, no cloud calls. */
 export type Recommendation = {

@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Repository ownership:** default remote **`sovereignsquad/impact`**; in-repo **`github.com/sovereignsquad/impact`** links updated. Workflow board: [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (personal Project #2 is archive-only).
 
-- **MLP dashboard summary path (CTO):** [mlp-cto-directive-mlp-summary-payload.md](docs/mlp-cto-directive-mlp-summary-payload.md) — **`impact.summary.v0.1`** in **@impact/schemas**, **`buildDashboardSummary`** in **@impact/core**, local artifact **`impact-dashboard-summary.json`**, submission envelope **`impact.submission.v0.1`** (raw profile + summary); ingest stores **`dashboard_summary_json`**; stats rollup **prefers summary** when present ([submission-contract.md](docs/submission-contract.md)).
+- **MLP dashboard summary path (CTO):** [mlp-cto-directive-mlp-summary-payload.md](docs/mlp-cto-directive-mlp-summary-payload.md) — **`impact.summary.v0.1`** in **@doneisbetter/schemas**, **`buildDashboardSummary`** in **@doneisbetter/core**, local artifact **`impact-dashboard-summary.json`**, submission envelope **`impact.submission.v0.1`** (raw profile + summary); ingest stores **`dashboard_summary_json`**; stats rollup **prefers summary** when present ([submission-contract.md](docs/submission-contract.md)).
 
 - **`impact scan`:** non-interactive submission when stdin is not a TTY — set **`IMPACT_SUBMIT_URL`**, **`IMPACT_SUBMIT_NON_INTERACTIVE=1`**, and **`--yes-submit`** (see [apps/cli/README.md](apps/cli/README.md)); [scripts/local-e2e-submit.sh](scripts/local-e2e-submit.sh) runs ingest + real local scan + POST.
 
@@ -21,19 +21,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **GDS 100%:** `@impact/web` consumes **`@gds/theme` + `@gds/core`** (v2.4.3 via `preinstall` / `.gds-src`); removed local shell/pattern components and vendored theme; **`@gds/eslint-config`** + **`@gds/compliance`** enforcement; thin **`ImpactShell`** adapter only.
+- **GDS 2.6.5:** `@doneisbetter/web` consumes **`@doneisbetter/gds-theme` + `@doneisbetter/gds-core`** (tag **`gds-v2.6.5`** via `preinstall` / `.gds-src`); **`gdsDarkPublicTheme`** canonical lane; **`@doneisbetter/gds-eslint-config`** + **`@doneisbetter/gds-compliance`** with **`approvedThemeLanes`** / **`themeOwnershipPaths`** in `gds-adoption.json`.
+
+- **Vercel ingest:** first-party **`POST /api/ingest`** and MongoDB-backed **`GET /api/stats/*`** (replaces upstream proxy); **`/api/health`** reports **`stats_mode: mongodb`**.
+
+- **npm scope:** publishable packages and docs use **`@doneisbetter/*`**; Path C install copy is primary on web.
 
 - **Docs:** full repoint of programme SSOT links from personal Project #2 to [org project 4](https://github.com/orgs/sovereignsquad/projects/4/views/1) (`architect-handoff`, `product`, `mlp*`, `CONTRIBUTING`, issue templates, `issue-16`); migration directive marked **GitHub cutover complete** (board + README + repo link + `apply-status.sh`).
 
 - **`Dockerfile.ingest`:** create **`/app/data`** and **`/data`** owned by **`node`** so the default SQLite path works under **`USER node`** (Fly volume typically mounts **`/data`**).
 
-- **`@impact/ingest` `tsconfig.json`:** exclude **`src/**/*.test.ts`** from `tsc` production emit (tests still run under Vitest).
+- **`@doneisbetter/ingest` `tsconfig.json`:** exclude **`src/**/*.test.ts`** from `tsc` production emit (tests still run under Vitest).
 
 - **Docs (SSOT):** [current-state.md](docs/current-state.md), [mlp-status-cto.md](docs/mlp-status-cto.md), [mlp-next-delivery-tranche.md](docs/mlp-next-delivery-tranche.md) — **partially live** public dashboard: Vercel **`/api/stats/*`** + **`VITE_STATS_API_BASE`** **green**; **real** aggregates **amber** until **`IMPACT_INGEST_UPSTREAM`** + hosted ingest + volume; activation sequence updated; **immediate operations** link **`Dockerfile.ingest`** / **`docker:ingest:build`**.
 
 - **Deploy / public web:** canonical **[impact.sovereignsquad.com](https://impact.sovereignsquad.com)**; root [`vercel.json`](vercel.json) sets **`VITE_STATS_API_BASE`** to **`/api`** so **`/data.html`** stats fetches stay same-origin on every Vercel hostname (multi-domain). Same-origin **`/api/stats/*`** is served by Vercel Functions in this repo.
 
-- **Web (`@impact/web`):** `VITE_STATS_API_BASE` accepts **path** `/api`, absolute **site origin**, or a base ending in **`/api`** (`stats-api-url.ts`, `data-entry.ts`). Docs: [web.md](docs/web.md) § `VITE_STATS_API_BASE`, [web-deploy-smoke.md](docs/web-deploy-smoke.md) § Live stats, [apps/web/README.md](apps/web/README.md).
+- **Web (`@doneisbetter/web`):** `VITE_STATS_API_BASE` accepts **path** `/api`, absolute **site origin**, or a base ending in **`/api`** (`stats-api-url.ts`, `data-entry.ts`). Docs: [web.md](docs/web.md) § `VITE_STATS_API_BASE`, [web-deploy-smoke.md](docs/web-deploy-smoke.md) § Live stats, [apps/web/README.md](apps/web/README.md).
 
 - **Docs:** [current-state.md](docs/current-state.md) + [mlp-next-delivery-tranche.md](docs/mlp-next-delivery-tranche.md) § board movement — **#58**/**#34** parallel **In Progress**, activation vs npm; `apply-status` template documented.
 
@@ -45,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **CTO assessment:** [mlp-status-cto.md](docs/mlp-status-cto.md) § *Leadership view* — **canonical entry points** table; **leadership sentence** (accepted in code vs product-live); **control stack** split; **steps 1–11** + **report-back**; **#58** / **#34** GitHub directive bodies ([`issue-58.md`](scripts/gh-issue-bodies/issue-58.md), [`issue-34.md`](scripts/gh-issue-bodies/issue-34.md)). [mlp-next-delivery-tranche.md](docs/mlp-next-delivery-tranche.md) cross-link updated.
 
-- **Web shell UX & versioning:** footer shows **Web shell** semver + **profile schema** on all pages (Vite `define` from `apps/web/package.json`); **`<main class="site-main">`** wraps primary content on every HTML entry; [docs/README.md](docs/README.md) reorganised with pick-a-path tables; root [README.md](README.md) adds **Versions** section and doc links for web + ingest; [docs/web.md](docs/web.md) and [docs/current-state.md](docs/current-state.md) § Versioning include `@impact/web`.
+- **Web shell UX & versioning:** footer shows **Web shell** semver + **profile schema** on all pages (Vite `define` from `apps/web/package.json`); **`<main class="site-main">`** wraps primary content on every HTML entry; [docs/README.md](docs/README.md) reorganised with pick-a-path tables; root [README.md](README.md) adds **Versions** section and doc links for web + ingest; [docs/web.md](docs/web.md) and [docs/current-state.md](docs/current-state.md) § Versioning include `@doneisbetter/web`.
 
 ### Added
 
@@ -55,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Activation execution log:** [activation-execution-status.md](docs/activation-execution-status.md) — npm dry-run, Docker ingest verification, blockers for **#34** / hosted URL / **#62**.
 
-- **Hosted ingest path:** [`Dockerfile.ingest`](Dockerfile.ingest) ( **`@impact/schemas`** + **`@impact/ingest`** ), [`.dockerignore`](.dockerignore) (excludes **`*.tsbuildinfo`** for clean image emits), [`deploy/ingest-fly.example.toml`](deploy/ingest-fly.example.toml); [ingest-server.md](docs/ingest-server.md) § *Container image*; root script **`npm run docker:ingest:build`**.
+- **Hosted ingest path:** [`Dockerfile.ingest`](Dockerfile.ingest) ( **`@doneisbetter/schemas`** + **`@doneisbetter/ingest`** ), [`.dockerignore`](.dockerignore) (excludes **`*.tsbuildinfo`** for clean image emits), [`deploy/ingest-fly.example.toml`](deploy/ingest-fly.example.toml); [ingest-server.md](docs/ingest-server.md) § *Container image*; root script **`npm run docker:ingest:build`**.
 
 - **Vercel `/api` stats edge:** root [`api/`](api/) serverless routes — **`GET /api/stats/overview|full|hardware|tools|models`** (honest **fallback** JSON when **`IMPACT_INGEST_UPSTREAM`** is unset; **proxy** to real ingest when set), **`GET /api/health`**. DevDependency **`@vercel/node`**. Docs: [web.md](docs/web.md) § Deploy (Vercel), [ingest-server.md](docs/ingest-server.md) § *Vercel stats routes*.
 
@@ -89,7 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Ingest server (D1 / #58 MVP):** [`apps/ingest`](apps/ingest) (`@impact/ingest`, private) — `POST /` + `/ingest`, `GET /health`, `validateImpactProfile`, SQLite + WAL, dedupe by raw-body hash + `run_id`, [ingest-server.md](docs/ingest-server.md). Depends on `better-sqlite3`. Root scripts: `dev:ingest`, build/test in `verify:release`. Default DB `./data/` (gitignored).
+- **Ingest server (D1 / #58 MVP):** [`apps/ingest`](apps/ingest) (`@doneisbetter/ingest`, private) — `POST /` + `/ingest`, `GET /health`, `validateImpactProfile`, SQLite + WAL, dedupe by raw-body hash + `run_id`, [ingest-server.md](docs/ingest-server.md). Depends on `better-sqlite3`. Root scripts: `dev:ingest`, build/test in `verify:release`. Default DB `./data/` (gitignored).
 
 - **macOS DMG (Path D):** `npm run build:dmg` — [`packaging/macos/build-dmg.sh`](packaging/macos/build-dmg.sh) produces `packaging/macos/out/Impact-{version}-macos.dmg` + `.sha256` (`Impact.app` with CLI `dist/` + pruned `node_modules`; **Node 20+** still required on the Mac). Docs: [macos-distribution.md](docs/macos-distribution.md), [install-macos.md](docs/install-macos.md) Path D, [release-checklist.md](docs/release-checklist.md). Script ends with **`npm ci`** to restore dev dependencies after `npm prune`.
 
@@ -115,20 +119,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **MLP CTO assessment doc:** [docs/mlp-status-cto.md](docs/mlp-status-cto.md) — delivered vs blocked, architectural notes, immediate and post-#34 next tasks; linked from [mlp.md](docs/mlp.md), [mlp-execution.md](docs/mlp-execution.md), [current-state.md](docs/current-state.md), [ssot-map.md](docs/ssot-map.md), [docs/README.md](docs/README.md).
 
-- **HTML report (MLP slice):** **At a glance**, **What this scan means**, deterministic **Suggested next steps** via `buildRecommendations` in [`@impact/reporting`](packages/reporting/src/recommendations.ts), and **Known limitations** — shipped in `impact-report.html` generation.
+- **HTML report (MLP slice):** **At a glance**, **What this scan means**, deterministic **Suggested next steps** via `buildRecommendations` in [`@doneisbetter/reporting`](packages/reporting/src/recommendations.ts), and **Known limitations** — shipped in `impact-report.html` generation.
 - **Web profile explorer:** runtimes summary table + the same **Suggested next steps** list (bundles shared recommendation logic; no upload).
 - **install-macos:** troubleshooting table (404 / `EACCES` / `impact` not on `PATH` / sparse HTML).
 
 - **MLP execution plan:** [docs/mlp-execution.md](docs/mlp-execution.md) — CTO task breakdown (Gate #34, M1–M6, web W1–W4), linked from [mlp.md](docs/mlp.md).
-- **`apps/web` (`@impact/web`):** Vite public shell — hero, install (Path B/C honest), after-scan explainer, **in-browser** `impact-profile.json` via `ImpactProfileSchema.safeParse`, FAQ, community-stats placeholder; [docs/web.md](docs/web.md). Root `npm run build` + `dev:web`; [current-state.md](docs/current-state.md) CTO snapshot + shipped stack row.
+- **`apps/web` (`@doneisbetter/web`):** Vite public shell — hero, install (Path B/C honest), after-scan explainer, **in-browser** `impact-profile.json` via `ImpactProfileSchema.safeParse`, FAQ, community-stats placeholder; [docs/web.md](docs/web.md). Root `npm run build` + `dev:web`; [current-state.md](docs/current-state.md) CTO snapshot + shipped stack row.
 - **MLP execution:** GitHub **[#44](https://github.com/sovereignsquad/impact/issues/44)–[#49](https://github.com/sovereignsquad/impact/issues/49)** on [Project #2](https://github.com/users/moldovancsaba/projects/2) (M1–M3 **Todo**, M4–M6 **Backlog**); bodies `scripts/gh-issue-bodies/issue-44.md` … `issue-49.md`; [`apply-status.sh`](scripts/gh-issue-bodies/apply-status.sh) + [`apply-updates.sh`](scripts/gh-issue-bodies/apply-updates.sh) updated. [mlp.md](docs/mlp.md) — CTO acceptance + board table with issue links.
-- **npm publish (#34):** all `@impact/*` workspaces at **0.3.0** with `files: ["dist"]`, `publishConfig.access: public`, pinned internal deps, `prepublishOnly` build; [docs/npm-publish.md](docs/npm-publish.md); `scripts/publish-npm-packages.sh`; root `npm run publish:npm` / `publish:npm:dry-run`; [smoke-test-macos.md](docs/smoke-test-macos.md) **Path C**; README / install-macos **registry-first** when live; `apps/cli/README.md`.
+- **npm publish (#34):** all `@doneisbetter/*` workspaces at **0.3.0** with `files: ["dist"]`, `publishConfig.access: public`, pinned internal deps, `prepublishOnly` build; [docs/npm-publish.md](docs/npm-publish.md); `scripts/publish-npm-packages.sh`; root `npm run publish:npm` / `publish:npm:dry-run`; [smoke-test-macos.md](docs/smoke-test-macos.md) **Path C**; README / install-macos **registry-first** when live; `apps/cli/README.md`.
 
 ---
 
 ## [0.3.0] — 2026-04-03
 
-**Discovery scanner MVP — delivered.** First complete milestone: local privacy-first scan, **`impact.v0.3`** profile schema, JSON + HTML outputs, optional consent-based submission, CI + fixtures, public README/doc hierarchy, **Path B** macOS install smoke-verified. **Not** a benchmark system or consumer “v1” app — see [docs/user-expectations-mvp.md](docs/user-expectations-mvp.md). **`@impact/cli` 0.3.0** aligns npm semver with the profile schema generation; **`impact --version`** reads **`apps/cli/package.json`** (single source of truth).
+**Discovery scanner MVP — delivered.** First complete milestone: local privacy-first scan, **`impact.v0.3`** profile schema, JSON + HTML outputs, optional consent-based submission, CI + fixtures, public README/doc hierarchy, **Path B** macOS install smoke-verified. **Not** a benchmark system or consumer “v1” app — see [docs/user-expectations-mvp.md](docs/user-expectations-mvp.md). **`@doneisbetter/cli` 0.3.0** aligns npm semver with the profile schema generation; **`impact --version`** reads **`apps/cli/package.json`** (single source of truth).
 
 ### Added
 
@@ -136,10 +140,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Documentation sprint:** README rewritten as **public front door** (value, first-run, trust, today vs later, Mermaid workflow, sample report screenshot, redacted JSON excerpt); [docs/README.md](docs/README.md) curated index; [docs/privacy-for-users.md](docs/privacy-for-users.md) plain-language trust; [docs/docs-alignment-after-packaging.md](docs/docs-alignment-after-packaging.md) D6 checklist; assets under `docs/assets/`.
 - **Sprint B.1 (distribution):** [docs/release-checklist.md](docs/release-checklist.md), [docs/smoke-test-macos.md](docs/smoke-test-macos.md); [docs/install-macos.md](docs/install-macos.md) and README aligned to **one canonical Path B** (`npm ci` → build → `npm install -g ./apps/cli` → `impact scan`); root script `npm run verify:release`.
 - **Schema `impact.v0.3`:** runtime **`presence`** (epistemic) vs **`status`** (operational); model **`presence`** replaces `discovery_status`; readiness uses **`presence`**; [docs/schema-semantics-v0.3.md](docs/schema-semantics-v0.3.md).
-- **Deterministic field confidence:** [docs/confidence-rules.md](docs/confidence-rules.md) + `fieldConfidence()` / `ConfidenceRules` in `@impact/schemas`.
-- **Reporting:** HTML confidence legend, diagnostics card, `docs/support-matrix.md` link; Vitest coverage in `@impact/reporting`.
+- **Deterministic field confidence:** [docs/confidence-rules.md](docs/confidence-rules.md) + `fieldConfidence()` / `ConfidenceRules` in `@doneisbetter/schemas`.
+- **Reporting:** HTML confidence legend, diagnostics card, `docs/support-matrix.md` link; Vitest coverage in `@doneisbetter/reporting`.
 - **Fixtures:** expanded `fixtures/scenarios/*`, `fixtures/invalid/*`, `npm run validate-invalid-fixtures`, CI step for invalid fixtures.
-- **Submission:** per-attempt timeout (15s default), bounded retries with backoff, `impact-submission-preview.json` + `impact-submission-receipt.json`, **HTTP 409 duplicate** path (`outcome: "duplicate"`, no retries), Vitest tests in `@impact/submission`.
+- **Submission:** per-attempt timeout (15s default), bounded retries with backoff, `impact-submission-preview.json` + `impact-submission-receipt.json`, **HTTP 409 duplicate** path (`outcome: "duplicate"`, no retries), Vitest tests in `@doneisbetter/submission`.
 - **Core:** fixture-backed merge-path tests; readiness tests updated for v0.3.
 
 ### Fixed

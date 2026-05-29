@@ -1,4 +1,4 @@
-import type { ImpactProfile } from "@impact/schemas";
+import type { ImpactProfile } from "@doneisbetter/schemas";
 
 /**
  * Coarse, conservative guidance — no benchmark claims (Phase 2 / P1).

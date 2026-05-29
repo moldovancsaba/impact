@@ -9,7 +9,7 @@ Discovery is the **first truth layer** for a sovereign benchmark system: you can
 ## Based On
 
 - `packages/scanner-host`
-- Schema: `HostSchema` in `@impact/schemas`
+- Schema: `HostSchema` in `@doneisbetter/schemas`
 - `docs/privacy-policy.md`
 
 ## Problem

@@ -1,5 +1,5 @@
-import type { RuntimeRecord } from "@impact/schemas";
-import { fieldConfidence, ps } from "@impact/schemas";
+import type { RuntimeRecord } from "@doneisbetter/schemas";
+import { fieldConfidence, ps } from "@doneisbetter/schemas";
 import { execText } from "./exec.js";
 
 const OLLAMA_TIMEOUT_MS = 4000;

@@ -179,7 +179,7 @@ Same **steps 1–8** (dashboard activation) and **9–11** (web smoke → **#34*
 ## What is materially delivered (in repo)
 
 - **Dashboard D1–D5 (#58–#62)** — [`apps/ingest`](../apps/ingest): POST ingest, validation, SQLite + dedupe ([submission-contract.md](submission-contract.md)), aggregation + privacy thresholds, **`GET /api/stats/*`**, CORS, Vitest including HTTP tests; [`apps/web`](../apps/web): **`data.html`** live/fallback via **`VITE_STATS_API_BASE`**.  
-- **M3** — Deterministic `buildRecommendations` (`@impact/reporting`); shared with web.  
+- **M3** — Deterministic `buildRecommendations` (`@doneisbetter/reporting`); shared with web.  
 - **M2** — Richer `impact-report.html` (at a glance, meaning, suggested steps, limitations).  
 - **M1** — Install troubleshooting ([install-macos.md](install-macos.md)).  
 - **W2** — Web profile explorer (runtimes + same recommendations).  

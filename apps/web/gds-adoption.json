@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "gdsVersion": "2.4.3",
+  "gdsVersion": "2.6.5",
   "productArchetype": "public-marketing",
   "supportedEntryPoints": [
-    "@gds/theme/client",
-    "@gds/core/client"
+    "@doneisbetter/gds-theme/client",
+    "@doneisbetter/gds-core/client"
   ],
   "requiredContracts": [
     "PublicShell",
@@ -23,7 +23,19 @@
     }
   ],
   "approvedExceptions": [],
+  "compliance": {
+    "approvedThemeLanes": [
+      "gdsTheme",
+      "gdsDarkPublicTheme",
+      "gdsFlatSurfaceTheme",
+      "gdsEditorialPublicTheme",
+      "createPublicBrandTheme"
+    ],
+    "themeOwnershipPaths": [
+      "src/providers/AppProviders.tsx"
+    ]
+  },
   "migrationStatus": "complete",
   "owner": "impact-web",
-  "lastReviewedAt": "2026-05-25"
+  "lastReviewedAt": "2026-05-27"
 }

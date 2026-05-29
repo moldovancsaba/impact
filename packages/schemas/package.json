@@ -1,5 +1,5 @@
 {
-  "name": "@impact/schemas",
+  "name": "@doneisbetter/schemas",
   "version": "0.3.0",
   "description": "I.M.P.A.C.T. profile JSON schema (impact.v0.3) and validation",
   "license": "MIT",

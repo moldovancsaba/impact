@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { ImpactProfile } from "@impact/schemas";
+import type { ImpactProfile } from "@doneisbetter/schemas";
 import { buildDashboardSummary, memoryBandGbLabel, modelFamilyFromId } from "./dashboard-summary.js";
 
 const minimalProfile = (): ImpactProfile => ({

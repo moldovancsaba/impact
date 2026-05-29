@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
-import type { DashboardSummary, ImpactProfile } from "@impact/schemas";
-import { ImpactSubmissionEnvelopeV01Schema } from "@impact/schemas";
+import type { DashboardSummary, ImpactProfile } from "@doneisbetter/schemas";
+import { ImpactSubmissionEnvelopeV01Schema } from "@doneisbetter/schemas";
 
 export type SubmitProfileOptions = {
   /** Per-attempt timeout (ms). Default 15000. */

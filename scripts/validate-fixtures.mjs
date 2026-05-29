@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Validate JSON fixtures against @impact/schemas (build first: npm run build).
+ * Validate JSON fixtures against @doneisbetter/schemas (build first: npm run build).
  * Recurses under fixtures/ but skips any path segment named "invalid".
  */
 import { readdirSync, readFileSync, statSync } from "node:fs";

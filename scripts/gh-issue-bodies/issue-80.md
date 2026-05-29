@@ -11,7 +11,7 @@ Migrate **data** and **profile** surfaces to GDS **State block** + **Responsive 
 - `StateBlock` — loading, empty, error, permission-style states for stats fetch and profile validation errors
 - `StatsTable` / responsive data view — Mantine `Table` or `ScrollArea` for hardware/tools/models sections
 - Preserve [stats-api-url.ts](../../apps/web/src/stats-api-url.ts) behavior and privacy-threshold copy
-- Profile explorer: `@impact/schemas` validation UX unchanged in behavior
+- Profile explorer: `@doneisbetter/schemas` validation UX unchanged in behavior
 - Placeholder cards → Mantine `Paper` / `Card` with honest labels (no fake counts)
 
 ## Non-goals

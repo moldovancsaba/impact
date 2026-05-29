@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * After #34: flip install/home copy so Path C (npm) is primary. Run only when @impact/cli is on npm.
+ * After #34: flip install/home copy so Path C (npm) is primary. Run only when @doneisbetter/cli is on npm.
  */
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
@@ -10,9 +10,9 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 try {
-  execFileSync("npm", ["view", "@impact/cli", "version"], { stdio: "pipe" });
+  execFileSync("npm", ["view", "@doneisbetter/cli", "version"], { stdio: "pipe" });
 } catch {
-  console.error("Refusing flip: @impact/cli is not on npm. Close #34 first.");
+  console.error("Refusing flip: @doneisbetter/cli is not on npm. Close #34 first.");
   process.exit(1);
 }
 
@@ -27,7 +27,7 @@ const installBlockOld = `        <StateBlock
             <>
               The verified path is <strong>install from source (Path B)</strong>.{" "}
               <Text component="code" span>
-                npm install -g @impact/cli
+                npm install -g @doneisbetter/cli
               </Text>{" "}
               becomes the primary public path only after{" "}
               <Anchor href="https://github.com/sovereignsquad/impact/issues/34">#34</Anchor> is closed (publish + smoke +
@@ -42,7 +42,7 @@ const installBlockNew = `        <StateBlock
           compact
           description={
             <>
-              Primary install: <Text component="code" span>npm install -g @impact/cli</Text>. From-source (Path B) remains
+              Primary install: <Text component="code" span>npm install -g @doneisbetter/cli</Text>. From-source (Path B) remains
               documented on the <Anchor href="/install.html">install page</Anchor> for contributors and air-gapped setups.
             </>
           }
@@ -69,7 +69,7 @@ const pathCFirst = `      <DocsPageShell
         title="Install IMPACT"
         lead={
           <>
-            <strong>Primary:</strong> <Code>npm install -g @impact/cli</Code> (macOS 13+ recommended).{" "}
+            <strong>Primary:</strong> <Code>npm install -g @doneisbetter/cli</Code> (macOS 13+ recommended).{" "}
             <strong>Alternative:</strong> install from source (Path B) below. Windows is experimental — see{" "}
             <Anchor href="https://github.com/sovereignsquad/impact/blob/main/docs/support-matrix.md">support matrix</Anchor>.
           </>
@@ -82,7 +82,7 @@ const pathCFirst = `      <DocsPageShell
           compact
           description={
             <>
-              <Code block>npm install -g @impact/cli</Code>
+              <Code block>npm install -g @doneisbetter/cli</Code>
               <Text c="dimmed" size="sm" mt="xs">
                 Verify: <Code>impact --version</Code> then run a scan (see below).
               </Text>
@@ -95,13 +95,25 @@ const pathCFirst = `      <DocsPageShell
           title="Path B — from source (alternative)"
           compact
           description="Use when you need a pinned repo checkout or cannot use the public registry."
-        />`;
+        />
+
+        <Stack gap="sm" mb="lg">
+          <Title order={2}>Path B — from source</Title>
+          <Text c="dimmed">Requires Git, Node.js 20+, and npm.</Text>
+          <Code block>{PATH_B}</Code>
+          <Text c="dimmed" size="sm">
+            Optional: pin to release tag <Code>v0.3.0</Code> before <Code>npm ci</Code> if you want a known release.
+          </Text>
+        </Stack>`;
+
+const prereqMarker =
+  '      <Stack gap="sm" mb="lg">\n          <Title order={2}>Prerequisites</Title>';
 
 if (install.includes("Path C — npm (primary)")) {
   console.log("InstallPage already flipped.");
 } else {
   const start = install.indexOf("      <DocsPageShell");
-  const end = install.indexOf("      <Stack gap=\"sm\" mb=\"lg\">\n          <Title order={2}>Path B");
+  const end = install.indexOf(prereqMarker);
   if (start === -1 || end === -1) {
     console.error("InstallPage structure changed — manual #44 update needed.");
     process.exit(1);

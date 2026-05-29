@@ -1,4 +1,4 @@
-import type { ToolKind } from "@impact/schemas";
+import type { ToolKind } from "@doneisbetter/schemas";
 
 export type AllowlistedTool = {
   id: string;

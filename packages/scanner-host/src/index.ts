@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import os from "node:os";
-import type { HostProfile } from "@impact/schemas";
-import { fieldConfidence, pn, ps, pbool, pi } from "@impact/schemas";
+import type { HostProfile } from "@doneisbetter/schemas";
+import { fieldConfidence, pn, ps, pbool, pi } from "@doneisbetter/schemas";
 import { execText } from "./exec.js";
 
 function osDisplayName(platform: NodeJS.Platform): string {

@@ -5,19 +5,19 @@ import path from "node:path";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output } from "node:process";
 import { Command } from "commander";
-import { buildDashboardSummary, runScan } from "@impact/core";
+import { buildDashboardSummary, runScan } from "@doneisbetter/core";
 import {
   buildDiagnostics,
   writeDashboardSummaryJson,
   writeHtmlReport,
   writeJsonReport,
-} from "@impact/reporting";
+} from "@doneisbetter/reporting";
 import {
   appendLocalReceipt,
   submitProfile,
   writePayloadPreview,
   writeSubmissionReceiptJson,
-} from "@impact/submission";
+} from "@doneisbetter/submission";
 
 const PREAMBLE = `
 I.M.P.A.C.T. scans this computer for AI-relevant environment signals: OS, hardware

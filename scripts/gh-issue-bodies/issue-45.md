@@ -6,12 +6,12 @@
 
 Programme: [docs/mlp.md](https://github.com/sovereignsquad/impact/blob/main/docs/mlp.md). **Constraint:** do **not** land the full M2 slice until **[#34](https://github.com/sovereignsquad/impact/issues/34)** is closed if the work depends on Path C UX testing; **HTML/report work** may start in parallel where it does not depend on registry.
 
-Implementation lives in `@impact/reporting` and fixtures/tests as today.
+Implementation lives in `@doneisbetter/reporting` and fixtures/tests as today.
 
 ## Based On
 
 - [mlp.md — M2](https://github.com/sovereignsquad/impact/blob/main/docs/mlp.md#m2--report-delight-and-first-run-payoff)
-- [issue #12](https://github.com/sovereignsquad/impact/issues/12) / `@impact/reporting`
+- [issue #12](https://github.com/sovereignsquad/impact/issues/12) / `@doneisbetter/reporting`
 
 ## Problem
 

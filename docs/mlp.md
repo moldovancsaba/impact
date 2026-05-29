@@ -113,7 +113,7 @@ What makes the product **socially compelling**.
 | **Priority** | **P0** |
 | **Goal** | Make IMPACT **easy enough to try** that install no longer suppresses adoption. |
 | **Scope** | Finish **#34**; npm install as **public default**; Path B fallback; install + smoke docs; record **public package verification**. |
-| **Done when** | `@impact/cli` **published**; install works **from docs alone**; **smoke evidence** exists; README quick start points at **public** install path. |
+| **Done when** | `@doneisbetter/cli` **published**; install works **from docs alone**; **smoke evidence** exists; README quick start points at **public** install path. |
 
 ---
 

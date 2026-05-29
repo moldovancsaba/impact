@@ -7,7 +7,7 @@ import { defineConfig } from "vite";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const webPkg = JSON.parse(readFileSync(path.resolve(__dirname, "package.json"), "utf8")) as { version: string };
 
-/** Must match `ImpactProfileSchema` literal in @impact/schemas (release with CLI + npm). */
+/** Must match `ImpactProfileSchema` literal in @doneisbetter/schemas (release with CLI + npm). */
 const PROFILE_SCHEMA_VERSION = "impact.v0.3";
 
 export default defineConfig({
@@ -35,8 +35,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@impact/schemas": path.resolve(__dirname, "../../packages/schemas/src/index.ts"),
-      "@impact/reporting/recommendations": path.resolve(
+      "@doneisbetter/schemas": path.resolve(__dirname, "../../packages/schemas/src/index.ts"),
+      "@doneisbetter/reporting/recommendations": path.resolve(
         __dirname,
         "../../packages/reporting/src/recommendations.ts"
       ),

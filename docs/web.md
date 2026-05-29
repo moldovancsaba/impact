@@ -6,7 +6,7 @@
 
 **Board:** shell pages **[#50](https://github.com/sovereignsquad/impact/issues/50)**, **[#54](https://github.com/sovereignsquad/impact/issues/54)–[#57](https://github.com/sovereignsquad/impact/issues/57)**. **Real dashboard data** — **[#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** ([mlp-next-delivery-tranche.md](mlp-next-delivery-tranche.md)); legacy **[#51](https://github.com/sovereignsquad/impact/issues/51)–[#53](https://github.com/sovereignsquad/impact/issues/53)** superseded in execution detail by **#58–#62**. **GDS migration** — **Complete** ([#76](https://github.com/sovereignsquad/impact/issues/76)–[#82](https://github.com/sovereignsquad/impact/issues/82)); [gds-migration-plan.md](gds-migration-plan.md), [gds-adapter.md](gds-adapter.md).
 
-**Design SSOT:** [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) v2.4.3 — **`@gds/theme` + `@gds/core`**; thin **`ImpactShell`** adapter only.
+**Design SSOT:** [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) v2.6.5 — **`@doneisbetter/gds-theme` + `@doneisbetter/gds-core`**; canonical **`gdsDarkPublicTheme`**; thin **`ImpactShell`** adapter only.
 
 ---
 
@@ -48,9 +48,9 @@ After each production deploy, run the checklist: **[web-deploy-smoke.md](web-dep
 ## Developer commands
 
 ```bash
-npm ci                    # prepares @gds/* from sovereignsquad/general-design-system
-npm run dev -w @impact/web
-npm run build -w @impact/web
+npm ci                    # prepares @doneisbetter/gds-* from sovereignsquad/general-design-system (tag gds-v2.6.5)
+npm run dev -w @doneisbetter/web
+npm run build -w @doneisbetter/web
 npm run lint:gds          # adoption manifest + gds-compliance
 ```
 
@@ -58,7 +58,7 @@ Root **`npm run verify:release`** includes **`lint:gds`**, ESLint GDS rules on `
 
 ### Deploy (Vercel)
 
-Use the **repository root** as the Vercel project root (monorepo). Root [`vercel.json`](../vercel.json) sets **`outputDirectory`** to **`apps/web/dist`**. **Install** and **build** run at root: `npm ci` (runs **`preinstall`** → prepares GDS **2.4.3** in `.gds-src`), then `npm run build` (all workspaces including `@impact/web`).
+Use the **repository root** as the Vercel project root (monorepo). Root [`vercel.json`](../vercel.json) sets **`outputDirectory`** to **`apps/web/dist`**. **Install** and **build** run at root: `npm ci` (runs **`preinstall`** → prepares GDS **2.6.5** in `.gds-src`), then `npm run build` (all workspaces including `@doneisbetter/web`).
 
 If the Vercel dashboard had **Output Directory** set to `public`, remove it or set it to **`apps/web/dist`** so it matches `vercel.json`.
 

@@ -1,5 +1,5 @@
 {
-  "name": "@impact/ingest",
+  "name": "@doneisbetter/ingest",
   "version": "0.3.0",
   "private": true,
   "description": "IMPACT submission ingest server (D1 MVP) — HTTP POST, validate, dedupe, SQLite",
@@ -16,7 +16,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@impact/schemas": "0.3.0",
+    "@doneisbetter/schemas": "0.3.0",
     "better-sqlite3": "^11.10.0"
   },
   "devDependencies": {

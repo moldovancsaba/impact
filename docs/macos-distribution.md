@@ -18,7 +18,7 @@
 
 | Track | Choice |
 | ----- | ------ |
-| **Primary (low friction)** | **`npm install -g @impact/cli`** once [#34](https://github.com/sovereignsquad/impact/issues/34) has published the `@impact/*` scope ([npm-publish.md](npm-publish.md)). |
+| **Primary (low friction)** | **`npm install -g @doneisbetter/cli`** once [#34](https://github.com/sovereignsquad/impact/issues/34) has published the `@doneisbetter/*` scope ([npm-publish.md](npm-publish.md)). |
 | **Offline / air-gapped / no registry** | **`Impact.app`** inside a **`.dmg`**, built by [`packaging/macos/build-dmg.sh`](../packaging/macos/build-dmg.sh): bundles CLI `dist/` and production **`node_modules`** (no separate compile-to-binary step). |
 | **Node runtime** | **Not embedded** in the DMG (keeps image smaller; aligns with documented requirement Node 20+). Embedding Node is a future option if we need a true “no prerequisites” installer. |
 | **DMG** | **Packaging layer** — reproducible **local** build exists; **public-quality** delivery still **depends on M3**. **Not** a substitute for npm or clone builds; **do not overclaim** until signed + notarized + validated on a **released** artifact. |

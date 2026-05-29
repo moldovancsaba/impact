@@ -9,34 +9,37 @@ One-time setup so **`bash scripts/run-activation-delivery.sh`** can finish all f
 ```bash
 npm login
 npm run publish:npm
-npm view @impact/cli version
-# clean machine: npm install -g @impact/cli && impact scan --no-submit -o ./reports
+npm view @doneisbetter/cli version
+# clean machine: npm install -g @doneisbetter/cli && impact scan --no-submit -o ./reports
 ```
 
-**GitHub Actions:** Settings → Secrets → **`NPM_TOKEN`** (npm automation token with publish on `@impact`). Then Actions → **Publish npm packages** → Run workflow.
+**GitHub Actions:** Settings → Secrets → **`NPM_TOKEN`** (npm automation token with publish on `@doneisbetter`). Then Actions → **Publish npm packages** → Run workflow.
 
-## 2. Fly.io ingest — [#58](https://github.com/sovereignsquad/impact/issues/58)
+## 2. Vercel + MongoDB Atlas ingest — [#58](https://github.com/sovereignsquad/impact/issues/58)
 
-**Local:**
+Set these **Vercel Project Environment Variables** (Preview + Production):
 
 ```bash
-brew install flyctl   # if needed
-flyctl auth login
-bash scripts/deploy-ingest-fly-and-wire-vercel.sh
+MONGODB_URI=<mongodb+srv://...>
+MONGODB_DB=impact
+MONGODB_COLLECTION_SUBMISSIONS=submissions   # optional; default: submissions
+IMPACT_STATS_MIN_BUCKET_COUNT=5
+IMPACT_STATS_CORS_ORIGIN=*
 ```
 
-**GitHub Actions:** Settings → Secrets → **`FLY_API_TOKEN`** ([deploy token](https://fly.io/user/personal_access_tokens)). Actions → **Deploy ingest (Fly.io)** → Run workflow. Then:
+After deploy, verify Vercel API routes directly:
 
 ```bash
-bash scripts/vercel-wire-ingest-upstream.sh https://impact-mm-ingest.fly.dev
+curl -sS https://impact.sovereignsquad.com/api/health
+curl -sS https://impact.sovereignsquad.com/api/stats/overview
 ```
 
-## 3. Seed + upstream — [#59](https://github.com/sovereignsquad/impact/issues/59)–[#61](https://github.com/sovereignsquad/impact/issues/61)
+## 3. Seed + stats verify — [#59](https://github.com/sovereignsquad/impact/issues/59)–[#61](https://github.com/sovereignsquad/impact/issues/61)
 
-After ingest is up and Vercel shows **`stats_mode: upstream`**:
+After Vercel shows **`stats_mode: mongodb`**:
 
 ```bash
-export IMPACT_SUBMIT_URL=https://impact-mm-ingest.fly.dev/
+export IMPACT_SUBMIT_URL=https://impact.sovereignsquad.com/api/ingest
 bash scripts/seed-ingest-submissions.sh 6
 curl -sS https://impact.sovereignsquad.com/api/stats/full | head -c 500
 ```
@@ -51,7 +54,7 @@ Run [web-deploy-smoke.md](web-deploy-smoke.md) § **Live stats** on **https://im
 
 ```bash
 node scripts/flip-path-c-primary-copy.mjs
-npm run build -w @impact/web
+npm run build -w @doneisbetter/web
 vercel --prod --yes
 ```
 

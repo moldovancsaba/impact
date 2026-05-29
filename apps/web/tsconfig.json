@@ -11,8 +11,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@impact/schemas": ["../../packages/schemas/src/index.ts"],
-      "@impact/reporting/recommendations": ["../../packages/reporting/src/recommendations.ts"]
+      "@doneisbetter/schemas": ["../../packages/schemas/src/index.ts"],
+      "@doneisbetter/reporting/recommendations": ["../../packages/reporting/src/recommendations.ts"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts"]

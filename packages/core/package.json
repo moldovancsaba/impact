@@ -1,5 +1,5 @@
 {
-  "name": "@impact/core",
+  "name": "@doneisbetter/core",
   "version": "0.3.0",
   "license": "MIT",
   "repository": {
@@ -26,12 +26,12 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@impact/schemas": "0.3.0",
-    "@impact/scanner-host": "0.3.0",
-    "@impact/scanner-models": "0.3.0",
-    "@impact/scanner-runtimes": "0.3.0",
-    "@impact/scanner-tools": "0.3.0",
-    "@impact/privacy": "0.3.0"
+    "@doneisbetter/schemas": "0.3.0",
+    "@doneisbetter/scanner-host": "0.3.0",
+    "@doneisbetter/scanner-models": "0.3.0",
+    "@doneisbetter/scanner-runtimes": "0.3.0",
+    "@doneisbetter/scanner-tools": "0.3.0",
+    "@doneisbetter/privacy": "0.3.0"
   },
   "devDependencies": {
     "typescript": "^5.8.2",

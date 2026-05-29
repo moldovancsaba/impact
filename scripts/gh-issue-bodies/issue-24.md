@@ -40,7 +40,7 @@ Out of scope: remote log upload; interactive debugger.
 
 ## Execution Prompt
 
-Implement `buildDiagnostics`; call from `renderHtmlReport`; export from `@impact/reporting`; import in CLI after `writeHtmlReport`.
+Implement `buildDiagnostics`; call from `renderHtmlReport`; export from `@doneisbetter/reporting`; import in CLI after `writeHtmlReport`.
 
 ## Scope / Non-Goals
 

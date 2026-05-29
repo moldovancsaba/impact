@@ -62,9 +62,9 @@
 | [architecture.md](architecture.md) | Layout and data flow |
 | [architect-handoff.md](architect-handoff.md) | Architect onboarding |
 | [release-checklist.md](release-checklist.md) | Release steps |
-| [gds-adapter.md](gds-adapter.md) | **GDS** consumer contract for `@impact/web` |
+| [gds-adapter.md](gds-adapter.md) | **GDS** consumer contract for `@doneisbetter/web` |
 | [gds-migration-plan.md](gds-migration-plan.md) | GDS migration history (complete) |
-| [npm-publish.md](npm-publish.md) | Publish `@impact/*` |
+| [npm-publish.md](npm-publish.md) | Publish `@doneisbetter/*` |
 | [smoke-test-macos.md](smoke-test-macos.md) | Fresh-mac QA |
 | [docs-alignment-after-packaging.md](docs-alignment-after-packaging.md) | Post-packaging doc reconciliation |
 

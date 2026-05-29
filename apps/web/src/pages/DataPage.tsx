@@ -1,4 +1,4 @@
-import { DocsPageShell, PlaceholderPanel, SimpleDataTable, StateBlock } from "@gds/core/client";
+import { DocsPageShell, PlaceholderPanel, SimpleDataTable, StateBlock } from "@doneisbetter/gds-core/client";
 import { Anchor, Grid, Stack, Text } from "@mantine/core";
 import { useEffect, useState, type ReactNode } from "react";
 import { ImpactShell } from "../shell/impact-shell";

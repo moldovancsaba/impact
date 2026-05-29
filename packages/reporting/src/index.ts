@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import type { DashboardSummary, ImpactProfile } from "@impact/schemas";
+import type { DashboardSummary, ImpactProfile } from "@doneisbetter/schemas";
 import { renderHtmlReport } from "./html.js";
 
 export { renderHtmlReport };

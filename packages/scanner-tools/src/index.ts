@@ -1,8 +1,8 @@
 import { execFile } from "node:child_process";
 import os from "node:os";
 import { promisify } from "node:util";
-import type { ToolRecord } from "@impact/schemas";
-import { fieldConfidence, ps } from "@impact/schemas";
+import type { ToolRecord } from "@doneisbetter/schemas";
+import { fieldConfidence, ps } from "@doneisbetter/schemas";
 import { TOOL_ALLOWLIST } from "./allowlist.js";
 
 const execFileAsync = promisify(execFile);

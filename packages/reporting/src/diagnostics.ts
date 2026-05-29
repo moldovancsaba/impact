@@ -1,4 +1,4 @@
-import type { ImpactProfile } from "@impact/schemas";
+import type { ImpactProfile } from "@doneisbetter/schemas";
 
 /**
  * Conservative, scan-derived notes for support — no speculation beyond profile state.

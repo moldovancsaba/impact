@@ -12,12 +12,12 @@
 
 ---
 
-## Path C — registry install (preferred when `@impact/cli` is on npm)
+## Path C — registry install (preferred when `@doneisbetter/cli` is on npm)
 
-**Prerequisite:** `npm view @impact/cli version` succeeds (package published per [npm-publish.md](npm-publish.md)).
+**Prerequisite:** `npm view @doneisbetter/cli version` succeeds (package published per [npm-publish.md](npm-publish.md)).
 
 ```bash
-npm install -g @impact/cli
+npm install -g @doneisbetter/cli
 ```
 
 Verify:
@@ -35,7 +35,7 @@ mkdir -p ~/impact-smoke-out
 impact scan --no-submit -o ~/impact-smoke-out
 ```
 
-Same **acceptance checks** as Path B below. Teardown: `npm uninstall -g @impact/cli`.
+Same **acceptance checks** as Path B below. Teardown: `npm uninstall -g @doneisbetter/cli`.
 
 ---
 
@@ -95,7 +95,7 @@ Record:
 ## Teardown
 
 ```bash
-npm uninstall -g @impact/cli
+npm uninstall -g @doneisbetter/cli
 rm -rf ~/impact-smoke-out
 # optional: rm -rf impact clone
 ```
@@ -106,4 +106,4 @@ rm -rf ~/impact-smoke-out
 | ---- | ------ | --------- | ------------------ | --------------------------------- | ------ |
 | 2026-04-03 | Fresh `git clone` of `https://github.com/sovereignsquad/impact` @ `55f01a6` (`main`) | v25.8.2 | `0.1.0` | `impact.v0.3` | PASS — pre-release CLI semver |
 | 2026-04-03 | Fresh `git clone` at **tag `v0.3.0`** | v25.8.2 | `0.3.0` | `impact.v0.3` | PASS — Path B; `impact --version` from `package.json`; `--no-submit` |
-| *(add row)* | **`npm install -g @impact/cli`** (Path C) | | `0.3.0` | `impact.v0.3` | *(after first npm publish)* |
+| *(add row)* | **`npm install -g @doneisbetter/cli`** (Path C) | | `0.3.0` | `impact.v0.3` | *(after first npm publish)* |

@@ -1,6 +1,6 @@
 ## Objective
 
-Establish **GDS governance** for `@impact/web`: local adapter doc, **Phase 0 freeze** on custom CSS, pattern inventory, and portfolio classification — without starting Mantine migration yet.
+Establish **GDS governance** for `@doneisbetter/web`: local adapter doc, **Phase 0 freeze** on custom CSS, pattern inventory, and portfolio classification — without starting Mantine migration yet.
 
 ## Unified context
 
@@ -31,7 +31,7 @@ Establish **GDS governance** for `@impact/web`: local adapter doc, **Phase 0 fre
 - [ ] `docs/gds-adapter.md` contains required GDS SSOT statement and legacy boundary
 - [ ] `docs/gds-migration-plan.md` linked from web + programme docs
 - [ ] CONTRIBUTING or docs index mentions GDS adapter path
-- [ ] Team acknowledges **style.css freeze** in PR checklist for `@impact/web`
+- [ ] Team acknowledges **style.css freeze** in PR checklist for `@doneisbetter/web`
 - [ ] GDS portfolio matrix updated (or tracking link in adapter doc if external PR pending)
 
 ## Dependencies

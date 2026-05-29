@@ -1,6 +1,6 @@
 ## Objective
 
-Add **GDS enforcement** so `@impact/web` cannot drift back to ad hoc CSS or legacy imports after Mantine migration.
+Add **GDS enforcement** so `@doneisbetter/web` cannot drift back to ad hoc CSS or legacy imports after Mantine migration.
 
 ## Unified context
 

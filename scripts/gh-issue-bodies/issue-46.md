@@ -4,7 +4,7 @@
 
 ## Unified Context
 
-Programme: [docs/mlp.md](https://github.com/sovereignsquad/impact/blob/main/docs/mlp.md). Recommendations are **interpretation**, not benchmarks. Prefer `@impact/core` or a small new module with **rule ids** + **evidence pointers** tied to profile fields.
+Programme: [docs/mlp.md](https://github.com/sovereignsquad/impact/blob/main/docs/mlp.md). Recommendations are **interpretation**, not benchmarks. Prefer `@doneisbetter/core` or a small new module with **rule ids** + **evidence pointers** tied to profile fields.
 
 ## Based On
 

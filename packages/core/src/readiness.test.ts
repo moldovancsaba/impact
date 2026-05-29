@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { coarseReadiness } from "./readiness.js";
-import type { ImpactProfile } from "@impact/schemas";
-import { pn, ps, pbool, pi } from "@impact/schemas";
+import type { ImpactProfile } from "@doneisbetter/schemas";
+import { pn, ps, pbool, pi } from "@doneisbetter/schemas";
 
 function baseProfile(overrides: Partial<ImpactProfile> = {}): ImpactProfile {
   const host: ImpactProfile["host"] = {

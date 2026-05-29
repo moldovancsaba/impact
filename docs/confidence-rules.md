@@ -1,6 +1,6 @@
 # Field confidence rules (deterministic)
 
-**SSOT for machine-assigned `confidence` on provenanced fields.** Scanners should use `fieldConfidence(ruleId)` from `@impact/schemas` with rule ids defined in `packages/schemas/src/confidence-rules.ts`. Do not assign field confidence ad hoc without extending this document and the map.
+**SSOT for machine-assigned `confidence` on provenanced fields.** Scanners should use `fieldConfidence(ruleId)` from `@doneisbetter/schemas` with rule ids defined in `packages/schemas/src/confidence-rules.ts`. Do not assign field confidence ad hoc without extending this document and the map.
 
 ## Levels
 

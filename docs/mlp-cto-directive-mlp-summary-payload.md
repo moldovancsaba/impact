@@ -33,7 +33,7 @@ The **local app** produces a **normalized dashboard summary** alongside the **ca
 | Phase | Focus | Deliverables |
 | ----- | ----- | ------------ |
 | **0** | **#34** | `npm login`, `npm run publish:npm`, Path C smoke, evidence, close **#34**. |
-| **1** | Local summary | `impact.summary.v0.1` in **@impact/schemas**; **buildDashboardSummary** in **@impact/core**; local artifact + tests. |
+| **1** | Local summary | `impact.summary.v0.1` in **@doneisbetter/schemas**; **buildDashboardSummary** in **@doneisbetter/core**; local artifact + tests. |
 | **2** | Ingest | Accept **`impact.submission.v0.1`** envelope (profile + summary); persist both; contract + DB + duplicate rules. |
 | **3** | Aggregates | Prefer **summary** for public rollup when present; fallback to raw parse for legacy rows; thresholds unchanged. |
 | **4** | Web | **/data.html** shows real aggregates from live stats API (honest empty below threshold). |
@@ -43,7 +43,7 @@ The **local app** produces a **normalized dashboard summary** alongside the **ca
 
 ## Summary schema (v0.1)
 
-See **@impact/schemas** — `DashboardSummary` / `impact.summary.v0.1`:
+See **@doneisbetter/schemas** — `DashboardSummary` / `impact.summary.v0.1`:
 
 - `summary_version`, `profile_schema_version`, optional `normalization_version`  
 - `platform_family`, `machine_class`, `chip_family`, `memory_band_gb`  

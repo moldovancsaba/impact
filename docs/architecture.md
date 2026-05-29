@@ -1,6 +1,6 @@
 # I.M.P.A.C.T. — architecture
 
-**IMPACT** (**I**ndustrial **M**ulti-**P**latform **A**gent **C**onnector **T**est) is implemented here as a **TypeScript / Node.js** monorepo. The **v0.x** slice is a local discovery scanner; later phases add benchmarks per [docs/product.md](product.md). A single **orchestrator** in `@impact/core` runs modular scanners, merges a typed profile, validates it against `@impact/schemas`, then `@impact/reporting` and `@impact/submission` handle exports and optional upload.
+**IMPACT** (**I**ndustrial **M**ulti-**P**latform **A**gent **C**onnector **T**est) is implemented here as a **TypeScript / Node.js** monorepo. The **v0.x** slice is a local discovery scanner; later phases add benchmarks per [docs/product.md](product.md). A single **orchestrator** in `@doneisbetter/core` runs modular scanners, merges a typed profile, validates it against `@doneisbetter/schemas`, then `@doneisbetter/reporting` and `@doneisbetter/submission` handle exports and optional upload.
 
 ## Repository layout
 
@@ -27,15 +27,15 @@ scripts/                 Automation placeholders
 ```mermaid
 flowchart LR
   CLI[apps/cli]
-  CORE[@impact/core]
+  CORE[@doneisbetter/core]
   H[scanner-host]
   R[scanner-runtimes]
   T[scanner-tools]
   M[scanner-models]
-  P[@impact/privacy]
-  S[@impact/schemas]
-  REP[@impact/reporting]
-  SUB[@impact/submission]
+  P[@doneisbetter/privacy]
+  S[@doneisbetter/schemas]
+  REP[@doneisbetter/reporting]
+  SUB[@doneisbetter/submission]
 
   CLI --> CORE
   CORE --> H
@@ -49,7 +49,7 @@ flowchart LR
   CORE --> REP
 ```
 
-1. **Load/create salt** (`~/.impact/salt`) via `@impact/privacy`.  
+1. **Load/create salt** (`~/.impact/salt`) via `@doneisbetter/privacy`.  
 2. **Parallel scans:** host, runtimes, tools.  
 3. **Model enumeration** depends on runtime signals (e.g. Ollama reachability).  
 4. **Merge + validate** → `ImpactProfile` (`impact.v0.3`).  

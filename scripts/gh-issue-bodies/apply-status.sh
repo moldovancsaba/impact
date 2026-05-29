@@ -182,7 +182,7 @@ for n in 63 64 65 66; do
   set_status "$(item_for_issue "$n")" "$BACKLOG"
 done
 
-# GDS migration (@impact/web) — Done in repo; see docs/gds-migration-plan.md
+# GDS migration (@doneisbetter/web) — Done in repo; see docs/gds-migration-plan.md
 for n in 76 77 78 79 80 81 82; do
   set_status "$(item_for_issue "$n")" "$DONE"
 done

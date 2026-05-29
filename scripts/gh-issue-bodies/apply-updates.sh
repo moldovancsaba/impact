@@ -50,7 +50,7 @@ edit 42 "IMPACT P2: Ideabank — DMG drag-drop installer" "$BD/issue-42.md"
 edit 43 "IMPACT P2: Ideabank — native GUI, accounts, leaderboards, auto-update" "$BD/issue-43.md"
 
 # npm publish / Path C gate (docs/npm-publish.md, mlp-status-cto.md)
-edit 34 "IMPACT P1: Publish @impact/cli to npm registry" "$BD/issue-34.md"
+edit 34 "IMPACT P1: Publish @doneisbetter/cli to npm registry" "$BD/issue-34.md"
 
 # MLP track (see docs/mlp.md)
 edit 44 "IMPACT P0: MLP M1 — Public install and adoption" "$BD/issue-44.md"
@@ -93,7 +93,7 @@ edit 74 "IMPACT P2: Ideabank — Public dataset export / research snapshot" "$BD
 
 # GDS migration tranche (docs/gds-migration-plan.md)
 edit 76 "IMPACT P2: GDS G0 — Governance, adapter doc, and CSS freeze" "$BD/issue-76.md"
-edit 77 "IMPACT P2: GDS G1 — Mantine root runtime in @impact/web" "$BD/issue-77.md"
+edit 77 "IMPACT P2: GDS G1 — Mantine root runtime in @doneisbetter/web" "$BD/issue-77.md"
 edit 78 "IMPACT P2: GDS G2 — Public shell and page header contracts" "$BD/issue-78.md"
 edit 79 "IMPACT P2: GDS G3 — Migrate install, use, submit pages" "$BD/issue-79.md"
 edit 80 "IMPACT P2: GDS G4 — Migrate data and profile surfaces" "$BD/issue-80.md"

@@ -1,4 +1,4 @@
-import type { DashboardSummary, ImpactProfile } from "@impact/schemas";
+import type { DashboardSummary, ImpactProfile } from "@doneisbetter/schemas";
 
 /** Coarse memory bands for aggregate display */
 export function memoryBandGb(gb: number): string {

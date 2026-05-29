@@ -6,7 +6,7 @@ This page aligns **public messaging** with **shipped** behaviour. It complements
 
 **Delivered:** a **privacy-first local CLI** that inventories AI-relevant signals, writes **`impact-profile.json`** and **`impact-report.html`**, and supports **optional**, consent-based submission when an endpoint is configured.
 
-**Not delivered:** a **benchmark system**, **community dashboard**, **aggregate crowd statistics**, or **DMG / .app**. **Path C** (`npm install -g @impact/cli`) is **implemented in-repo** but **not publicly live** until [#34](https://github.com/sovereignsquad/impact/issues/34) (publish + smoke evidence). **Path B** (clone → build → global install from repo) remains **verified** today.
+**Not delivered:** a **benchmark system**, **community dashboard**, **aggregate crowd statistics**, or **DMG / .app**. **Path C** (`npm install -g @doneisbetter/cli`) is **implemented in-repo** but **not publicly live** until [#34](https://github.com/sovereignsquad/impact/issues/34) (publish + smoke evidence). **Path B** (clone → build → global install from repo) remains **verified** today.
 
 ## Can users see community / crowd stats?
 
@@ -18,7 +18,7 @@ This page aligns **public messaging** with **shipped** behaviour. It complements
 
 ## How do users install today?
 
-**Path C (preferred):** `npm install -g @impact/cli` when the package is on the registry. **Path B (always):** clone → build → `npm install -g ./apps/cli`. See [install-macos.md](install-macos.md). **Not** a drag-and-drop Mac app.
+**Path C (preferred):** `npm install -g @doneisbetter/cli` when the package is on the registry. **Path B (always):** clone → build → `npm install -g ./apps/cli`. See [install-macos.md](install-macos.md). **Not** a drag-and-drop Mac app.
 
 ## One-line answer for support
 

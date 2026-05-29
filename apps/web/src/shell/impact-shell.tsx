@@ -1,4 +1,4 @@
-import { PublicShell } from "@gds/core/client";
+import { PublicShell } from "@doneisbetter/gds-core/client";
 import { Anchor, Stack, Text } from "@mantine/core";
 import type { ReactNode } from "react";
 import { NAV_ITEMS, type PageId } from "../constants/nav";

@@ -36,7 +36,7 @@ Documented timeout/retry semantics trailed implementation; trust gap for CTO acc
 
 ## Scope
 
-In scope: `@impact/submission`, CLI wiring after consent, tests.
+In scope: `@doneisbetter/submission`, CLI wiring after consent, tests.
 
 Out of scope: server implementation; OAuth; binary signing.
 

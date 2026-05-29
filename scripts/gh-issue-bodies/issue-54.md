@@ -9,7 +9,7 @@
 
 ## After #34
 
-- Primary CTA → **`npm install -g @impact/cli`** (or equivalent) as verified on npm.
+- Primary CTA → **`npm install -g @doneisbetter/cli`** (or equivalent) as verified on npm.
 
 ## Scope
 

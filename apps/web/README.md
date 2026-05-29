@@ -1,6 +1,6 @@
-# `@impact/web` — public marketing shell
+# `@doneisbetter/web` — public marketing shell
 
-**Vite** multi-page site (`index.html`, `install.html`, `use.html`, `submit.html`, `data.html`, `profile.html`): install truth, run/submit explainers, community data (placeholders unless built with a stats API base), and **in-browser** `impact-profile.json` validation via `@impact/schemas` + `buildRecommendations` (no upload).
+**Vite** multi-page site (`index.html`, `install.html`, `use.html`, `submit.html`, `data.html`, `profile.html`): install truth, run/submit explainers, community data (placeholders unless built with a stats API base), and **in-browser** `impact-profile.json` validation via `@doneisbetter/schemas` + `buildRecommendations` (no upload).
 
 **UI:** **100% GDS** — `@gds/theme` (`GdsProvider`, `gdsDarkPublicTheme`) + `@gds/core` pattern contracts. Only local adapter: **`ImpactShell`** (nav + build footer). Each route: **`src/entries/*.tsx`** → **`src/pages/*.tsx`**. See [docs/gds-adapter.md](../../docs/gds-adapter.md).
 
@@ -14,13 +14,13 @@ Set **`VITE_STATS_API_BASE`** at **build** time so `/data.html` fetches live sta
 
 ```bash
 npm ci
-npm run dev -w @impact/web
+npm run dev -w @doneisbetter/web
 ```
 
 ## Build
 
 ```bash
-npm run build -w @impact/web
+npm run build -w @doneisbetter/web
 ```
 
 **Vercel:** root [`vercel.json`](../../vercel.json) → `apps/web/dist`.

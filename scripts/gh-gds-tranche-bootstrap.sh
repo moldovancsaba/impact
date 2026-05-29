@@ -47,7 +47,7 @@ create_boarded() {
 echo "Creating GDS tranche issues #76–#82…"
 
 create_boarded "IMPACT P2: GDS G0 — Governance, adapter doc, and CSS freeze" issue-75.md
-create_boarded "IMPACT P2: GDS G1 — Mantine root runtime in @impact/web" issue-76.md
+create_boarded "IMPACT P2: GDS G1 — Mantine root runtime in @doneisbetter/web" issue-76.md
 create_boarded "IMPACT P2: GDS G2 — Public shell and page header contracts" issue-77.md
 create_boarded "IMPACT P2: GDS G3 — Migrate install, use, submit pages" issue-78.md
 create_boarded "IMPACT P2: GDS G4 — Migrate data and profile surfaces" issue-79.md

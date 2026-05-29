@@ -4,7 +4,7 @@ Make per-field **`confidence`** **machine-assigned, deterministic, and explainab
 
 ## Unified Context
 
-IMPACT reports show **source · probe · confidence** beside values. If confidence is assigned ad hoc, users cannot compare scans, file bugs, or trust aggregation. Rule ids must map to a **single SSOT** document and a **shared helper** in `@impact/schemas`.
+IMPACT reports show **source · probe · confidence** beside values. If confidence is assigned ad hoc, users cannot compare scans, file bugs, or trust aggregation. Rule ids must map to a **single SSOT** document and a **shared helper** in `@doneisbetter/schemas`.
 
 Without this:
 
@@ -74,7 +74,7 @@ Non-goals: subjective “importance” scores; hiding low confidence behind aver
 ## Delivery Artifact
 
 - `docs/confidence-rules.md` + `confidence-rules.ts` updates
-- HTML legend in `@impact/reporting`
+- HTML legend in `@doneisbetter/reporting`
 
 ## Developer Notes
 

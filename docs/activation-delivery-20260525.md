@@ -12,4 +12,4 @@
 - #34 — run: npm login && npm run publish:npm
 - #58 — add GitHub secret FLY_API_TOKEN and run workflow 'Deploy ingest (Fly.io)', or: flyctl auth login && bash scripts/deploy-ingest-fly-and-wire-vercel.sh
 - #59–#60 — ingest not reachable; seed skipped
-- #44 — skipped until @impact/cli is on npm (honest install gate)
+- #44 — skipped until @doneisbetter/cli is on npm (honest install gate)

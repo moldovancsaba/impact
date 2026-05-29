@@ -1,6 +1,6 @@
-# GDS migration plan — `@impact/web`
+# GDS migration plan — `@doneisbetter/web`
 
-**Status:** **Complete** (2026-05-25) — **`@gds/theme` + `@gds/core` v2.4.3**; enforcement via **`@gds/eslint-config`** + **`@gds/compliance`**.  
+**Status:** **Complete** (2026-05-27) — **`@doneisbetter/gds-theme` + `@doneisbetter/gds-core` v2.6.5**; enforcement via **`@doneisbetter/gds-eslint-config`** + **`@doneisbetter/gds-compliance`** (theme governance).  
 **SSOT (design):** [sovereignsquad/general-design-system](https://github.com/sovereignsquad/general-design-system) v**2.4.3** (pinned in [`gds.version`](../gds.version))  
 **Local adapter:** [gds-adapter.md](gds-adapter.md) — only **`ImpactShell`** remains (nav + version footer).
 
@@ -20,7 +20,7 @@ Legacy **`style.css`** and local pattern components are **removed**. CLI offline
 
 ## Phases (issues #76–#82)
 
-All phases **Done** in repo. Board closure: deploy smoke on production after each release that touches `@impact/web`.
+All phases **Done** in repo. Board closure: deploy smoke on production after each release that touches `@doneisbetter/web`.
 
 | Phase | Issue | Delivered |
 |-------|-------|-----------|

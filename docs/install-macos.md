@@ -4,7 +4,7 @@
 
 | Path | When |
 | ---- | ---- |
-| **Path C — npm registry** | **Preferred** once `@impact/cli` is published (lowest friction). |
+| **Path C — npm registry** | **Preferred** — `npm install -g @doneisbetter/cli` (**0.3.0** on npm). |
 | **Path B — source** | Always works: clone, build, `npm install -g ./apps/cli`. |
 | **Path D — DMG** | **`.dmg`** with `Impact.app` (maintainer-built). Offline-friendly; still needs **Node.js 20+** on the Mac. See [macos-distribution.md](macos-distribution.md) and `npm run build:dmg`. |
 
@@ -20,22 +20,22 @@ Maintainer publish flow: [npm-publish.md](npm-publish.md). DMG build: [`packagin
 
 ## Path C — npm registry (preferred)
 
-**No clone.** Requires `@impact/cli` to exist on the public registry (see [npmjs.com/package/@impact/cli](https://www.npmjs.com/package/@impact/cli)).
+**No clone.** Requires `@doneisbetter/cli` to exist on the public registry (see [npmjs.com/package/@doneisbetter/cli](https://www.npmjs.com/package/@doneisbetter/cli)).
 
 ```bash
-npm install -g @impact/cli
+npm install -g @doneisbetter/cli
 mkdir -p ./reports
 impact scan --no-submit -o ./reports
 open ./reports/impact-report.html
 ```
 
-If `npm install` returns **404**, the package is not published yet — use **Path B** below.
+Published under npm org **doneisbetter**. If `npm install` fails, try Path B below or check [npmjs.com/package/@doneisbetter/cli](https://www.npmjs.com/package/@doneisbetter/cli).
 
 ### Troubleshooting
 
 | Symptom | Likely cause | What to try |
 | ------- | ------------ | ----------- |
-| `npm ERR! 404 Not Found` for `@impact/cli` | Package not on the registry yet | Use **Path B**; track [#34](https://github.com/sovereignsquad/impact/issues/34). |
+| `npm ERR! 404 Not Found` for `@doneisbetter/cli` | Registry/network or typo in scope | Confirm **`@doneisbetter/cli`**; use **Path B** if registry is unreachable. |
 | `EACCES` / permission errors on `npm install -g` | Global prefix not writable | Use a [Node version manager](https://github.com/nvm-sh/nvm) or configure `npm prefix` to a user-owned directory (see [npm docs](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)). |
 | `command not found: impact` after global install | `PATH` missing npm’s global bin | Re-open the shell, or add the directory printed by `npm bin -g` to `PATH`. |
 | Scan writes files but HTML looks sparse | Runtimes offline / no models | Start local runtimes (e.g. Ollama) and re-run; see **Suggested next steps** in `impact-report.html`. |
@@ -107,7 +107,7 @@ npm run impact -- scan --no-submit -o ./reports
 
 ## Versioning
 
-`impact --version` reads `@impact/cli`’s `package.json`. For audits, record **npm version**, **git tag**, or **commit SHA**.
+`impact --version` reads `@doneisbetter/cli`’s `package.json`. For audits, record **npm version**, **git tag**, or **commit SHA**.
 
 ## Release QA
 

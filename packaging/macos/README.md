@@ -26,7 +26,7 @@ See [macos-distribution.md](../../docs/macos-distribution.md): **standalone `.ap
 ## Uninstall / update
 
 - **Uninstall:** delete `Impact.app` from Applications (and any symlink you added).
-- **Update:** download a newer DMG, replace the app, or use `npm install -g @impact/cli@<version>` when publishing to npm.
+- **Update:** download a newer DMG, replace the app, or use `npm install -g @doneisbetter/cli@<version>` when publishing to npm.
 
 ## CI
 

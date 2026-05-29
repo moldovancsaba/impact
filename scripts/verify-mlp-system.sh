@@ -11,7 +11,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 echo "==> [1/4] Registry Readiness (npm)"
-npm run build -w @impact/cli
+npm run build -w @doneisbetter/cli
 # cd apps/cli && npm publish --dry-run
 echo "✓ CLI package is v0.3.0 and builds correctly."
 
@@ -22,7 +22,7 @@ echo "✓ Ingest server passes all tests and Dockefile is valid."
 
 echo "==> [3/4] Portal Readiness (Web/Vite)"
 # export VITE_STATS_API_BASE=https://impact-mm-ingest.fly.dev
-# npm run build -w @impact/web
+# npm run build -w @doneisbetter/web
 echo "✓ Web app build pipeline is verified (environment-aware)."
 
 echo "==> [4/4] Trust Infrastructure (macOS Signing)"

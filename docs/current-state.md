@@ -35,10 +35,10 @@ Use this table so **Git tag**, **npm semver**, **profile JSON**, and **CLI `--ve
 | Layer | Canonical value (today) | Where it lives |
 | ----- | ------------------------ | -------------- |
 | **Git / GitHub Release tag** | `v0.3.0` | Annotated tag on `main`; release notes |
-| **`@impact/*` npm semver** | `0.3.0` | Every `packages/*/package.json` and `apps/cli/package.json`; pinned internal `dependencies` |
+| **`@doneisbetter/*` npm semver** | `0.3.0` | Every `packages/*/package.json` and `apps/cli/package.json`; pinned internal `dependencies` |
 | **Profile JSON `schema_version`** | `impact.v0.3` | Zod + emitters: `packages/schemas` (`ImpactProfileSchema`); `run-scan` default; all valid fixtures |
-| **`impact --version` (CLI)** | Same as `@impact/cli` **0.3.0** | Read at runtime from `apps/cli/package.json` (not hardcoded) |
-| **Public web `@impact/web`** | **0.3.0** (semver with CLI/npm for each release) | `apps/web/package.json`; footer on every static page shows **Web shell** version + profile schema (Vite `define` in `vite.config.ts`) |
+| **`impact --version` (CLI)** | Same as `@doneisbetter/cli` **0.3.0** | Read at runtime from `apps/cli/package.json` (not hardcoded) |
+| **Public web `@doneisbetter/web`** | **0.3.0** (semver with CLI/npm for each release) | `apps/web/package.json`; footer on every static page shows **Web shell** version + profile schema (Vite `define` in `vite.config.ts`) |
 | **Changelog** | `[0.3.0]` + `[Unreleased]` | [CHANGELOG.md](../CHANGELOG.md) |
 
 **Terminology for profile fields** (operational `status` vs epistemic `presence`, provenance): [schema-semantics-v0.3.md](schema-semantics-v0.3.md). **Historical** schema generations (`impact.v0.1`, `impact.v0.2`) appear only in [CHANGELOG.md](../CHANGELOG.md) and old programme issues — **do not** use them in new code, fixtures, or user-facing docs.
@@ -77,7 +77,7 @@ The **I.M.P.A.C.T. discovery scanner MVP** is **complete** as of release **`v0.3
 | ---- | ------ |
 | Runtime | **Node.js ≥ 20**, TypeScript, **npm workspaces** |
 | CLI | `apps/cli` → `impact scan` (see README) |
-| Public web shell | `apps/web` — Vite **React + GDS** MPA (`@gds/theme` + `@gds/core` **2.4.3**): home, install, run/submit, community data, profile explorer ([web.md](web.md), [gds-adapter.md](gds-adapter.md)) |
+| Public web shell | `apps/web` — Vite **React + GDS** MPA (`@gds/theme` + `@gds/core` **2.6.5**): home, install, run/submit, community data, profile explorer ([web.md](web.md), [gds-adapter.md](gds-adapter.md)) |
 | Schema | **`impact.v0.3`** — provenance on host fields; runtime **`status`** (operational) + **`presence`** (epistemic) + **capabilities.model_inventory**; tool **presence** + provenanced version; model **`presence`** + probe metadata ([`packages/schemas`](https://github.com/sovereignsquad/impact/tree/main/packages/schemas)); see [schema-semantics-v0.3.md](schema-semantics-v0.3.md) |
 | Host | `packages/scanner-host` — OS/memory/CPU string, `df` disk, Metal **hint**, salted fingerprint |
 | Runtimes | `packages/scanner-runtimes` — Ollama binary + API reachability; **MLX pip only**, explicit **partial** + **no model inventory** |
@@ -159,7 +159,7 @@ Sequencing is **not** authoritative here — use **Operational status** for the 
 
 Typical forward work:
 
-1. **[#34](https://github.com/sovereignsquad/impact/issues/34)** — publish `@impact/*` to npm; published-package smoke; evidence on the issue.  
+1. **[#34](https://github.com/sovereignsquad/impact/issues/34)** — publish `@doneisbetter/*` to npm; published-package smoke; evidence on the issue.  
 2. **MLP spine (P0)** — [#44](https://github.com/sovereignsquad/impact/issues/44) M1 · [#45](https://github.com/sovereignsquad/impact/issues/45) M2 · [#46](https://github.com/sovereignsquad/impact/issues/46) M3 ([mlp.md](mlp.md); **Todo** on org project 4).  
 3. **MLP follow-ons (P1)** — [#47](https://github.com/sovereignsquad/impact/issues/47)–[#49](https://github.com/sovereignsquad/impact/issues/49) M4–M6 ([mlp.md](mlp.md); **Backlog**).  
 4. **#4 / #5** — community and security channels when scheduled.  

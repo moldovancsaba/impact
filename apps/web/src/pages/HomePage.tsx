@@ -1,4 +1,4 @@
-import { PageHeader, StateBlock } from "@gds/core/client";
+import { PageHeader, StateBlock } from "@doneisbetter/gds-core/client";
 import { Accordion, Anchor, Badge, Button, Group, List, Stack, Text } from "@mantine/core";
 import { ImpactShell } from "../shell/impact-shell";
 
@@ -16,18 +16,13 @@ export function HomePage() {
         />
 
         <StateBlock
-          variant="info"
-          title="Install reality today"
+          variant="success"
+          title="Install from npm (Path C)"
           compact
           description={
             <>
-              The verified path is <strong>install from source (Path B)</strong>.{" "}
-              <Text component="code" span>
-                npm install -g @impact/cli
-              </Text>{" "}
-              becomes the primary public path only after{" "}
-              <Anchor href="https://github.com/sovereignsquad/impact/issues/34">#34</Anchor> is closed (publish + smoke +
-              evidence). We do not pretend npm is live until then.
+              Primary install: <Text component="code" span>npm install -g @doneisbetter/cli</Text>. From-source (Path B) remains
+              documented on the <Anchor href="/install.html">install page</Anchor> for contributors and air-gapped setups.
             </>
           }
         />

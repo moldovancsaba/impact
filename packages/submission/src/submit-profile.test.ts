@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { ImpactProfile } from "@impact/schemas";
+import type { ImpactProfile } from "@doneisbetter/schemas";
 import { buildSubmissionWireBody, submitProfile } from "./submit-profile.js";
 
 const minimalProfile = (): ImpactProfile => ({

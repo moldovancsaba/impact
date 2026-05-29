@@ -1,4 +1,4 @@
-# @impact/ingest — submission ingest server (D1 MVP)
+# @doneisbetter/ingest — submission ingest server (D1 MVP)
 
 HTTP service that implements [submission-contract.md](../../docs/submission-contract.md): **POST** JSON `ImpactProfile`, **validate**, **dedupe** (`payload_sha256` + `run_id`), **SQLite** persistence.
 
@@ -9,8 +9,8 @@ HTTP service that implements [submission-contract.md](../../docs/submission-cont
 From repo root (after `npm ci` and build):
 
 ```bash
-npm run build -w @impact/schemas && npm run build -w @impact/ingest
-npm run start -w @impact/ingest
+npm run build -w @doneisbetter/schemas && npm run build -w @doneisbetter/ingest
+npm run start -w @doneisbetter/ingest
 ```
 
 Or: `npm run dev:ingest`

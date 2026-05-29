@@ -33,7 +33,7 @@ Schema grew faster than orchestration test depth.
 
 ## Scope
 
-In scope: `@impact/core` tests; optional small pure merge helpers if needed.
+In scope: `@doneisbetter/core` tests; optional small pure merge helpers if needed.
 
 Out of scope: live subprocess integration across OS matrix in CI.
 

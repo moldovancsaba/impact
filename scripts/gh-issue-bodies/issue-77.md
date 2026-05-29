@@ -1,6 +1,6 @@
 ## Objective
 
-Add **Mantine root runtime** to `@impact/web`: React + Vite, **`gds-theme`**, central modals/notifications — one smoke route proves **Vercel deploy** still works.
+Add **Mantine root runtime** to `@doneisbetter/web`: React + Vite, **`gds-theme`**, central modals/notifications — one smoke route proves **Vercel deploy** still works.
 
 ## Unified context
 
@@ -24,7 +24,7 @@ GDS Phase 1 per [gds-migration-plan.md](../../docs/gds-migration-plan.md). Repla
 
 ## Acceptance checks
 
-- [ ] `npm run build -w @impact/web` succeeds
+- [ ] `npm run build -w @doneisbetter/web` succeeds
 - [ ] Smoke route renders under Mantine theme (Inter / GDS defaults)
 - [ ] Vercel production build path unchanged (`apps/web/dist`)
 - [ ] Adapter doc lists exact provider + theme module paths

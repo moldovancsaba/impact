@@ -16,7 +16,7 @@
 
 ## Versions (stay aligned)
 
-The **same release** should bump **Git tag**, **`@impact/*` npm packages** (e.g. **0.3.0**), profile JSON **`schema_version`** (**`impact.v0.3`**), **`impact --version`**, and the **public web** package **[`apps/web`](apps/web)** — the site footer shows **Web shell** + schema on every page after build. Full table and bump rules: **[docs/current-state.md § Versioning](docs/current-state.md#versioning-ssot)** · release steps: [docs/release-checklist.md](docs/release-checklist.md).
+The **same release** should bump **Git tag**, **`@doneisbetter/*` npm packages** (e.g. **0.3.0**), profile JSON **`schema_version`** (**`impact.v0.3`**), **`impact --version`**, and the **public web** package **[`apps/web`](apps/web)** — the site footer shows **Web shell** + schema on every page after build. Full table and bump rules: **[docs/current-state.md § Versioning](docs/current-state.md#versioning-ssot)** · release steps: [docs/release-checklist.md](docs/release-checklist.md).
 
 | Piece | Where it lives |
 | ----- | -------------- |
@@ -97,7 +97,7 @@ Full validated example: [fixtures/baseline-profile.sample.json](fixtures/baselin
 **Preferred (Path C):** install from npm once published:
 
 ```bash
-npm install -g @impact/cli
+npm install -g @doneisbetter/cli
 mkdir -p ./reports
 impact scan --no-submit -o ./reports
 open ./reports/impact-report.html

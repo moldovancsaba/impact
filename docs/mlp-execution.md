@@ -30,7 +30,7 @@
 
 | ID | Deliverable | Acceptance |
 | --- | ----------- | ---------- |
-| **T0.1** | Publish `@impact/cli`; `npm view @impact/cli`; published-package smoke; evidence on **#34**; **#34** → **Done** | Path C is **real** (registry), smoke uses **published** package not workspace-only install; README/install can promote Path C as primary |
+| **T0.1** | Publish `@doneisbetter/cli`; `npm view @doneisbetter/cli`; published-package smoke; evidence on **#34**; **#34** → **Done** | Path C is **real** (registry), smoke uses **published** package not workspace-only install; README/install can promote Path C as primary |
 
 ---
 

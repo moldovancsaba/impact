@@ -1,5 +1,5 @@
 {
-  "name": "@impact/privacy",
+  "name": "@doneisbetter/privacy",
   "version": "0.3.0",
   "license": "MIT",
   "repository": {
@@ -25,7 +25,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@impact/schemas": "0.3.0"
+    "@doneisbetter/schemas": "0.3.0"
   },
   "devDependencies": {
     "typescript": "^5.8.2"

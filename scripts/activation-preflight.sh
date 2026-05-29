@@ -7,8 +7,8 @@ echo "==> Web ${WEB}"
 curl -fsS "${WEB}/api/health" | python3 -m json.tool || { echo "FAIL: /api/health"; exit 1; }
 
 echo ""
-echo "==> npm @impact/cli (Path C gate #34)"
-if npm view @impact/cli version 2>/dev/null; then
+echo "==> npm @doneisbetter/cli (Path C gate #34)"
+if npm view @doneisbetter/cli version 2>/dev/null; then
   echo "    Published on npm."
 else
   echo "    NOT on npm yet — #34 still open."

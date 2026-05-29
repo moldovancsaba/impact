@@ -1,4 +1,4 @@
-# Publish @impact/* to npm when repository secret NPM_TOKEN is set.
+# Publish @doneisbetter/* to npm when repository secret NPM_TOKEN is set.
 # Maintainer: Settings → Secrets → NPM_TOKEN (Automation token from npmjs.com).
 #
 name: Publish npm packages
@@ -21,7 +21,7 @@ jobs:
       - name: Require NPM_TOKEN
         run: |
           if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
-            echo "::error::Add repository secret NPM_TOKEN (npm automation token with publish scope for @impact)."
+            echo "::error::Add repository secret NPM_TOKEN (npm automation token with publish scope for @doneisbetter)."
             exit 1
           fi
 
@@ -33,5 +33,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Verify @impact/cli on registry
-        run: npm view @impact/cli version
+      - name: Verify @doneisbetter/cli on registry
+        run: npm view @doneisbetter/cli version

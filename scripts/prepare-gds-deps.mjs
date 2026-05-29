@@ -3,7 +3,7 @@
  * Ensures @gds/* packages are built and installable via file: deps before npm ci resolves workspaces.
  * SSOT: https://github.com/sovereignsquad/general-design-system (see gds.version)
  */
-import { execFileSync, execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,9 +14,12 @@ const gdsRoot =
   process.env.GDS_REPO_PATH?.trim() ||
   join(root, ".gds-src");
 const gdsRemote = process.env.GDS_REPO_URL?.trim() || "https://github.com/sovereignsquad/general-design-system.git";
+const gdsTag = `gds-v${gdsVersion}`;
 const stampPath = join(gdsRoot, ".gds-prepared");
 const themeDist = join(gdsRoot, "packages/gds-theme/dist/index.mjs");
 const coreDist = join(gdsRoot, "packages/gds-core/dist/index.mjs");
+const complianceEntry = join(gdsRoot, "packages/gds-compliance/index.js");
+const eslintEntry = join(gdsRoot, "packages/gds-eslint-config/index.js");
 
 function run(cmd, args, cwd = root) {
   execFileSync(cmd, args, { cwd, stdio: "inherit", env: process.env });
@@ -44,13 +47,12 @@ function ensureClone() {
   run("git", ["clone", "--depth", "1", gdsRemote, gdsRoot]);
 }
 
-function refreshSource() {
+function checkoutPinnedTag() {
   if (!existsSync(join(gdsRoot, ".git"))) {
     return;
   }
-  run("git", ["fetch", "--depth", "1", "origin"], gdsRoot);
-  run("git", ["checkout", "main"], gdsRoot);
-  run("git", ["pull", "--ff-only", "origin", "main"], gdsRoot);
+  run("git", ["fetch", "origin", `refs/tags/${gdsTag}:refs/tags/${gdsTag}`, "--depth", "1"], gdsRoot);
+  run("git", ["checkout", gdsTag], gdsRoot);
 }
 
 function buildPackages() {
@@ -58,9 +60,18 @@ function buildPackages() {
     throw new Error(`GDS root missing at ${gdsRoot}`);
   }
   run("npm", ["ci"], gdsRoot);
-  run("npm", ["run", "build", "--workspace=@gds/theme", "--workspace=@gds/core"], gdsRoot);
-  if (!existsSync(themeDist) || !existsSync(coreDist)) {
-    throw new Error("GDS build did not produce dist/ for @gds/theme or @gds/core");
+  run(
+    "npm",
+    ["run", "build", "--workspace=@doneisbetter/gds-theme", "--workspace=@doneisbetter/gds-core"],
+    gdsRoot,
+  );
+  if (
+    !existsSync(themeDist) ||
+    !existsSync(coreDist) ||
+    !existsSync(complianceEntry) ||
+    !existsSync(eslintEntry)
+  ) {
+    throw new Error("GDS build did not produce required @doneisbetter/gds-* package outputs");
   }
 }
 
@@ -76,7 +87,12 @@ function needsBuild() {
   if (repoVersion && repoVersion !== gdsVersion) {
     console.warn(`GDS repo version ${repoVersion} differs from pinned gds.version ${gdsVersion}`);
   }
-  return !existsSync(themeDist) || !existsSync(coreDist);
+  return (
+    !existsSync(themeDist) ||
+    !existsSync(coreDist) ||
+    !existsSync(complianceEntry) ||
+    !existsSync(eslintEntry)
+  );
 }
 
 function markPrepared() {
@@ -91,13 +107,16 @@ function main() {
 
   if (!process.env.GDS_REPO_PATH) {
     ensureClone();
-    refreshSource();
+    checkoutPinnedTag();
   } else if (!existsSync(gdsRoot)) {
     throw new Error(`GDS_REPO_PATH does not exist: ${gdsRoot}`);
   }
 
   if (needsBuild()) {
-    console.log(`Preparing GDS ${gdsVersion} at ${gdsRoot}…`);
+    console.log(`Preparing GDS ${gdsVersion} (${gdsTag}) at ${gdsRoot}…`);
+    if (!process.env.GDS_REPO_PATH) {
+      checkoutPinnedTag();
+    }
     buildPackages();
     markPrepared();
   } else {

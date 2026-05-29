@@ -1,6 +1,6 @@
 ## Objective
 
-Migrate **homepage** to Mantine and **delete or narrow** legacy `style.css` — close the GDS migration tranche for `@impact/web`.
+Migrate **homepage** to Mantine and **delete or narrow** legacy `style.css` — close the GDS migration tranche for `@doneisbetter/web`.
 
 ## Unified context
 

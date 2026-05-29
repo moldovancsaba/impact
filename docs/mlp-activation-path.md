@@ -27,9 +27,9 @@ Close the remaining **operational** gaps:
 
 **Deliver**
 
-- `npm login` (maintainer account scoped to publish `@impact/*`)
+- `npm login` (maintainer account scoped to publish `@doneisbetter/*`)
 - `npm run publish:npm` (see [npm-publish.md](npm-publish.md))
-- `npm view @impact/cli`
+- `npm view @doneisbetter/cli`
 - **Clean-machine Path C smoke** from the **published** package (not repo clone)
 - Attach evidence to **#34**
 - Move **#34** to **Done** on the board when criteria met

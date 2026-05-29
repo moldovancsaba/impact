@@ -19,8 +19,8 @@ Without a strict package graph and validation, the programme will accrete script
 ## Goal
 
 - Workspaces + `npm run build` ordered chain.
-- `@impact/schemas` exports Zod + types; tests prove invalid profiles fail.
-- `@impact/core` orchestrates scanners; CLI invokes `runScan`.
+- `@doneisbetter/schemas` exports Zod + types; tests prove invalid profiles fail.
+- `@doneisbetter/core` orchestrates scanners; CLI invokes `runScan`.
 - Fixtures prove schema validity.
 
 ## Scope

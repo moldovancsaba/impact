@@ -1,6 +1,6 @@
 ## Objective
 
-**MLP M1 — Public install and adoption:** make **Path C** (`npm install -g @impact/cli`) the **public default** install story; keep **Path B** as fallback; record verification so users can install **from docs alone**.
+**MLP M1 — Public install and adoption:** make **Path C** (`npm install -g @doneisbetter/cli`) the **public default** install story; keep **Path B** as fallback; record verification so users can install **from docs alone**.
 
 ## Unified Context
 
@@ -18,7 +18,7 @@ Without a **live registry package** and **docs-first** quick start, install fric
 
 ## Goal
 
-- `@impact/cli` **published** and **installable** per docs.
+- `@doneisbetter/cli` **published** and **installable** per docs.
 - README **Quick start** leads with **public** Path C; Path B clearly **fallback**.
 - Smoke evidence **recorded** (Path C row in smoke doc or issue comment).
 
@@ -34,7 +34,7 @@ Without a **live registry package** and **docs-first** quick start, install fric
 ## Acceptance Checks
 
 - [ ] **[#34](https://github.com/sovereignsquad/impact/issues/34)** is **closed** with publish + Path C smoke evidence
-- [ ] `npm install -g @impact/cli` works **following only** published docs
+- [ ] `npm install -g @doneisbetter/cli` works **following only** published docs
 - [ ] README quick start points at **Path C** first
 - [ ] Path B documented as fallback
 - [ ] Smoke / verification trail updated for **registry** install

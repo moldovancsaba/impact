@@ -1,4 +1,4 @@
-import { DocsPageShell, StateBlock } from "@gds/core/client";
+import { DocsPageShell, StateBlock } from "@doneisbetter/gds-core/client";
 import { Anchor, Code, List, Stack, Text, Title } from "@mantine/core";
 import { ImpactShell } from "../shell/impact-shell";
 
@@ -20,41 +20,40 @@ export function InstallPage() {
         title="Install IMPACT"
         lead={
           <>
-            IMPACT runs as a CLI on your machine. <strong>macOS</strong> is the supported primary path; Linux is partial;
-            Windows is experimental — see{" "}
+            <strong>Primary:</strong> <Code>npm install -g @doneisbetter/cli</Code> (macOS 13+ recommended).{" "}
+            <strong>Alternative:</strong> install from source (Path B) below. Windows is experimental — see{" "}
             <Anchor href="https://github.com/sovereignsquad/impact/blob/main/docs/support-matrix.md">support matrix</Anchor>.
           </>
         }
         footerNext={{ label: "Run a scan and open your report →", href: "/use.html" }}
       >
         <StateBlock
-          variant="info"
-          title="Path C (npm)"
+          variant="success"
+          title="Path C — npm (primary)"
           compact
           description={
             <>
-              <Code>npm install -g @impact/cli</Code> is <strong>not</strong> the live primary install until{" "}
-              <Anchor href="https://github.com/sovereignsquad/impact/issues/34">#34</Anchor> is closed with publish, verify,
-              smoke, and evidence. Until then, use <strong>Path B</strong> below.
+              <Code block>npm install -g @doneisbetter/cli</Code>
+              <Text c="dimmed" size="sm" mt="xs">
+                Verify: <Code>impact --version</Code> then run a scan (see below).
+              </Text>
             </>
           }
         />
 
+        <StateBlock
+          variant="info"
+          title="Path B — from source (alternative)"
+          compact
+          description="Use when you need a pinned repo checkout or cannot use the public registry."
+        />
+
         <Stack gap="sm" mb="lg">
-          <Title order={2}>Path B — from source (verified today)</Title>
+          <Title order={2}>Path B — from source</Title>
           <Text c="dimmed">Requires Git, Node.js 20+, and npm.</Text>
           <Code block>{PATH_B}</Code>
           <Text c="dimmed" size="sm">
             Optional: pin to release tag <Code>v0.3.0</Code> before <Code>npm ci</Code> if you want a known release.
-          </Text>
-        </Stack>
-
-        <Stack gap="sm" mb="lg">
-          <Title order={2}>Path C — npm registry (after #34)</Title>
-          <Text c="dimmed">When the package is public and verified:</Text>
-          <Code block>npm install -g @impact/cli</Code>
-          <Text c="dimmed" size="sm">
-            Track progress on <Anchor href="https://github.com/sovereignsquad/impact/issues/34">issue #34</Anchor>.
           </Text>
         </Stack>
 
@@ -82,7 +81,7 @@ export function InstallPage() {
           <Title order={2}>Troubleshooting</Title>
           <List c="dimmed">
             <List.Item>
-              <strong>404 on npm</strong> — package not published yet; use Path B.
+              <strong>404 on npm</strong> — check registry scope <Code>@doneisbetter/cli</Code> or use Path B.
             </List.Item>
             <List.Item>
               <strong>EACCES</strong> on global install — use a user-owned npm prefix or a Node version manager.

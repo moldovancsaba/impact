@@ -19,7 +19,7 @@ Define how the **optional** anonymous profile submission works over HTTP when `I
 | Method | `POST` |
 | URL | Value of `IMPACT_SUBMIT_URL` (HTTPS recommended in production) |
 | Headers | `Content-Type: application/json` |
-| Body | **Exactly** one JSON document, one of: **(A)** legacy — an `ImpactProfile` validating **`impact.v0.3`**; **(B)** MLP envelope — **`submission_kind`: `"impact.submission.v0.1"`** plus **`profile`** (same schema) and **`dashboard_summary`** (`impact.summary.v0.1`). See **@impact/schemas** `parseSubmissionBody`. |
+| Body | **Exactly** one JSON document, one of: **(A)** legacy — an `ImpactProfile` validating **`impact.v0.3`**; **(B)** MLP envelope — **`submission_kind`: `"impact.submission.v0.1"`** plus **`profile`** (same schema) and **`dashboard_summary`** (`impact.summary.v0.1`). See **@doneisbetter/schemas** `parseSubmissionBody`. |
 
 **MLP envelope (recommended for new clients):**
 

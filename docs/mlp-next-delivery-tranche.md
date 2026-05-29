@@ -20,7 +20,7 @@ Tables below list **related GitHub issues** on **org project 4**, with **titles*
 
 | # | Title |
 | - | ----- |
-| [34](https://github.com/sovereignsquad/impact/issues/34) | IMPACT P1: Publish @impact/cli to npm registry |
+| [34](https://github.com/sovereignsquad/impact/issues/34) | IMPACT P1: Publish @doneisbetter/cli to npm registry |
 | [44](https://github.com/sovereignsquad/impact/issues/44) | IMPACT P0: MLP M1 — Public install and adoption |
 | [45](https://github.com/sovereignsquad/impact/issues/45) | IMPACT P0: MLP M2 — Report delight and first-run payoff |
 | [46](https://github.com/sovereignsquad/impact/issues/46) | IMPACT P0: MLP M3 — Conservative recommendation engine |
@@ -91,7 +91,7 @@ Tables below list **related GitHub issues** on **org project 4**, with **titles*
 **Immediate next steps**
 
 1. **Deploy / operate hosted ingest** → set **`IMPACT_INGEST_UPSTREAM`** on Vercel → **`IMPACT_SUBMIT_URL`** on clients → seed → verify **`/data.html`** shows **non-fallback** aggregates when thresholds allow → **close [#58](https://github.com/sovereignsquad/impact/issues/58)–[#62](https://github.com/sovereignsquad/impact/issues/62)** with proof ([board closure model](#board-closure-dashboard))  
-2. **Close [#34](https://github.com/sovereignsquad/impact/issues/34)** (publish **`@impact/cli`**, `npm view`, clean-machine smoke) — **parallel** where capacity  
+2. **Close [#34](https://github.com/sovereignsquad/impact/issues/34)** (publish **`@doneisbetter/cli`**, `npm view`, clean-machine smoke) — **parallel** where capacity  
 3. **Mac trust** work **in parallel only if capacity** allows  
 4. **Keep DMG non-final** until **M3** ([#65](https://github.com/sovereignsquad/impact/issues/65)) is done  
 
@@ -189,7 +189,7 @@ Packaging progress is **accepted** (pipeline, app bundle, DMG, checksum, local s
 | Path | State |
 | ---- | ----- |
 | **B — repo install** | **Real** and **working** |
-| **C — npm** | **Prepared** in repo; **not live** until `@impact/cli` is **published** and **smoke-tested** (**[#34](https://github.com/sovereignsquad/impact/issues/34)**) |
+| **C — npm** | **Prepared** in repo; **not live** until `@doneisbetter/cli` is **published** and **smoke-tested** (**[#34](https://github.com/sovereignsquad/impact/issues/34)**) |
 | **D — DMG** | **Pipeline** produces **`.app` + DMG**; **not consumer-grade** without **Developer ID** signing, **Apple notarization**, and **release/distribution validation** on the **published** artifact |
 
 **Honest summary:** we can **build** the Mac artifact; we have **not** finished the **trust / release** layer for a **proper** downloadable Mac app.
@@ -338,7 +338,7 @@ The **web shell** exists; **in-repo** **read API + aggregation** exist under [`a
 
 ### Phase 1 — Public install gate (mandatory)
 
-1. **Close [#34](https://github.com/sovereignsquad/impact/issues/34)** — publish `@impact/cli`, `npm view @impact/cli`, published-package smoke, evidence, board **Done**.
+1. **Close [#34](https://github.com/sovereignsquad/impact/issues/34)** — publish `@doneisbetter/cli`, `npm view @doneisbetter/cli`, published-package smoke, evidence, board **Done**.
 
 ### Phase 2 — Dashboard foundation (start immediately after #34)
 

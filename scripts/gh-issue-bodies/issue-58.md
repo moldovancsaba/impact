@@ -39,7 +39,7 @@
 ## Deliverables
 
 - [x] Ingest HTTP endpoint(s) — [`apps/ingest`](../../apps/ingest) `POST /` and `POST /ingest`, `GET /health`
-- [x] Validation layer — `@impact/schemas` / `parseSubmissionBody` (legacy profile or **`impact.submission.v0.1`** envelope with **`dashboard_summary`**)
+- [x] Validation layer — `@doneisbetter/schemas` / `parseSubmissionBody` (legacy profile or **`impact.submission.v0.1`** envelope with **`dashboard_summary`**)
 - [x] Duplicate handling — **409** + `submission_id` per [submission-contract.md](../../docs/submission-contract.md) (`payload_sha256` + `run_id` UNIQUE)
 - [x] Storage schema + persistence — SQLite (`better-sqlite3`), default `./data/ingest.db`; columns **`profile_json`** + **`dashboard_summary_json`**
 - [x] Basic ops README — [apps/ingest/README.md](../../apps/ingest/README.md), [ingest-server.md](../../docs/ingest-server.md)

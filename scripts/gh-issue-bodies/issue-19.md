@@ -38,13 +38,13 @@ Vitest suite loads **`validateImpactProfile`** fixtures and asserts:
 
 ## Scope
 
-In scope: `@impact/reporting` tests, small refactors for testability.
+In scope: `@doneisbetter/reporting` tests, small refactors for testability.
 
 Out of scope: visual pixel tests, browser E2E.
 
 ## Execution Prompt
 
-Add `vitest` to `@impact/reporting`; implement `renderHtmlReport` tests against `fixtures/baseline-profile.sample.json` and `fixtures/scenarios/*`; gate in root `npm test`.
+Add `vitest` to `@doneisbetter/reporting`; implement `renderHtmlReport` tests against `fixtures/baseline-profile.sample.json` and `fixtures/scenarios/*`; gate in root `npm test`.
 
 ## Scope / Non-Goals
 

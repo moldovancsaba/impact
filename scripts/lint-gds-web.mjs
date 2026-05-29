@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * GDS enforcement for @impact/web — adoption manifest + compliance scan.
+ * GDS enforcement for @doneisbetter/web — adoption manifest + compliance scan.
  */
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const manifest = join(root, "apps/web/gds-adoption.json");
-const complianceBin = join(root, "node_modules/@gds/compliance/bin/gds-compliance.js");
+const complianceBin = join(root, "node_modules/@doneisbetter/gds-compliance/bin/gds-compliance.js");
 
 if (!existsSync(manifest)) {
   console.error(`Missing GDS adoption manifest: ${manifest}`);
@@ -17,7 +17,7 @@ if (!existsSync(manifest)) {
 }
 
 if (!existsSync(complianceBin)) {
-  console.error("Missing @gds/compliance — run npm ci (preinstall prepares GDS packages).");
+  console.error("Missing @doneisbetter/gds-compliance — run npm ci (preinstall prepares GDS packages).");
   process.exit(1);
 }
 

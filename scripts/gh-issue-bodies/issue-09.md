@@ -9,7 +9,7 @@ Tool sprawl is infinite; **governance** is mandatory. This scanner intentionally
 ## Based On
 
 - `packages/scanner-tools/src/allowlist.ts`
-- `ToolRecordSchema` in `@impact/schemas`
+- `ToolRecordSchema` in `@doneisbetter/schemas`
 
 ## Problem
 

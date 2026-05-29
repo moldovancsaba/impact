@@ -30,19 +30,19 @@ This positions later benchmark phases on **ground truth** about what can run whe
 | Language / runtime | TypeScript on **Node.js ≥ 20** |
 | Packaging | **npm workspaces** monorepo |
 | Entry | `apps/cli` → `impact` binary after `npm run build` |
-| Validation | `@impact/schemas` — **Zod** `ImpactProfileSchema` (`impact.v0.3`) |
-| Orchestration | `@impact/core` — `runScan()`, merge, optional readiness |
-| Host | `@impact/scanner-host` — OS, CPU string, memory, `df` disk, Metal hint, salted fingerprint |
-| Runtimes | `@impact/scanner-runtimes` — Ollama version + localhost reachability; MLX via pip |
-| Tools | `@impact/scanner-tools` — **allowlist only** |
-| Models | `@impact/scanner-models` — Ollama `/api/tags`; MLX dirs **stub** |
-| Privacy | `@impact/privacy` — `~/.impact/salt`, denylist constants |
-| Reporting | `@impact/reporting` — `impact-profile.json`, `impact-report.html` |
-| Submission | `@impact/submission` — HTTP POST client + local receipt log |
+| Validation | `@doneisbetter/schemas` — **Zod** `ImpactProfileSchema` (`impact.v0.3`) |
+| Orchestration | `@doneisbetter/core` — `runScan()`, merge, optional readiness |
+| Host | `@doneisbetter/scanner-host` — OS, CPU string, memory, `df` disk, Metal hint, salted fingerprint |
+| Runtimes | `@doneisbetter/scanner-runtimes` — Ollama version + localhost reachability; MLX via pip |
+| Tools | `@doneisbetter/scanner-tools` — **allowlist only** |
+| Models | `@doneisbetter/scanner-models` — Ollama `/api/tags`; MLX dirs **stub** |
+| Privacy | `@doneisbetter/privacy` — `~/.impact/salt`, denylist constants |
+| Reporting | `@doneisbetter/reporting` — `impact-profile.json`, `impact-report.html` |
+| Submission | `@doneisbetter/submission` — HTTP POST client + local receipt log |
 
 **Build order** is scripted in root `package.json` (`npm run build`) to respect internal dependencies.
 
-**Tests today:** Vitest in `@impact/schemas`, `@impact/core`, `@impact/reporting`, `@impact/submission`. **CI:** [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) (`verify:release`-style gates on PRs).
+**Tests today:** Vitest in `@doneisbetter/schemas`, `@doneisbetter/core`, `@doneisbetter/reporting`, `@doneisbetter/submission`. **CI:** [`.github/workflows/ci.yml`](../.github/workflows/ci.yml) (`verify:release`-style gates on PRs).
 
 ---
 
