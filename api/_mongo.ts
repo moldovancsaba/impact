@@ -10,15 +10,24 @@ export type SubmissionDocument = {
   dashboard_summary_json: unknown | null;
 };
 
-const uri = process.env.MONGODB_URI?.trim();
-const dbName = process.env.MONGODB_DB?.trim();
-const collectionName = process.env.MONGODB_COLLECTION_SUBMISSIONS?.trim() || "submissions";
-
-if (!uri) {
-  throw new Error("Missing required env MONGODB_URI");
+export class MongoConfigError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "MongoConfigError";
+  }
 }
-if (!dbName) {
-  throw new Error("Missing required env MONGODB_DB");
+
+function mongoConfig(): { uri: string; dbName: string; collectionName: string } {
+  const uri = process.env.MONGODB_URI?.trim();
+  const dbName = process.env.MONGODB_DB?.trim();
+  const collectionName = process.env.MONGODB_COLLECTION_SUBMISSIONS?.trim() || "submissions";
+  if (!uri) {
+    throw new MongoConfigError("Missing required env MONGODB_URI");
+  }
+  if (!dbName) {
+    throw new MongoConfigError("Missing required env MONGODB_DB");
+  }
+  return { uri, dbName, collectionName };
 }
 
 type GlobalMongoCache = {
@@ -35,6 +44,7 @@ function globalCache(): GlobalMongoCache {
 }
 
 export async function getMongoClient(): Promise<MongoClient> {
+  const { uri } = mongoConfig();
   const cache = globalCache();
   if (!cache.clientPromise) {
     const client = new MongoClient(uri);
@@ -44,6 +54,7 @@ export async function getMongoClient(): Promise<MongoClient> {
 }
 
 export async function getSubmissionsCollection(): Promise<Collection<SubmissionDocument>> {
+  const { dbName, collectionName } = mongoConfig();
   const client = await getMongoClient();
   const collection = client.db(dbName).collection<SubmissionDocument>(collectionName);
 

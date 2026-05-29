@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getMongoClient } from "./_mongo";
+import { getMongoClient, MongoConfigError } from "./_mongo";
 import { corsHeaders, sendJson } from "./_util";
 
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
@@ -21,12 +21,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
       stats_mode: "mongodb",
       db_status: "ok",
     });
-  } catch {
+  } catch (e) {
+    const missingConfig = e instanceof MongoConfigError;
     sendJson(res, 503, {
       ok: false,
       service: "impact-vercel-api",
       stats_mode: "mongodb",
-      db_status: "unavailable",
+      db_status: missingConfig ? "not_configured" : "unavailable",
+      ...(missingConfig ? { hint: "Set MONGODB_URI and MONGODB_DB on Vercel" } : {}),
     });
   }
 }
